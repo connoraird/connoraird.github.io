@@ -25,10 +25,8 @@ implementing existing workflows in sustainable python applications. Check out my
 
 ::: {.g-col-11}
 
-I graduated from
-
-the University of York in 2020 with a First Class Masters Degree in Physics. My
-master's
+I graduated from the University of York in 2020 with a First Class Masters
+Degree in Physics. My master's
 [dissertation](https://drive.google.com/file/d/13m-OyFQmWPne5HUc4558RDkDdu0VIjel/view?usp=sharing)
 focused on 1D modelling of turbulence in Tokamak fusion reactors.
 
