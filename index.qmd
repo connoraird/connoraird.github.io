@@ -1,4 +1,35 @@
 ---
 pagetitle: Connor Aird
-format: html
+format:
+  html:
+    css: styling/home-page.css
 ---
+
+:::::: {.column-page}
+
+::::: {layout="[30,70]"}
+
+:::: {.left-column}
+
+![](https://www.gravatar.com/avatar/a24925988bd171effa08b9bbe9a9cb16cf3f6e902f6e348857d4e509a4810ad1?s=1000){.home-page-avatar}
+
+# Connor Aird
+
+::: {.summary}
+
+Research Software Engineer<br> Centre for Advanced Research Computing<br>
+Univeristy College London<br>
+
+:::
+
+:::::
+
+:::: {.right-column}
+
+{{< include _components/aboutme.qmd >}}
+
+::::
+
+:::::
+
+::::::

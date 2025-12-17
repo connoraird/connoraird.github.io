@@ -1,0 +1,39 @@
+.home-page {
+  width: 100%;
+}
+
+.home-page-avatar {
+  border-radius: 100%;
+}
+
+.summary {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+}
+
+@media screen and (min-width: 770px) {
+  .left-column {
+    margin-right: 2em;
+  }
+
+  .right-column {
+    border-left: 1px solid grey;
+    padding-left: 2em;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .left-column {
+    margin-bottom: 1em;
+  }
+
+  .right-column {
+    border-top: 1px solid rgb(86, 86, 86);
+    padding-top: 2em;
+  }
+}
