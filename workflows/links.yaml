@@ -1,0 +1,24 @@
+---
+name: Links
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Check links
+        # yamllint disable-line rule:line-length
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --verbose .
+          failIfEmpty: false
+          token: ${{ secrets.GITHUB_TOKEN }}

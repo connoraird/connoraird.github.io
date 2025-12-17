@@ -1,0 +1,26 @@
+---
+project:
+  type: website
+
+execute:
+  cache: true
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+
+website:
+  favicon: favicon.ico
+  navbar:
+    left:
+      - text: Talks
+        href: /talks
+    tools:
+      - icon: house
+        href: https://connoraird.github.io
+      - icon: github
+        href: https://github.com/connoraird/connoraird.github.io
+  site-url: https://connoraird.github.io
+  title: Connor Aird
