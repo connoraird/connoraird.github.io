@@ -7,6 +7,7 @@ execute:
 
 format:
   html:
+    css: styling/site-wide.css
     theme:
       light: flatly
       dark: darkly
@@ -38,13 +39,18 @@ format:
 website:
   favicon: favicon.ico
   navbar:
+    collapse-below: lg
+    logo: https://www.gravatar.com/avatar/a24925988bd171effa08b9bbe9a9cb16cf3f6e902f6e348857d4e509a4810ad1?s=1000
+    logo-alt: "Connor Aird"
     left:
       - text: Talks
         href: talks.qmd
     tools:
-      - icon: house
-        href: https://connoraird.github.io
+      - icon: envelope
+        href: mailto:c.aird@ucl.ac.uk
       - icon: github
         href: https://github.com/connoraird/connoraird.github.io
+      - icon: linkedin
+        href: https://www.linkedin.com/in/connor-aird/
   site-url: https://connoraird.github.io
   title: Connor Aird

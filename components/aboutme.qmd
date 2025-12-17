@@ -1,0 +1,51 @@
+:::: {.grid}
+
+::: {.g-col-1} {{< fa briefcase >}} ::: ::: {.g-col-11} I am a
+[Research Software Engineer](https://society-rse.org/about/) at the
+[Centre for Advanced Research Computing](https://www.ucl.ac.uk/advanced-research-computing/advanced-research-computing-centre),
+University College London and have been since June 2023. I work across a range
+of projects from improving the performance High Performance Fortran to
+implementing existing workflows in sustainable python applications. Check out my
+[GitHub](https://github.com/connoraird) to see what I've been up to lately.
+
+:::
+
+::: {.g-col-1} {{< fa graduation-cap >}}
+
+:::
+
+::: {.g-col-11} I graduated from
+
+the University of York in 2020 with a First Class Masters Degree in Physics. My
+master's
+[dissertation](https://drive.google.com/file/d/13m-OyFQmWPne5HUc4558RDkDdu0VIjel/view?usp=sharing)
+focused on 1D modelling of turbulence in Tokamak fusion reactors.
+
+:::
+
+::: {.g-col-1} {{< fa person-swimming >}}
+
+:::
+
+::: {.g-col-11} In my spare time I
+
+enjoy playing
+[underwater hockey](https://en.wikipedia.org/wiki/Underwater_hockey). I began
+playing at university before graduating to the city team,
+[York Octopush](https://www.yorkoctopush.org.uk/). I now train with
+[Islington Underwater Hockey](https://islingtonuwh.github.io/).
+
+:::
+
+::: {.g-col-1} {{< fa person-hiking >}}
+
+:::
+
+::: {.g-col-11} I love hiking around
+
+Britain. In particular, I have been trying to walk all the
+[Wainwright fells](https://www.walklakes.co.uk/hills/wainwrights.html).
+
+:::
+
+::::
