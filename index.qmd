@@ -1,3 +1,4 @@
 ---
 pagetitle: Connor Aird
+format: html
 ---
