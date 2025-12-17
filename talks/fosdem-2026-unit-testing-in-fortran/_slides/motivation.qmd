@@ -1,0 +1,21 @@
+# Motivation
+
+## The state of testing in Fortran
+
+Searching all GitHub repositories contaning Fortran with >100 stars, I looked at
+the top 5
+
+1. [Reference-LAPACK/lapack](https://github.com/Reference-LAPACK/lapack)
+   ![Reference-LAPACK/lapack stars](https://img.shields.io/github/stars/Reference-LAPACK/lapack)
+   - Custom testing framework documented in a
+     [147 page document](https://www.netlib.org/lapack/lawnspdf/lawn41.pdf)
+2. [wrf-model/WRF](https://github.com/wrf-model/WRF)
+   ![wrf-model/WRF stars](https://img.shields.io/github/stars/wrf-model/WRF)
+   - End-to-end tests only
+3. [ElmerCSC/elmerfem](https://github.com/ElmerCSC/elmerfem)
+   ![ElmerCSC/elmerfem](https://img.shields.io/github/stars/ElmerCSC/elmerfem)
+   -
+4. [fortran-lang/stdlib](https://github.com/fortran-lang/stdlib)
+   ![fortran-lang/stdlib stars](https://img.shields.io/github/stars/fortran-lang/stdlib)
+5. [cp2k/cp2k](https://github.com/cp2k/cp2k)
+   ![cp2k/cp2k stars](https://img.shields.io/github/stars/cp2k/cp2k)

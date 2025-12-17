@@ -1,0 +1,43 @@
+# Available frameworks
+
+## Fortran wiki {.smaller}
+
+A list of known Fortran testing frameworks on the
+[Fortran wiki](https://fortranwiki.org/fortran/show/Unit+testing+frameworks)
+
+```{=html}
+<iframe
+    height="70%"
+    src="https://fortranwiki.org/fortran/show/Unit+testing+frameworks"
+    title="Fortran wiki: Unit testing frameworks"
+    width="100%"
+>
+</iframe>
+```
+
+## Fortran-lang {.smaller}
+
+A curated list of Fortran libraries and tools on the
+[fortran-lang](https://fortran-lang.org/packages/programming/) website.
+
+```{=html}
+<iframe
+    height="70%"
+    src="https://fortran-lang.org/packages/programming/"
+    title="Fortran wiki: Unit testing frameworks"
+    width="100%"
+>
+</iframe>
+```
+
+## Frameworks I've looked at {.r-fit-text}
+
+My understanding as of 2025-11-11
+
+|                  | [pFUnit](https://github.com/Goddard-Fortran-Ecosystem/pFUnit) | [test-drive](https://github.com/fortran-lang/test-drive) | [Veggies](https://gitlab.com/everythingfunctional/veggies) |
+| ---------------- | ------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
+| CMake            | {{< fa check >}}                                              | {{< fa check >}}                                         | {{< fa check >}}                                           |
+| FPM              | {{< fa x >}}                                                  | {{< fa check >}}                                         | {{< fa check >}}                                           |
+| MPI              | {{< fa check >}}                                              | {{< fa x >}}                                             | {{< fa x >}}                                               |
+| OpenMP           | {{< fa x >}}                                                  | {{< fa x >}}                                             | {{< fa x >}}                                               |
+| Array assertions | {{< fa check >}}                                              | {{< fa x >}}                                             | {{< fa check >}}                                           |

@@ -1,0 +1,30 @@
+## Why is testing Fortran hard
+
+:::: {layout-ncol=2 .r-fit-text}
+
+::: {.fragment}
+
+### Reasons
+
+- Fortran is often legacy code.
+  - Lots of global state.
+  - Locked into specific compilers or dependencies.
+  - Sometimes a bit of a black box.
+- Unclear which tool to choose.
+
+:::
+
+::: {.fragment}
+
+### Side effects
+
+- Tests must be isolated.
+  - Requires, one test per executable or complicated state handling.
+- Must be supported by the choosen test framework
+- Not clear what to test (not actually a problem IMHO)
+- Many custom testing setups exist
+  - Test frameworks do not benefit from open source contibutions.
+
+:::
+
+::::
