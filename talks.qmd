@@ -1,0 +1,46 @@
+---
+title: Talks
+subtitle: A collection of my previous and upcoming talks
+format:
+  html:
+    page-layout: full
+  revealjs:
+    auto-play-media: true
+    auto-stretch: false
+    callout-appearance: simple
+    code-copy: true
+    filters:
+      - _filters/slugify.lua
+    footer: "{{< meta title >}} - <https://connoraird.github.io/talks>"
+    hash-type: number
+    history: false
+    incremental: true
+    link-external-filter: ^https:\/\/connoraird\.github\.io
+    link-external-icon: true
+    logo: favicon.ico
+    mermaid:
+      theme: dark
+    menu:
+      hideMissingTitles: true
+      useTextContentForMissingTitles: false
+    mobile-view-distance: 10
+    slide-number: c
+    theme: dark
+    transition: fade
+    view-distance: 10
+listing:
+  contents: ./talks
+  date-format: iso
+  exclude:
+    title: Page Not Found
+  field-display-names:
+    subtitle: Event
+  fields:
+    - date
+    - title
+    - subtitle
+    - author
+  page-size: 10
+  sort: date desc
+  type: table
+---

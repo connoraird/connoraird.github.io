@@ -16,7 +16,7 @@ website:
   navbar:
     left:
       - text: Talks
-        href: /talks
+        href: talks.qmd
     tools:
       - icon: house
         href: https://connoraird.github.io

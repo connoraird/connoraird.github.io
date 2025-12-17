@@ -1,0 +1,10 @@
+---
+author: Connor Aird
+date: 2025-11-11
+format: html
+path: rsecon-2025-unit-testing-in-fortran/index.qmd
+subtitle: "RSECon 2025"
+title: Unit testing in Fortran
+---
+
+{{< pdf index.pdf height=600 width=100% >}}
