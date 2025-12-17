@@ -10,13 +10,37 @@ format:
     theme:
       light: flatly
       dark: darkly
+  revealjs:
+    auto-play-media: true
+    auto-stretch: false
+    callout-appearance: simple
+    code-copy: true
+    filters:
+      - _filters/slugify.lua
+    footer: "{{< meta title >}} - <https://connoraird.github.io/talks>"
+    hash-type: number
+    history: false
+    incremental: true
+    link-external-filter: ^https:\/\/connoraird\.github\.io
+    link-external-icon: true
+    logo: favicon.ico
+    mermaid:
+      theme: dark
+    menu:
+      hideMissingTitles: true
+      useTextContentForMissingTitles: false
+    mobile-view-distance: 10
+    slide-number: c
+    theme: dark
+    transition: fade
+    view-distance: 10
 
 website:
   favicon: favicon.ico
   navbar:
     left:
       - text: Talks
-        href: /talks
+        href: talks.qmd
     tools:
       - icon: house
         href: https://connoraird.github.io
