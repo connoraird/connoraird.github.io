@@ -26,7 +26,7 @@ Univeristy College London<br>
 
 :::: {.right-column}
 
-{{< include components/aboutme.qmd >}}
+{{< include _components/aboutme.qmd >}}
 
 ::::
 
