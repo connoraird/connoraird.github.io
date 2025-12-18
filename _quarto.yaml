@@ -11,6 +11,13 @@ format:
     theme:
       light: flatly
       dark: darkly
+    include-in-header:
+      - text: |
+          <script src="https://cdn.jsdelivr.net/npm/tsparticles/dist/tsparticles.min.js"></script>
+          <script src="app.js"></script>
+    include-before-body:
+      - text: |
+          <div id="tsparticles"></div>
   revealjs:
     auto-play-media: true
     auto-stretch: false
@@ -35,6 +42,9 @@ format:
     theme: dark
     transition: fade
     view-distance: 10
+
+resources:
+  - particles.json
 
 website:
   favicon: favicon.ico
