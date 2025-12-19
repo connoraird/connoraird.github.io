@@ -8,9 +8,15 @@ execute:
 format:
   html:
     css: styling/site-wide.css
-    theme:
-      light: flatly
-      dark: darkly
+    theme: darkly
+    include-in-header:
+      - text: |
+          <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+          <script src="https://cdn.jsdelivr.net/npm/tsparticles/dist/tsparticles.min.js"></script>
+          <script src="particles/app.js"></script>
+    include-before-body:
+      - text: |
+          <div id="tsparticles"></div>
   revealjs:
     auto-play-media: true
     auto-stretch: false
@@ -35,6 +41,9 @@ format:
     theme: dark
     transition: fade
     view-distance: 10
+
+resources:
+  - particles
 
 website:
   favicon: favicon.ico
