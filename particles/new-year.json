@@ -28,6 +28,12 @@
       "x": 50
     }
   },
+  "interactivity": {
+    "detect_on": "window",
+    "events": {
+      "resize": true
+    }
+  },
   "particles": {
     "number": {
       "value": 0
