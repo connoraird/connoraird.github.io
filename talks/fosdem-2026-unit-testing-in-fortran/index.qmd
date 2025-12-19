@@ -1,0 +1,19 @@
+---
+author: Connor Aird
+date: 2026-01-31
+format: revealjs
+subtitle: "FOSDEM 2026: Testing and Continuous Delivery devroom"
+title: Unit testing in Fortran
+---
+
+{{< include _slides/why_testing_fortran_is_hard.qmd >}}
+
+{{< include _slides/available_frameworks.qmd >}}
+
+# Acknowledgements
+
+::: {.nonincremental}
+
+{{< include /_includes/shared-acknowledgements.qmd >}}
+
+:::
