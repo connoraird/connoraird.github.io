@@ -13,7 +13,7 @@ format:
       - text: |
           <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
           <script src="https://cdn.jsdelivr.net/npm/tsparticles/dist/tsparticles.min.js"></script>
-          <script src="app.js"></script>
+          <script src="particles/app.js"></script>
     include-before-body:
       - text: |
           <div id="tsparticles"></div>
