@@ -1,0 +1,57 @@
+{
+  "background": {
+    "color": "#000"
+  },
+  "detectRetina": false,
+  "fpsLimit": 30,
+  "fullScreen": {
+    "enable": true,
+    "zIndex": 0
+  },
+  "interactivity": {
+    "detectsOn": "canvas",
+    "events": {
+      "resize": true
+    }
+  },
+  "particles": {
+    "color": {
+      "value": "#fff"
+    },
+    "number": {
+      "density": {
+        "enable": true,
+        "area": 1080
+      },
+      "limit": 0,
+      "value": 400
+    },
+    "opacity": {
+      "random": {
+        "enable": true,
+        "minimumValue": 0.1
+      },
+      "value": 1
+    },
+    "shape": {
+      "type": "circle"
+    },
+    "size": {
+      "random": {
+        "enable": true,
+        "minimumValue": 0.5
+      },
+      "value": 1
+    },
+    "twinkle": {
+      "particles": {
+        "enable": true,
+        "frequency": 0.005,
+        "opacity": 0.5,
+        "color": {
+          "value": ["#ff0000", "#0000ff"]
+        }
+      }
+    }
+  }
+}
