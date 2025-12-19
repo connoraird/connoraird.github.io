@@ -4,7 +4,7 @@
   },
   "fullScreen": {
     "enable": true,
-    "zIndex": 0
+    "zIndex": -1
   },
   "emitters": {
     "direction": "bottom",
@@ -27,7 +27,7 @@
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "window",
     "events": {
       "onhover": {
         "enable": true,
@@ -44,7 +44,7 @@
         "particles_nb": 50
       },
       "repulse": {
-        "distance": 100,
+        "distance": 75,
         "duration": 10
       }
     }
@@ -84,7 +84,7 @@
     "size": {
       "value": {
         "min": 1,
-        "max": 20
+        "max": 10
       }
     },
     "tilt": {
@@ -150,5 +150,5 @@
       }
     }
   },
-  "retina_detect": true
+  "retina_detect": false
 }

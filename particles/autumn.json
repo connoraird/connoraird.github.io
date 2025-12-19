@@ -4,7 +4,7 @@
   },
   "fullScreen": {
     "enable": true,
-    "zIndex": 0
+    "zIndex": -1
   },
   "emitters": {
     "direction": "bottom",
@@ -27,7 +27,7 @@
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "window",
     "events": {
       "onhover": {
         "enable": true,

@@ -6,13 +6,7 @@
   "fpsLimit": 30,
   "fullScreen": {
     "enable": true,
-    "zIndex": 0
-  },
-  "interactivity": {
-    "detectsOn": "canvas",
-    "events": {
-      "resize": true
-    }
+    "zIndex": -1
   },
   "particles": {
     "color": {
