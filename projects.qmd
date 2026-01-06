@@ -1,0 +1,12 @@
+---
+format: html
+listing:
+  contents: projects
+  date-format: iso
+  exclude:
+    title: Page Not Found
+  page-size: 3
+  sort: date desc
+  type: default
+  categories: true
+---
