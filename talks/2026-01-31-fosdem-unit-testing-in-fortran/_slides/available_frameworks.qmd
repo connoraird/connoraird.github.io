@@ -24,7 +24,7 @@ A curated list of Fortran libraries and tools on the
 <iframe
     height="70%"
     src="https://fortran-lang.org/packages/programming/"
-    title="Fortran wiki: Unit testing frameworks"
+    title="fortran-lang: Error handling, logging, documentation and testing packages"
     width="100%"
 >
 </iframe>
