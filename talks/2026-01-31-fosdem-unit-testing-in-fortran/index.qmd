@@ -12,6 +12,10 @@ title: Unit testing in Fortran
 
 {{< include _slides/what_is_pfunit.qmd >}}
 
+{{< include _slides/integrating_with_build_systems.qmd >}}
+
+{{< include _slides/pfunit_in_gh_actions.qmd >}}
+
 # Acknowledgements
 
 ::: {.nonincremental}
