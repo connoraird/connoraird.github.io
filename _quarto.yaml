@@ -54,6 +54,8 @@ website:
     left:
       - text: Talks
         href: talks.qmd
+      - text: Projects
+        href: projects.qmd
     tools:
       - icon: envelope
         href: mailto:c.aird@ucl.ac.uk
