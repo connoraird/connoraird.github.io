@@ -7,6 +7,23 @@ links:
   - text: Strava
     icon: strava
     href: https://www.strava.com/athletes/connoraird
+listing:
+  contents:
+    - projects
+    - talks
+  date-format: iso
+  exclude:
+    title: Page Not Found
+  page-size: 3
+  sort: date desc
+  type: default
+  fields:
+    - date
+    - title
+    - subtitle
+    - author
+    - categories
+    - image
 ---
 
 :::::: {.column-page}
@@ -52,3 +69,5 @@ for (item in all_items) {
 :::::
 
 ::::::
+
+## Latest Updates

@@ -8,7 +8,7 @@ format:
   html:
     page-layout: full
 listing:
-  contents: ./talks
+  contents: talks
   date-format: iso
   exclude:
     title: Page Not Found
