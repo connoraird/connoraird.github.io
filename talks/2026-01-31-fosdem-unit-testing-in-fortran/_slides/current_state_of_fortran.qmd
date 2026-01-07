@@ -1,0 +1,42 @@
+# Current state of Fortran
+
+## Some known Fortran projects {.smaller .scrollable}
+
+| Repository                                                                                                                            | Description                                                     | Integration tests | Unit tests              |
+| ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ----------------- | ----------------------- |
+| [epochpic/epoch](https://github.com/epochpic/epoch) <img src="https://img.shields.io/github/stars/epochpic/epoch"/>                   | Popular particle-in-cell plasma code                            | {{< fa check >}}  | {{< fa x >}}            |
+| [ukaea/ReMKiT1D](https://github.com/ukaea/ReMKiT1D) <img src="https://img.shields.io/github/stars/ukaea/ReMKiT1D"/>                   | Framework for 1D multifluid and kinetic simulations of Tokamaks | {{< fa x >}}      | {{< fa check >}} pFUnit |
+| [geoschem/geos-chem](https://github.com/geoschem/geos-chem) <img src="https://img.shields.io/github/stars/geoschem/geos-chem"/>       | Popular atmospheric chemistry code                              | {{< fa check >}}  | {{< fa x >}}            |
+| [MetOffice/ukca](https://github.com/MetOffice/ukca) <img src="https://img.shields.io/github/stars/MetOffice/ukca"/>                   | The UK's main atmospheric chemistry code                        | {{< fa check >}}  | {{< fa x >}}            |
+| [MetOffice/lfric_core](https://github.com/MetOffice/lfric_core) <img src="https://img.shields.io/github/stars/MetOffice/lfric_core"/> | The Met Office's next generation weather model                  | {{< fa check >}}  | {{< fa check >}} pFUnit |
+
+## Why is testing Fortran hard
+
+:::: {layout-ncol=2 .r-fit-text}
+
+::: {.fragment}
+
+### Reasons
+
+- Fortran is often legacy code.
+  - Lots of global state.
+  - Locked into specific compilers or dependencies.
+  - Sometimes a bit of a black box.
+- Unclear which tool to choose.
+
+:::
+
+::: {.fragment}
+
+### Side effects
+
+- Tests must be isolated.
+  - Requires, one test per executable or complicated state handling.
+- Must be supported by the choosen test framework
+- Not clear what to test (not actually a problem IMHO)
+- Many custom testing setups exist
+  - Test frameworks do not benefit from open source contibutions.
+
+:::
+
+::::

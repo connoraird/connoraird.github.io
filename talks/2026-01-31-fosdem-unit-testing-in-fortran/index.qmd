@@ -6,7 +6,7 @@ subtitle: "FOSDEM 2026: Testing and Continuous Delivery devroom"
 title: Unit testing in Fortran
 ---
 
-{{< include _slides/why_testing_fortran_is_hard.qmd >}}
+{{< include _slides/current_state_of_fortran.qmd >}}
 
 {{< include _slides/available_frameworks.qmd >}}
 
