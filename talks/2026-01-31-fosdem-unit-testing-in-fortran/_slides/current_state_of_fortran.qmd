@@ -1,6 +1,6 @@
 # Current state of Fortran
 
-## Some known Fortran projects {.smaller .scrollable}
+## Some known Fortran projects {.smaller .scrollable footer=false}
 
 | Repository                                                                                                                            | Description                                                     | Integration tests | Unit tests              |
 | ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ----------------- | ----------------------- |

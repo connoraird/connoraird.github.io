@@ -18,6 +18,8 @@ title: Unit testing in Fortran
 
 {{< include _slides/future_work.qmd >}}
 
+{{< include _slides/conclusion.qmd >}}
+
 # Acknowledgements
 
 ::: {.nonincremental}

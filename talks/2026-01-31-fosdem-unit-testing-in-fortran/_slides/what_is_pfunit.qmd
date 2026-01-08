@@ -2,7 +2,7 @@
 
 ## Overview of pFUnit
 
-- Originally created by developers from NASA and NGC TASC.
+- Created by developers from NASA and NGC TASC.
 - Availale under a **NASA OPEN SOURCE AGREEMENT VERSION 1.3** licence.
 - Follows the style JUnit. i.e. Directives
   ([annotations](https://docs.junit.org/6.0.1/writing-tests/annotations.html) in
