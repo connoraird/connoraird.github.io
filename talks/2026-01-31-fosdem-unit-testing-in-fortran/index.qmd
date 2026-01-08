@@ -22,6 +22,10 @@ title: Unit testing in Fortran
 
 ::: {.nonincremental}
 
-{{< include /_includes/shared-acknowledgements.qmd >}}
+- Credit to the maintainers of pFUnit at
+  [github.com/Goddard-Fortran-Ecosystem](https://github.com/Goddard-Fortran-Ecosystem),
+  in particular [Tom Clune](https://github.com/tclune) and
+  [Matt Thompson](https://github.com/mathomp4).
+  {{< include /_includes/shared-acknowledgements.qmd >}}
 
 :::
