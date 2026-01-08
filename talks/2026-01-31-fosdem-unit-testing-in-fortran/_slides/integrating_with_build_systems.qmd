@@ -1,0 +1,12 @@
+# Integrating with build systems
+
+pFUnit can be integrated into both Make and CMake build systems using functions
+provided by pFUnit
+
+## Integrating with Make
+
+{{< include _components/pfunit_Makefile.qmd >}}
+
+## Integrating with CMake
+
+{{< include _components/pfunit_CMakeLists.qmd >}}

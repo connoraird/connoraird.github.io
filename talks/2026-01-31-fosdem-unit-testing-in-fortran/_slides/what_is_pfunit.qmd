@@ -1,0 +1,62 @@
+# What is pFUnit
+
+## Overview of pFUnit
+
+- Created by developers from NASA and NGC TASC.
+- Availale under a **NASA OPEN SOURCE AGREEMENT VERSION 1.3** licence.
+- Follows the style JUnit. i.e. Directives
+  ([annotations](https://docs.junit.org/6.0.1/writing-tests/annotations.html) in
+  JUnit) label code sections for the preprocessor.
+- Uses a preprocessor to convert `.pf` files to `.f90`.
+- F2003 object oriented features and a smattering of F2008 features, thus
+  requires more recent versions of compilers.
+
+## Syntax {footer=false}
+
+`.pf` syntax is similar to `.f90` with preprocessor directives, such as `@Test`
+and `@assertEqual`.
+
+```{.f90 code-line-numbers="-1|3|8,16"}
+module test_something
+    use maths_operations, only : double_int
+    use funit
+    implicit none
+
+contains
+
+    @Test
+    subroutine test_double_int_1()
+        integer :: input, actual_output
+
+        input = 1
+
+        call double_int(input, actual_output)
+
+        @assertEqual(2, actual_output, "Unexpected output from double_int")
+    end subroutine test_double_int_1
+end module test_something
+```
+
+## The preprocessor
+
+- Written in Python.
+- Converts `.pf` with directives into `.f90`.
+- Called automatically when building with Make or CMake.
+- Directives exist for the following tasks
+  - Labeling custom types (test parameters and test cases).
+  - Labeling test subroutines.
+  - Specifying assertions.
+    - The [documentation](https://pfunit.sourceforge.net/page_Assert.html) needs
+      some work.
+
+## Assert preprocessor directives
+
+```{=html}
+<iframe
+    height="70%"
+    src="https://pfunit.sourceforge.net/page_Assert.html"
+    title="pFUnit assert preprocessor directives"
+    width="100%"
+>
+</iframe>
+```

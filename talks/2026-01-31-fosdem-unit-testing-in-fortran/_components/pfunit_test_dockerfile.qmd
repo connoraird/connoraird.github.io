@@ -1,0 +1,14 @@
+```{.dockerfile code-line-numbers="-1|1|3-5|7-9|11-12"}
+FROM parent-image:main
+
+# Copy src and test code into the container
+COPY my-project /my-project
+WORKDIR /my-project
+
+# Build tests with cmake
+RUN cmake -B build -DCMAKE_PREFIX_PATH=/path/to/pfunit/build/installed && \
+    cmake --build build
+
+# Run pfunit tests with ctest
+RUN ctest --test-dir build --output-on-failure
+```

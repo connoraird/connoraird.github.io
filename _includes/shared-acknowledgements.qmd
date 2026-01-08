@@ -1,0 +1,4 @@
+- Thank you to Paddy J. Roddy for their
+  [quarto template](https://github.com/paddyroddy/talks) and
+  [helpful talk](https://paddyroddy.github.io/talks/quarto-making-talks/) which
+  made this talk possible.
