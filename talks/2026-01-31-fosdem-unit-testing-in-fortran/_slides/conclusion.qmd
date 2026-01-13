@@ -1,0 +1,13 @@
+# Conclusions
+
+## {data-menu-title="Summary" .r-fit-text}
+
+- Popular Fortran projects are often lacking unit tests.
+- It is recommended to use pFUnit for Fortran unit tests.
+- pFUnit…
+  - uses a preprocessor to convert `.pf` files to `.f90`.
+  - assertions are provided as preprocessor directives.
+  - integrates with Make and CMake.
+- Automatic pFUnit testing can be done within CI pipelines using
+  containerisation.
+  - Can be difficult if relying on Legacy or proprietary dependencies.
