@@ -55,11 +55,14 @@ website:
       - text: Talks
         href: talks.qmd
     tools:
-      - icon: envelope
+      - text: Email
+        icon: envelope
         href: mailto:c.aird@ucl.ac.uk
-      - icon: github
+      - text: GitHub
+        icon: github
         href: https://github.com/connoraird/connoraird.github.io
-      - icon: linkedin
-        href: https://www.linkedin.com/in/connor-aird/
+      - text: Linkedin
+        icon: linkedin
+        href: https://www.linkedin.com/in/connoraird/
   site-url: https://connoraird.github.io
   title: Connor Aird

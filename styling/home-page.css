@@ -37,3 +37,17 @@ h1 {
     padding-top: 2em;
   }
 }
+
+/*-- buttons --*/
+.btn {
+  border-color: rgba(255, 255, 255); /* Remove borders */
+  color: white; /* White text */
+  padding: 2px 20px; /* Some padding */
+  font-size: 14px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: #375a7f;
+}

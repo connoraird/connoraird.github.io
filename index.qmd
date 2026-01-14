@@ -3,6 +3,10 @@ pagetitle: Connor Aird
 format:
   html:
     css: styling/home-page.css
+links:
+  - text: Strava
+    icon: strava
+    href: https://www.strava.com/athletes/connoraird
 ---
 
 :::::: {.column-page}
@@ -18,7 +22,22 @@ format:
 ::: {.summary}
 
 Research Software Engineer<br> Centre for Advanced Research Computing<br>
-Univeristy College London<br>
+University College London<br>
+
+```{r echo=FALSE, results='asis'}
+quarto_config <- yaml::read_yaml("_quarto.yaml")
+all_items <- c(quarto_config$website$navbar$tools,rmarkdown::metadata$links)
+for (item in all_items) {
+  cat(sprintf('<a href="%s" class="btn" >\n', item$href))
+  if (!is.null(item$icon)) {
+    cat(sprintf('<i class="bi bi-%s" aria-label="%s"></i>\n', item$icon, item$text))
+  }
+  else {
+    cat(sprintf('<span class="about-link-text">%s</span>\n', item$text))
+  }
+  cat('</a>\n')
+}
+```
 
 :::
 
