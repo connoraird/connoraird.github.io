@@ -11,5 +11,6 @@ index-listing.json
 site_libs
 .venv
 *.DS_Store
-
+.jupyter_cache
 **/*.quarto_ipynb
+index_cache
