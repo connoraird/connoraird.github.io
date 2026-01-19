@@ -12,5 +12,6 @@ site_libs
 .venv
 *.DS_Store
 index_cache
+cv_cache
 
 **/*.quarto_ipynb
