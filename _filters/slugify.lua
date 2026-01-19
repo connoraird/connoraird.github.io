@@ -6,9 +6,20 @@ local function slugify(s)
     return s:gsub("[^%w-]+", ""):lower()
 end
 
+local function combine_and_slugify(...)
+    local rawparts = {...}
+    local parts = {}
+    for i, part in pairs(rawparts) do
+        parts[i] = pandoc.utils.stringify(part)
+    end
+    local combined = table.concat(parts, " ")
+    return slugify(combined)
+end
+
 return {
     Meta = function(m)
-        m.slug = m.title and slugify(pandoc.utils.stringify(m.title))
+        -- Example: combine date, title, and author
+        m.slug = combine_and_slugify(m.date, m.title)
         return m
     end,
 }
