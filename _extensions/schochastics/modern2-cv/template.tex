@@ -375,22 +375,28 @@ $endif$
 			\textcolor{maincol}{#2} & \\
 		\end{tabular*}\\[4pt]
 	
-		\if\defined{#3}
-		\else{
+		\ifthenelse{\isempty{#3}}{}{
 			\cvtext{#3}\\
 		}
 		
-		% \if{\isempty{#4}}{}
-		% \else{
-		% 	\begin{itemize}
-		% 		\foreach \resp in #4
-		% 			\item \resp
-		% 	\end{itemize}
-		% }
-
-		\foreach
+		\ifthenelse{\isempty{#4}}{}{
+			\begin{itemize}
+				\expandafter\CVprojItems\expandafter{#4}
+			\end{itemize}
+		}
 	}
 	\vspace{14pt}
+}
+
+% Helper macro to process ||| separated items
+\def\CVprojItems#1{%
+	\def\ProcessItem##1|||{%
+		\ifx\relax##1\relax\else
+			\item ##1%
+			\expandafter\ProcessItem
+		\fi
+	}%
+	\expandafter\ProcessItem#1|||\relax|||%
 }
 
 %----------------------------------------------------------------------------------------

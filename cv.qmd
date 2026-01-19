@@ -83,11 +83,17 @@ cvevents <- function(tbl, when, what, where, descr) {
 
 cvproj <- function(tbl,what,role,details,responsibilities){
     command_start <- "\\cvproj"
+    # Convert vector to comma-separated string, removing any quotes
+    resp_vec <- tbl[[responsibilities]]
+    if (is.list(resp_vec)) {
+        resp_vec <- unlist(resp_vec)
+    }
+    resp_string <- paste(resp_vec, collapse = "|||")
     res <- paste0(
         command_start, "{", tbl[[what]], "}",
         "{", tbl[[role]], "}",
         "{", tbl[[details]], "}",
-        "{", tbl[[responsibilities]], "}"
+        "{", resp_string, "}"
     )
 
     cat(res, sep = "\n\n\n")
@@ -124,8 +130,8 @@ tibble::tribble(
 
 # Projects
 
-See my [github profile](https://github.com/schochastics) for a comprehensive
-list of open source projects.
+See my [github profile](https://github.com/connoraird) for a comprehensive list
+of open source projects.
 
 ```{r}
 #| label: proj
@@ -135,12 +141,7 @@ tibble::tribble(
     "MUSIC, DiRAC GPU feasibility study",
     "RSE",
     "MUSIC is a Fortran code which simulates the interiors of stars. This study aimed to determine the potential gains and likely cost of implementing GPU offloading within the code base. In my role I:",
-    c(
-      "Enabled the OpenMP and CUDA backends of Trilinos (an external library utilised by MUSIC)",
-      "Produced scripts to automate the building of Trilinos, music and Kokkos-tools.",
-      "Wrote submission scripts to allow the rapid production of benchmark data.",
-      "Profiled MUSIC using the NVIDIA NSIGHT system."
-    ),
+    c("Enabled the OpenMP and CUDA backends of Trilinos (an external library utilised by MUSIC)","Produced scripts to automate the building of Trilinos, music and Kokkos-tools.","Wrote submission scripts to allow the rapid production of benchmark data.","Profiled MUSIC using the NVIDIA NSIGHT system.")
 ) |>
     cvproj(what = "what", role = "role", details = "details", responsibilities = "responsibilities")
 
