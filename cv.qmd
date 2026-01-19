@@ -1,0 +1,147 @@
+---
+title: Connor Aird CV
+format:
+  modern2-cv-pdf: default
+author: Connor Aird
+cvfont: raleway #texlive fonts like raleway,fetamont,gillius,comfortaa
+cvcolor:
+  main: A56DAA
+  accent: 6A2C70
+jobtitle: Research Software Engineer at UCL
+sidebar:
+  bullets:
+    - London, United Kingdom
+    - British
+    - Married
+  sections:
+    - name: Skills
+      items:
+        - text: Fortran
+          exp:
+            text: "7 yr."
+            num: 0.4
+        - text: Python
+          exp:
+            text: "10 yrs."
+            num: 1
+        - text: C++
+          exp:
+            text: "3 yr."
+            num: 0.3
+        - text: Parallel Programming
+          exp:
+            text: "4 years"
+            num: 0.4
+        - text: Quarto
+          exp:
+            text: "1 yr."
+            num: 0.1
+        - text: JavaScript
+          exp:
+            text: "2 yrs."
+            num: 0.2
+    - name: Education
+      items:
+        - text: "MPhys Physics"
+          inst: "University of York"
+          time: "09/2016 - 06/2020"
+          details: "1st Class Honours (with distinction)"
+    - name: Contact
+      items:
+        - icon: map-marker
+          text: London, United Kingdom
+        - icon: envelope
+          text: connoraird@gmail.com
+        - icon: home
+          text: connoraird.github.io
+          href: https://connoraird.github.io
+        - icon: github
+          text: connoraird
+          href: https://github.com/connoraird
+        - icon: linkedin
+          text: connoraird
+          href: https://linkedin.com/in/connoraird
+execute:
+  echo: false
+---
+
+```{r}
+#| label: cvevents
+cvevents <- function(tbl, when, what, where, descr) {
+
+    command_start <- "\\cvevent"
+    tbl[[where]] <- gsub("\n", " \\\\newline ", tbl[[where]])
+    res <- paste0(
+        command_start, "{", tbl[[when]], "}",
+        "{", tbl[[what]], "}",
+        "{", tbl[[where]], "}",
+        "{", tbl[[descr]], "}"
+        )
+
+    cat(res, sep = "\n\n\n")
+}
+
+cvproj <- function(tbl,what,role,details,responsibilities){
+    command_start <- "\\cvproj"
+    res <- paste0(
+        command_start, "{", tbl[[what]], "}",
+        "{", tbl[[role]], "}",
+        "{", tbl[[details]], "}",
+        "{", tbl[[responsibilities]], "}"
+    )
+
+    cat(res, sep = "\n\n\n")
+}
+```
+
+# Summary
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+sanctus est Lorem ipsum dolor sit amet.
+
+# Experience
+
+```{r}
+#| label: experience
+#| output: asis
+tibble::tribble(
+    ~role, ~institution, ~dates, ~details,
+    "Team Lead for Transparent Social Analytics", "Department of Computational Social Science\nGESIS - Leibniz Institute for the Social Sciences", "03/2022 - Present", "I am coordinating a project to build an Open Science platform with reusable code and tutorials to analyze digital behaviour data. I am also doing research on Open Science practices and I implement tools to enhance reproducibility and make methods accessible in R",
+    "Presidential Fellow", "Sociology Department\nUniversity of Manchester", "09/2018 - 02/2022",
+    "I did research on Disinformation on Social Media which involved the analysis of large scale and unstructured data sets with R and Bash",
+    "Post Doctoral Researcher", "Chair of Social Networks\nETH Zurich", "11/2017 - 08/2018", "I developed new methods to analyze social networks and I gathered and analyzed large datsets from Social Media APIs",
+    "Post Doctoral Researcher", "Department of Computer \\& Information Science\nUniversity of Konstanz", "10/2015 - 10/2017", "I developed new methods to analyze social networks and scraped, harmonized, and analyzed a large corpus of football data",
+    "Ph.D. Candidate", "Department of Computer \\& Information Science\nUniversity of Konstanz", "11/2012 - 09/2015", "I developed new methods to analyze social networks and implemented these methods in R packages using R and C++"
+) |>
+    cvevents(when = "dates", what = "role", where = "institution", descr = "details")
+```
+
+# Projects
+
+See my [github profile](https://github.com/schochastics) for a comprehensive
+list of open source projects.
+
+```{r}
+#| label: proj
+#| output: asis
+tibble::tribble(
+    ~what, ~role, ~details, ~responsibilities,
+    "MUSIC, DiRAC GPU feasibility study",
+    "RSE",
+    "MUSIC is a Fortran code which simulates the interiors of stars. This study aimed to determine the potential gains and likely cost of implementing GPU offloading within the code base. In my role I:",
+    c(
+      "Enabled the OpenMP and CUDA backends of Trilinos (an external library utilised by MUSIC)",
+      "Produced scripts to automate the building of Trilinos, music and Kokkos-tools.",
+      "Wrote submission scripts to allow the rapid production of benchmark data.",
+      "Profiled MUSIC using the NVIDIA NSIGHT system."
+    ),
+) |>
+    cvproj(what = "what", role = "role", details = "details", responsibilities = "responsibilities")
+
+```
