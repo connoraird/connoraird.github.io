@@ -2,7 +2,7 @@
   {
     "listing": "/talks.html",
     "items": [
-      "/talks/2026-01-31-fosdem-unit-testing-in-fortran/index.html",
+      "/talks/2026-01-31-unit-testing-in-fortran/index.html",
       "/talks/rsecon-2025-unit-testing-in-fortran/index.html"
     ]
   }
