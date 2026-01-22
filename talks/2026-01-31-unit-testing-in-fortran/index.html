@@ -286,36 +286,24 @@ Connor Aird
 </section>
 <section class="slide level2">
 <h2>Why is testing Fortran hard</h2>
-<div class="r-fit-text quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<h3>Reasons</h3>
+<div class="r-fit-text">
 <ul>
 <li class="fragment">Fortran is often legacy code.
 <ul>
 <li class="fragment">Lots of global state.</li>
 <li class="fragment">Locked into specific compilers or dependencies.</li>
-<li class="fragment">Sometimes a bit of a black box.</li>
+<li class="fragment">Lack of tests.</li>
 </ul></li>
-<li class="fragment">Unclear which tool to choose.</li>
-</ul>
-</div>
-<div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<h3>Side effects</h3>
-<ul>
-<li class="fragment">Tests must be isolated.
-<ul>
-<li class="fragment">Requires, one test per executable or complicated state handling.</li>
-</ul></li>
-<li class="fragment">Must be supported by the choosen test framework</li>
-<li class="fragment">Not clear what to test (not actually a problem IMHO)</li>
 <li class="fragment">Many custom testing setups exist
 <ul>
 <li class="fragment">Test frameworks do not benefit from open source contibutions.</li>
 </ul></li>
+<li class="fragment">Lack of know-how
+<ul>
+<li class="fragment">Developers are often PhD students new to Fortran development.</li>
+</ul></li>
+<li class="fragment">Unclear which tool to choose.</li>
 </ul>
-</div>
-</div>
 </div>
 </section></section>
 <section>
