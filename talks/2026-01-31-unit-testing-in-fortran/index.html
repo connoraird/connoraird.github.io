@@ -206,7 +206,10 @@
 <div class="quarto-title-author-name">
 Connor Aird 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            University College London
+          </p>
+    </div>
 </div>
 
   <p class="date">2026-01-31</p>
@@ -302,7 +305,7 @@ Connor Aird
 <ul>
 <li class="fragment">Developers are often PhD students new to Fortran development.</li>
 </ul></li>
-<li class="fragment">Unclear which tool to choose.</li>
+<li class="fragment">Unclear which frameworks to choose.</li>
 </ul>
 </div>
 </section></section>
@@ -319,69 +322,34 @@ Connor Aird
 </section>
 <section class="slide level2 smaller">
 <h2>Fortran-lang</h2>
-<p>A curated list of Fortran libraries and tools on the <a href="https://fortran-lang.org/packages/programming/">fortran-lang</a> website.</p>
+<p>A list of Fortran libraries and tools on the <a href="https://fortran-lang.org/packages/programming/">fortran-lang</a> website.</p>
 <iframe height="70%" src="https://fortran-lang.org/packages/programming/" title="fortran-lang: Error handling, logging, documentation and testing packages" width="100%">
 </iframe>
 </section>
 <section class="slide level2">
-<h2>Frameworks I’ve looked at</h2>
-<p>My understanding as of 2025-11-11</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th><a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">pFUnit</a></th>
-<th><a href="https://github.com/fortran-lang/test-drive">test-drive</a></th>
-<th><a href="https://gitlab.com/everythingfunctional/veggies">Veggies</a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CMake</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-</tr>
-<tr class="even">
-<td>FPM</td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-</tr>
-<tr class="odd">
-<td>MPI</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-</tr>
-<tr class="even">
-<td>OpenMP</td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-</tr>
-<tr class="odd">
-<td>Array assertions</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-</tr>
-</tbody>
-</table>
+<h2>My chosen framework</h2>
+<p>The framework I tend to choose to work with is <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">pFUnit</a>, because…</p>
+<ul>
+<li class="fragment">Previous experience within our department.</li>
+<li class="fragment">Open source and still being developed.</li>
+<li class="fragment">Appears to be the most fully featured.</li>
+<li class="fragment">Supports unit testsing MPI parallelised code.</li>
+</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>What is pFUnit</h1>
 
 </section>
-<section class="slide level2">
+<section class="slide level2" data-footer="false">
 <h2>Overview of pFUnit</h2>
 <ul>
-<li class="fragment">Created by developers from NASA and NGC TASC.</li>
-<li class="fragment">Availale under a <strong>NASA OPEN SOURCE AGREEMENT VERSION 1.3</strong> licence.</li>
-<li class="fragment">Follows the style JUnit. i.e.&nbsp;Directives (<a href="https://docs.junit.org/6.0.1/writing-tests/annotations.html">annotations</a> in JUnit) label code sections for the preprocessor.</li>
+<li class="fragment">Created by developers from NASA.</li>
+<li class="fragment">Open source on GitHub and accepting contributions - <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">Goddard-Fortran-Ecosystem/pFUnit</a></li>
+<li class="fragment">Availale under a <a href="https://www.nasa.gov/wp-content/uploads/2025/08/nasa-open-source-agreement-1-3.pdf?emrc=575464">NASA OPEN SOURCE AGREEMENT VERSION 1.3</a> licence.</li>
+<li class="fragment">Follows the style of JUnit. i.e.&nbsp;Directives (<a href="https://docs.junit.org/6.0.1/writing-tests/annotations.html">annotations</a> in JUnit) label code sections for the preprocessor.</li>
 <li class="fragment">Uses a preprocessor to convert <code>.pf</code> files to <code>.f90</code>.</li>
-<li class="fragment">F2003 object oriented features and a smattering of F2008 features, thus requires more recent versions of compilers.</li>
+<li class="fragment">F2003 object oriented features and some F2008 features, thus requires more recent versions of compilers.</li>
 </ul>
 </section>
 <section class="slide level2" data-footer="false">
@@ -406,7 +374,7 @@ Connor Aird
 <span id="cb1-17"><a></a>    <span class="kw">end subroutine</span> test_double_int_1</span>
 <span id="cb1-18"><a></a><span class="kw">end module</span> test_something</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
+<section class="slide level2" data-footer="false">
 <h2>The preprocessor</h2>
 <ul>
 <li class="fragment">Written in Python.</li>
@@ -419,6 +387,7 @@ Connor Aird
 <li class="fragment">Specifying assertions.
 <ul>
 <li class="fragment">The <a href="https://pfunit.sourceforge.net/page_Assert.html">documentation</a> needs some work.</li>
+<li class="fragment">I have a PR open to begin improvements (<a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit/pull/519">#519</a>)</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -487,7 +456,7 @@ Connor Aird
 <div class="r-fit-text">
 <p>To ensure a consitent environment when running pFUnit tests through GitHub actions, one can make use of containerisation (<strong>Docker</strong>, in my case)…</p>
 <ul>
-<li class="fragment">Within a single Dockerfile…
+<li class="fragment">Within a Dockerfile…
 <ul>
 <li class="fragment">Install and build depenencies.</li>
 <li class="fragment">Build src and test objects and executables.</li>
