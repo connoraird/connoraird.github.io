@@ -1,27 +1,33 @@
 # Current state of Fortran
 
+## Why do we care about fortran
+
+Fortran is still heavily used in certain communities…
+
+- Fortran is good add closely resembling equations within code.
+- Long lived numerical codes exist in academia.
+- Heavily used in weather prediction and fluid dynamics.
+
 ## Some known Fortran projects {.smaller .scrollable footer=false}
 
-| Repository                                                                                                                            | Description                                                     | Integration tests | Unit tests              |
-| ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ----------------- | ----------------------- |
-| [epochpic/epoch](https://github.com/epochpic/epoch) <img src="https://img.shields.io/github/stars/epochpic/epoch"/>                   | Popular particle-in-cell plasma code                            | {{< fa check >}}  | {{< fa x >}}            |
-| [ukaea/ReMKiT1D](https://github.com/ukaea/ReMKiT1D) <img src="https://img.shields.io/github/stars/ukaea/ReMKiT1D"/>                   | Framework for 1D multifluid and kinetic simulations of Tokamaks | {{< fa x >}}      | {{< fa check >}} pFUnit |
-| [geoschem/geos-chem](https://github.com/geoschem/geos-chem) <img src="https://img.shields.io/github/stars/geoschem/geos-chem"/>       | Popular atmospheric chemistry code                              | {{< fa check >}}  | {{< fa x >}}            |
-| [MetOffice/ukca](https://github.com/MetOffice/ukca) <img src="https://img.shields.io/github/stars/MetOffice/ukca"/>                   | The UK's main atmospheric chemistry code                        | {{< fa check >}}  | {{< fa x >}}            |
-| [MetOffice/lfric_core](https://github.com/MetOffice/lfric_core) <img src="https://img.shields.io/github/stars/MetOffice/lfric_core"/> | The Met Office's next generation weather model                  | {{< fa check >}}  | {{< fa check >}} pFUnit |
+| Repository                                                                                                                            | Description                                                     | Integration tests | Unit tests       |
+| ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ----------------- | ---------------- |
+| [epochpic/epoch](https://github.com/epochpic/epoch) <img src="https://img.shields.io/github/stars/epochpic/epoch"/>                   | Popular particle-in-cell plasma code                            | {{< fa check >}}  | {{< fa x >}}     |
+| [ukaea/ReMKiT1D](https://github.com/ukaea/ReMKiT1D) <img src="https://img.shields.io/github/stars/ukaea/ReMKiT1D"/>                   | Framework for 1D multifluid and kinetic simulations of Tokamaks | {{< fa x >}}      | {{< fa check >}} |
+| [geoschem/geos-chem](https://github.com/geoschem/geos-chem) <img src="https://img.shields.io/github/stars/geoschem/geos-chem"/>       | Popular atmospheric chemistry code                              | {{< fa check >}}  | {{< fa x >}}     |
+| [MetOffice/ukca](https://github.com/MetOffice/ukca) <img src="https://img.shields.io/github/stars/MetOffice/ukca"/>                   | The UK's main atmospheric chemistry code                        | {{< fa check >}}  | {{< fa x >}}     |
+| [MetOffice/lfric_core](https://github.com/MetOffice/lfric_core) <img src="https://img.shields.io/github/stars/MetOffice/lfric_core"/> | The Met Office's next generation weather model                  | {{< fa check >}}  | {{< fa check >}} |
 
-## Why is testing Fortran hard
+## Why is testing Fortran hard {.smaller}
 
-:::: {.r-fit-text}
+Note that these points are from my experience in academia.
 
 - Fortran is often legacy code.
   - Lots of global state.
   - Locked into specific compilers or dependencies.
-  - Lack of tests.
+  - Lack of units to test.
 - Many custom testing setups exist
   - Test frameworks do not benefit from open source contibutions.
 - Lack of know-how
   - Developers are often PhD students new to Fortran development.
 - Unclear which frameworks to choose.
-
-::::
