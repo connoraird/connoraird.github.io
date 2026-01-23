@@ -242,6 +242,15 @@ Connor Aird
 <h1>Current state of Fortran</h1>
 
 </section>
+<section class="slide level2">
+<h2>Why do we care about fortran</h2>
+<p>Fortran is still heavily used in certain communities…</p>
+<ul>
+<li class="fragment">Fortran is good add closely resembling equations within code.</li>
+<li class="fragment">Long lived numerical codes exist in academia.</li>
+<li class="fragment">Heavily used in weather prediction and fluid dynamics.</li>
+</ul>
+</section>
 <section class="slide level2 smaller scrollable" data-footer="false">
 <h2>Some known Fortran projects</h2>
 <table class="caption-top">
@@ -264,7 +273,7 @@ Connor Aird
 <td><a href="https://github.com/ukaea/ReMKiT1D">ukaea/ReMKiT1D</a> <img src="https://img.shields.io/github/stars/ukaea/ReMKiT1D"></td>
 <td>Framework for 1D multifluid and kinetic simulations of Tokamaks</td>
 <td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><i class="fa-solid fa-check" aria-label="check"></i> pFUnit</td>
+<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
 </tr>
 <tr class="odd">
 <td><a href="https://github.com/geoschem/geos-chem">geoschem/geos-chem</a> <img src="https://img.shields.io/github/stars/geoschem/geos-chem"></td>
@@ -282,20 +291,20 @@ Connor Aird
 <td><a href="https://github.com/MetOffice/lfric_core">MetOffice/lfric_core</a> <img src="https://img.shields.io/github/stars/MetOffice/lfric_core"></td>
 <td>The Met Office’s next generation weather model</td>
 <td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><i class="fa-solid fa-check" aria-label="check"></i> pFUnit</td>
+<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section class="slide level2">
+<section class="slide level2 smaller">
 <h2>Why is testing Fortran hard</h2>
-<div class="r-fit-text">
+<p>Note that these points are from my experience in academia.</p>
 <ul>
 <li class="fragment">Fortran is often legacy code.
 <ul>
 <li class="fragment">Lots of global state.</li>
 <li class="fragment">Locked into specific compilers or dependencies.</li>
-<li class="fragment">Lack of tests.</li>
+<li class="fragment">Lack of units to test.</li>
 </ul></li>
 <li class="fragment">Many custom testing setups exist
 <ul>
@@ -307,7 +316,6 @@ Connor Aird
 </ul></li>
 <li class="fragment">Unclear which frameworks to choose.</li>
 </ul>
-</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -341,12 +349,15 @@ Connor Aird
 <h1>What is pFUnit</h1>
 
 </section>
-<section class="slide level2" data-footer="false">
+<section class="slide level2 smaller">
 <h2>Overview of pFUnit</h2>
 <ul>
 <li class="fragment">Created by developers from NASA.</li>
 <li class="fragment">Open source on GitHub and accepting contributions - <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">Goddard-Fortran-Ecosystem/pFUnit</a></li>
-<li class="fragment">Availale under a <a href="https://www.nasa.gov/wp-content/uploads/2025/08/nasa-open-source-agreement-1-3.pdf?emrc=575464">NASA OPEN SOURCE AGREEMENT VERSION 1.3</a> licence.</li>
+<li class="fragment">Availale under a <a href="https://www.nasa.gov/wp-content/uploads/2025/08/nasa-open-source-agreement-1-3.pdf?emrc=575464">NASA OPEN SOURCE AGREEMENT VERSION 1.3</a> licence
+<ul>
+<li class="fragment">Permissive Licenses similar to MIT and BSD but there are differences.</li>
+</ul></li>
 <li class="fragment">Follows the style of JUnit. i.e.&nbsp;Directives (<a href="https://docs.junit.org/6.0.1/writing-tests/annotations.html">annotations</a> in JUnit) label code sections for the preprocessor.</li>
 <li class="fragment">Uses a preprocessor to convert <code>.pf</code> files to <code>.f90</code>.</li>
 <li class="fragment">F2003 object oriented features and some F2008 features, thus requires more recent versions of compilers.</li>
