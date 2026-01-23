@@ -14,7 +14,10 @@ Fortran.
   [UCL-ARC/fortran-unit-testing-exercises](https://github.com/UCL-ARC/fortran-unit-testing-exercises).
 - Plans to expand to cover…
   - Automated testing (GitHub Actions and Docker)
-  - Linting and formatting (fortitude)
-  - Automatic documentation generation (Ford and/or Doxygen)
+  - Linting and formatting
+    ([fortitude](https://fortitude.readthedocs.io/en/stable/))
+  - Automatic documentation generation
+    ([Ford](https://forddocs.readthedocs.io/en/stable/) and/or
+    [Doxygen](https://www.doxygen.nl/))
 
 ::::

@@ -38,4 +38,4 @@ The framework I tend to choose to work with is
 - Previous experience within our department.
 - Open source and still being developed.
 - Appears to be the most fully featured.
-- Supports unit testsing MPI parallelised code.
+- Supports unit testing MPI parallelised code.
