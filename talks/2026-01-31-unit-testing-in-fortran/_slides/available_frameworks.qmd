@@ -17,7 +17,7 @@ A list of known Fortran testing frameworks on the
 
 ## Fortran-lang {.smaller}
 
-A curated list of Fortran libraries and tools on the
+A list of Fortran libraries and tools on the
 [fortran-lang](https://fortran-lang.org/packages/programming/) website.
 
 ```{=html}
@@ -30,14 +30,12 @@ A curated list of Fortran libraries and tools on the
 </iframe>
 ```
 
-## Frameworks I've looked at {.r-fit-text}
+## My chosen framework
 
-My understanding as of 2025-11-11
+The framework I tend to choose to work with is
+[pFUnit](https://github.com/Goddard-Fortran-Ecosystem/pFUnit), because…
 
-|                  | [pFUnit](https://github.com/Goddard-Fortran-Ecosystem/pFUnit) | [test-drive](https://github.com/fortran-lang/test-drive) | [Veggies](https://gitlab.com/everythingfunctional/veggies) |
-| ---------------- | ------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
-| CMake            | {{< fa check >}}                                              | {{< fa check >}}                                         | {{< fa check >}}                                           |
-| FPM              | {{< fa x >}}                                                  | {{< fa check >}}                                         | {{< fa check >}}                                           |
-| MPI              | {{< fa check >}}                                              | {{< fa x >}}                                             | {{< fa x >}}                                               |
-| OpenMP           | {{< fa x >}}                                                  | {{< fa x >}}                                             | {{< fa x >}}                                               |
-| Array assertions | {{< fa check >}}                                              | {{< fa x >}}                                             | {{< fa check >}}                                           |
+- Previous experience within our department.
+- Open source and still being developed.
+- Appears to be the most fully featured.
+- Supports unit testsing MPI parallelised code.

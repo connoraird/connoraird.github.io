@@ -22,6 +22,6 @@
   - Test frameworks do not benefit from open source contibutions.
 - Lack of know-how
   - Developers are often PhD students new to Fortran development.
-- Unclear which tool to choose.
+- Unclear which frameworks to choose.
 
 ::::

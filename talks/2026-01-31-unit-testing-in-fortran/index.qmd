@@ -1,5 +1,6 @@
 ---
 author: Connor Aird
+institute: University College London
 date: 2026-01-31
 format: revealjs
 subtitle: "FOSDEM 2026: Testing and Continuous Delivery devroom"
