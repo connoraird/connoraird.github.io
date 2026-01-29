@@ -7,8 +7,6 @@ subtitle: "FOSDEM 2026: Testing and Continuous Delivery devroom"
 title: Unit testing in Fortran
 ---
 
-{{< include /_includes/qr-code.qmd >}}
-
 {{< include _slides/current_state_of_fortran.qmd >}}
 
 {{< include _slides/available_frameworks.qmd >}}
@@ -34,3 +32,5 @@ title: Unit testing in Fortran
   {{< include /_includes/shared-acknowledgements.qmd >}}
 
 :::
+
+{{< include /_includes/qr-code.qmd >}}
