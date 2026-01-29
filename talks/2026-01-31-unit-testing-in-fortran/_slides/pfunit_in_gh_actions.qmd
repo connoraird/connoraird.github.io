@@ -11,8 +11,8 @@ actions, one can make use of containerisation (**Docker**, in my case)…
   - Install and build depenencies.
   - Build src and test objects and executables.
   - Run all tests.
-- Building of slow changing dependencies, such as pFUnit, can be wrapped into a
-  parent Dockerfile which is then built less frequently.
+- Wrap slow changing dependencies, such as pFUnit, into a parent Dockerfile to
+  be built less frequently.
 - Proprietary software can be difficult to build within Dockerfiles.
 
 ::: {.fragment}

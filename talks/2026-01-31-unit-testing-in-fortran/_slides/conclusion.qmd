@@ -1,7 +1,8 @@
 # Conclusions
 
-## {data-menu-title="Summary" .r-fit-text}
+## {data-menu-title="Summary" footer=false}
 
+- Fortran is still relevant.
 - Popular Fortran projects are often lacking unit tests.
 - It is recommended to use pFUnit for Fortran unit tests.
 - pFUnit…

@@ -7,10 +7,11 @@
 I have been developing a software carpentry style lesson for unit testing in
 Fortran.
 
-- In person workshop, 17th Februrary at UCL.
+- In person workshop, 16th and 18th of Februrary at UCL - sign up at
+  [pretix.eu/ARC/2026-02-16-Fortran/](https://pretix.eu/ARC/2026-02-16-Fortran/)
 - Material written so far -
   [github-pages.arc.ucl.ac.uk/fortran-unit-testing-lesson](https://github-pages.arc.ucl.ac.uk/fortran-unit-testing-lesson/)
-- Complementary repository of exercises -
+- Repository of exercises -
   [UCL-ARC/fortran-unit-testing-exercises](https://github.com/UCL-ARC/fortran-unit-testing-exercises).
 - Plans to expand to cover…
   - Automated testing (GitHub Actions and Docker)

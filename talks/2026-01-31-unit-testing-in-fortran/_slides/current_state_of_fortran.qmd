@@ -24,8 +24,8 @@ Note that these points are from my experience in academia.
 
 - Fortran is often legacy code.
   - Lots of global state.
-  - Locked into specific compilers or dependencies.
   - Lack of units to test.
+  - Locked into specific compilers or dependencies.
 - Many custom testing setups exist
   - Test frameworks do not benefit from open source contibutions.
 - Lack of know-how
