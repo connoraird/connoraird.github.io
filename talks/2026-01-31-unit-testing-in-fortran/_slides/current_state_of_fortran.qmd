@@ -1,13 +1,5 @@
 # Current state of Fortran
 
-## Why do we care about fortran
-
-Fortran is still heavily used in certain communities…
-
-- Fortran is good add closely resembling equations within code.
-- Long lived numerical codes exist in academia.
-- Heavily used in weather prediction and fluid dynamics.
-
 ## Some known Fortran projects {.smaller .scrollable footer=false}
 
 | Repository                                                                                                                            | Description                                                     | Integration tests | Unit tests       |
