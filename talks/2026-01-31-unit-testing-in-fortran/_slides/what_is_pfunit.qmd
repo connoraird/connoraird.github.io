@@ -9,10 +9,10 @@
   [NASA OPEN SOURCE AGREEMENT VERSION 1.3](https://www.nasa.gov/wp-content/uploads/2025/08/nasa-open-source-agreement-1-3.pdf?emrc=575464)
   licence
   - Permissive Licenses similar to MIT and BSD but there are differences.
+- Uses a preprocessor to convert `.pf` files to `.f90`.
 - Follows the style of JUnit. i.e. Directives
   ([annotations](https://docs.junit.org/6.0.1/writing-tests/annotations.html) in
   JUnit) label code sections for the preprocessor.
-- Uses a preprocessor to convert `.pf` files to `.f90`.
 - F2003 object oriented features and some F2008 features, thus requires more
   recent versions of compilers.
 
@@ -21,26 +21,7 @@
 `.pf` syntax is similar to `.f90` with preprocessor directives, such as `@Test`
 and `@assertEqual`.
 
-```{.f90 code-line-numbers="-1|3|8,16"}
-module test_something
-    use maths_operations, only : double_int
-    use funit
-    implicit none
-
-contains
-
-    @Test
-    subroutine test_double_int_1()
-        integer :: input, actual_output
-
-        input = 1
-
-        call double_int(input, actual_output)
-
-        @assertEqual(2, actual_output, "Unexpected output from double_int")
-    end subroutine test_double_int_1
-end module test_something
-```
+{{< include _components/pfunit_code_example.qmd >}}
 
 ## The preprocessor {.r-fit-text footer=false}
 
