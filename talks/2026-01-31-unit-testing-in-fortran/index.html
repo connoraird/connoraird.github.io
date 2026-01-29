@@ -8,9 +8,9 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Connor Aird">
@@ -214,42 +214,10 @@ Connor Aird
 
   <p class="date">2026-01-31</p>
 </section>
-<section class="title-slide slide level1 center" data-menu-title="QR Code">
-<h1></h1>
-<div class="quarto-layout-panel" data-layout="[22,78]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
-<p>Scan to view the slides</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 78.0%;justify-content: flex-start;">
-<div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#ffffff","colorLight":"#000000","height":"550","text":"https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran","width":"550"});
-  script.remove();
-})();
-</script>
-    
-</div>
-</div>
-</div>
-</section>
-
 <section>
 <section class="title-slide slide level1 center">
 <h1>Current state of Fortran</h1>
 
-</section>
-<section class="slide level2">
-<h2>Why do we care about fortran</h2>
-<p>Fortran is still heavily used in certain communities…</p>
-<ul>
-<li class="fragment">Fortran is good add closely resembling equations within code.</li>
-<li class="fragment">Long lived numerical codes exist in academia.</li>
-<li class="fragment">Heavily used in weather prediction and fluid dynamics.</li>
-</ul>
 </section>
 <section class="slide level2 smaller scrollable" data-footer="false">
 <h2>Some known Fortran projects</h2>
@@ -303,8 +271,8 @@ Connor Aird
 <li class="fragment">Fortran is often legacy code.
 <ul>
 <li class="fragment">Lots of global state.</li>
-<li class="fragment">Locked into specific compilers or dependencies.</li>
 <li class="fragment">Lack of units to test.</li>
+<li class="fragment">Locked into specific compilers or dependencies.</li>
 </ul></li>
 <li class="fragment">Many custom testing setups exist
 <ul>
@@ -341,7 +309,7 @@ Connor Aird
 <li class="fragment">Previous experience within our department.</li>
 <li class="fragment">Open source and still being developed.</li>
 <li class="fragment">Appears to be the most fully featured.</li>
-<li class="fragment">Supports unit testing MPI parallelised code.</li>
+<li class="fragment">Most importantly, supports unit testing MPI parallelised code.</li>
 </ul>
 </section></section>
 <section>
@@ -358,15 +326,15 @@ Connor Aird
 <ul>
 <li class="fragment">Permissive Licenses similar to MIT and BSD but there are differences.</li>
 </ul></li>
-<li class="fragment">Follows the style of JUnit. i.e.&nbsp;Directives (<a href="https://docs.junit.org/6.0.1/writing-tests/annotations.html">annotations</a> in JUnit) label code sections for the preprocessor.</li>
 <li class="fragment">Uses a preprocessor to convert <code>.pf</code> files to <code>.f90</code>.</li>
+<li class="fragment">Follows the style of JUnit. i.e.&nbsp;Directives (<a href="https://docs.junit.org/6.0.1/writing-tests/annotations.html">annotations</a> in JUnit) label code sections for the preprocessor.</li>
 <li class="fragment">F2003 object oriented features and some F2008 features, thus requires more recent versions of compilers.</li>
 </ul>
 </section>
 <section class="slide level2" data-footer="false">
 <h2>Syntax</h2>
 <p><code>.pf</code> syntax is similar to <code>.f90</code> with preprocessor directives, such as <code>@Test</code> and <code>@assertEqual</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="-1|3|8,16"><pre class="sourceCode numberSource f90 number-lines code-with-copy"><code class="sourceCode fortranfree"><span id="cb1-1"><a></a><span class="kw">module</span> test_something</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="-1|3|8|16"><pre class="sourceCode numberSource f90 number-lines code-with-copy"><code class="sourceCode fortranfree"><span id="cb1-1"><a></a><span class="kw">module</span> test_something</span>
 <span id="cb1-2"><a></a>    <span class="kw">use</span> maths_operations, <span class="kw">only</span> : double_int</span>
 <span id="cb1-3"><a></a>    <span class="kw">use</span> funit</span>
 <span id="cb1-4"><a></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
@@ -473,7 +441,7 @@ Connor Aird
 <li class="fragment">Build src and test objects and executables.</li>
 <li class="fragment">Run all tests.</li>
 </ul></li>
-<li class="fragment">Building of slow changing dependencies, such as pFUnit, can be wrapped into a parent Dockerfile which is then built less frequently.</li>
+<li class="fragment">Wrap slow changing dependencies, such as pFUnit, into a parent Dockerfile to be built less frequently.</li>
 <li class="fragment">Proprietary software can be difficult to build within Dockerfiles.</li>
 </ul>
 <div class="fragment">
@@ -532,9 +500,9 @@ Connor Aird
 <div class="r-fit-text">
 <p>I have been developing a software carpentry style lesson for unit testing in Fortran.</p>
 <ul>
-<li class="fragment">In person workshop, 17th Februrary at UCL.</li>
+<li class="fragment">In person workshop, 16th and 18th of Februrary at UCL - sign up at <a href="https://pretix.eu/ARC/2026-02-16-Fortran/">pretix.eu/ARC/2026-02-16-Fortran/</a></li>
 <li class="fragment">Material written so far - <a href="https://github-pages.arc.ucl.ac.uk/fortran-unit-testing-lesson/">github-pages.arc.ucl.ac.uk/fortran-unit-testing-lesson</a></li>
-<li class="fragment">Complementary repository of exercises - <a href="https://github.com/UCL-ARC/fortran-unit-testing-exercises">UCL-ARC/fortran-unit-testing-exercises</a>.</li>
+<li class="fragment">Repository of exercises - <a href="https://github.com/UCL-ARC/fortran-unit-testing-exercises">UCL-ARC/fortran-unit-testing-exercises</a>.</li>
 <li class="fragment">Plans to expand to cover…
 <ul>
 <li class="fragment">Automated testing (GitHub Actions and Docker)</li>
@@ -549,9 +517,10 @@ Connor Aird
 <h1>Conclusions</h1>
 
 </section>
-<section class="slide level2" data-menu-title="Summary">
+<section class="slide level2" data-menu-title="Summary" data-footer="false">
 <h2></h2>
 <ul>
+<li class="fragment">Fortran is still relevant.</li>
 <li class="fragment">Popular Fortran projects are often lacking unit tests.</li>
 <li class="fragment">It is recommended to use pFUnit for Fortran unit tests.</li>
 <li class="fragment">pFUnit…
@@ -572,6 +541,29 @@ Connor Aird
 <li>Credit to the maintainers of pFUnit at <a href="https://github.com/Goddard-Fortran-Ecosystem">github.com/Goddard-Fortran-Ecosystem</a>, in particular <a href="https://github.com/tclune">Tom Clune</a> and <a href="https://github.com/mathomp4">Matt Thompson</a>.</li>
 <li>Thank you to Paddy J. Roddy for their <a href="https://github.com/paddyroddy/talks">quarto template</a> and <a href="https://paddyroddy.github.io/talks/quarto-making-talks/">helpful talk</a> which made this talk possible.</li>
 </ul>
+</section>
+
+<section class="title-slide slide level1 center" data-menu-title="QR Code">
+<h1></h1>
+<div class="quarto-layout-panel" data-layout="[22,78]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 22.0%;justify-content: flex-start;">
+<p>Scan to view the slides</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 78.0%;justify-content: flex-start;">
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#ffffff","colorLight":"#000000","height":"550","text":"https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran","width":"550"});
+  script.remove();
+})();
+</script>
+    
+</div>
+</div>
+</div>
 
 
 </section>
