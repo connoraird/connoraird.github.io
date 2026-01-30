@@ -1,11 +1,9 @@
 # Future Work
 
-## Fortran testing workshop (UCL)
+## Fortran testing workshop (UCL) {.smaller}
 
-:::: {.r-fit-text}
-
-I have been developing a software carpentry style lesson for unit testing in
-Fortran.
+I have been developing a [software carpentry](https://software-carpentry.org/)
+style lesson for unit testing in Fortran.
 
 - In person workshop, 16th and 18th of Februrary at UCL - sign up at
   [pretix.eu/ARC/2026-02-16-Fortran/](https://pretix.eu/ARC/2026-02-16-Fortran/)
@@ -20,5 +18,3 @@ Fortran.
   - Automatic documentation generation
     ([Ford](https://forddocs.readthedocs.io/en/stable/) and/or
     [Doxygen](https://www.doxygen.nl/))
-
-::::

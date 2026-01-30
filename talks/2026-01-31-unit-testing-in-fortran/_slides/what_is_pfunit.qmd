@@ -23,7 +23,7 @@ and `@assertEqual`.
 
 {{< include _components/pfunit_code_example.qmd >}}
 
-## The preprocessor {.r-fit-text footer=false}
+## The preprocessor {.smaller}
 
 - Written in Python.
 - Converts `.pf` with directives into `.f90`.

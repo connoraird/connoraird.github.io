@@ -1,6 +1,6 @@
 # Conclusions
 
-## {data-menu-title="Summary" footer=false}
+## {data-menu-title="Summary" .smaller}
 
 - Fortran is still relevant.
 - Popular Fortran projects are often lacking unit tests.

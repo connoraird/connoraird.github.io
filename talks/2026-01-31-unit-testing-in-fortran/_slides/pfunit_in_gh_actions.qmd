@@ -1,8 +1,6 @@
 # Automated testing with pFUnit in CI (GitHub Actions)
 
-## Automating with Docker
-
-:::: {.r-fit-text}
+## Automating with Docker {.smaller}
 
 To ensure a consitent environment when running pFUnit tests through GitHub
 actions, one can make use of containerisation (**Docker**, in my case)…
@@ -22,8 +20,6 @@ See
 for an example of this being used in practice
 
 :::
-
-::::
 
 ## Example Dockerfile
 
