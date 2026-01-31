@@ -134,7 +134,21 @@ See my [github profile](https://github.com/connoraird) for a comprehensive list
 of open source projects.
 
 ```{r}
-#| label: proj
+#| label: k-Plan
+#| output: asis
+tibble::tribble(
+    ~what, ~role, ~details, ~responsibilities,
+    "k-Plan Treatment Planning Module",
+    "RSE, Project lead",
+    "K-Plan is a Microsoft native User Interface written in c++ for simulating ultrasound treatment plans. In my role I:",
+    c("Schedule staffing on project.","Prioritse work.","Implement feature requests, bug fixes and general maintenance.","Advise on testing strategies.")
+) |>
+    cvproj(what = "what", role = "role", details = "details", responsibilities = "responsibilities")
+
+```
+
+```{r}
+#| label: Music
 #| output: asis
 tibble::tribble(
     ~what, ~role, ~details, ~responsibilities,
@@ -142,6 +156,20 @@ tibble::tribble(
     "RSE",
     "MUSIC is a Fortran code which simulates the interiors of stars. This study aimed to determine the potential gains and likely cost of implementing GPU offloading within the code base. In my role I:",
     c("Enabled the OpenMP and CUDA backends of Trilinos (an external library utilised by MUSIC)","Produced scripts to automate the building of Trilinos, music and Kokkos-tools.","Wrote submission scripts to allow the rapid production of benchmark data.","Profiled MUSIC using the NVIDIA NSIGHT system.")
+) |>
+    cvproj(what = "what", role = "role", details = "details", responsibilities = "responsibilities")
+
+```
+
+```{r}
+#| label: CONQUEST
+#| output: asis
+tibble::tribble(
+    ~what, ~role, ~details, ~responsibilities,
+    "CONQUEST, eCSE08 Improving Multi-threaded Scaling.",
+    "RSE",
+    "CONQUEST is a large-scale density functional theory (DFT) code written in Fortran. DFT employs principles of quantum physics and is used within many fields, such as physics, chemistry and materials science. In my role I:",
+    c("Refactored a particular kernel to maximise serial performance.","Implemented both OpenMP and BLAS parallelisation within this refactored kernel.","Carried out performance analysis using benchmarks and profilers to tune this parallel implementation.")
 ) |>
     cvproj(what = "what", role = "role", details = "details", responsibilities = "responsibilities")
 
