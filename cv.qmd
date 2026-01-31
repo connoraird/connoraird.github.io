@@ -140,7 +140,7 @@ tibble::tribble(
     ~what, ~role, ~details, ~responsibilities,
     "GLASS, Porting to the python array API",
     "RSE",
-    "<a href='https://github.com/glass-dev/glass'>GLASS</a>, Generator for Large Scale Structure, is a python library for performing simulations useful in the field of cosmology.",
+    "GLASS, Generator for Large Scale Structure, is a python library for performing simulations useful in the field of cosmology.",
     c("Porting existing functions utilising NumPy to be array api compatible.","Creating a benchmark suite using pytest benchmark.")
 ) |>
     cvproj(what = "what", role = "role", details = "details", responsibilities = "responsibilities")
