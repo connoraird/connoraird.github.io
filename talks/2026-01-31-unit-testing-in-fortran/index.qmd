@@ -5,6 +5,7 @@ date: 2026-01-31
 format: revealjs
 subtitle: "FOSDEM 2026: Testing and Continuous Delivery devroom"
 title: Unit testing in Fortran
+logo: /assets/ucl_logo_light.png
 ---
 
 {{< include _slides/current_state_of_fortran.qmd >}}

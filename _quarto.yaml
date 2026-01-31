@@ -23,6 +23,7 @@ format:
     auto-stretch: false
     callout-appearance: simple
     code-copy: true
+    css: styling/talks.css
     filters:
       - _filters/slugify.lua
     footer: "{{< meta title >}} - [Back to talks](/talks.html)"
@@ -31,7 +32,7 @@ format:
     incremental: true
     link-external-filter: ^https:\/\/connoraird\.github\.io
     link-external-icon: true
-    logo: favicon.ico
+    logo: assets/favicon.ico
     mermaid:
       theme: dark
     menu:
@@ -47,7 +48,7 @@ resources:
   - particles
 
 website:
-  favicon: favicon.ico
+  favicon: assets/favicon.ico
   navbar:
     collapse-below: lg
     logo: https://www.gravatar.com/avatar/a24925988bd171effa08b9bbe9a9cb16cf3f6e902f6e348857d4e509a4810ad1?s=1000
