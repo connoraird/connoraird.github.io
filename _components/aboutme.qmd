@@ -11,8 +11,8 @@
 I am a [Research Software Engineer](https://society-rse.org/about/) at the
 [Centre for Advanced Research Computing](https://www.ucl.ac.uk/advanced-research-computing/advanced-research-computing-centre),
 University College London and have been since June 2023. I work across a range
-of projects, from parallelising High Performance Fortran to
-developing open-source sustainable python applications. Check out my
+of projects, from parallelising High Performance Fortran to developing
+open-source sustainable python applications. Check out my
 [GitHub](https://github.com/connoraird) to see what I've been up to lately.
 
 :::
