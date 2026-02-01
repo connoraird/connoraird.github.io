@@ -21,11 +21,8 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Cache Jupyter
-        uses: actions/cache@v4
-        with:
-          path: .jupyter_cache
-          key: quarto-${{ hashFiles('_quarto.yaml') }}
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v7
