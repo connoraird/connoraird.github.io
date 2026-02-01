@@ -4,7 +4,6 @@ project:
 
 execute:
   cache: true
-  freeze: auto
 
 format:
   html:
