@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-subtitle','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-subtitle','listing-author','listing-recording',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -251,11 +251,15 @@ Event
 <a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
 </th>
 
+<th>
+recording
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1769817600000" data-listing-file-modified-sort="1769954432599" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49" data-listing-title-sort="Unit testing in Fortran" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-date-sort="1769817600000" data-listing-file-modified-sort="1770030738334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49" data-listing-title-sort="Unit testing in Fortran" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">2026-01-31</span>
 </td>
@@ -268,10 +272,13 @@ Event
 <td>
 <span class="listing-author">Connor Aird</span>
 </td>
+<td>
+<span class="listing-recording"><a href="https://mirror.cyberbits.eu/fosdem/2026/h2213/QMWWPB-unit-testing-in-fortran.av1.webm">Devroom recording</a></span>
+</td>
 
 </tr>
 
-<tr data-index="1" data-listing-date-sort="1762819200000" data-listing-file-modified-sort="1769954432600" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6" data-listing-title-sort="Unit testing in Fortran" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-listing-date-sort="1762819200000" data-listing-file-modified-sort="1770030738335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6" data-listing-title-sort="Unit testing in Fortran" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">2025-11-11</span>
 </td>
@@ -283,6 +290,9 @@ Event
 </td>
 <td>
 <span class="listing-author">Connor Aird</span>
+</td>
+<td>
+<span class="listing-recording">&nbsp;</span>
 </td>
 
 </tr>
