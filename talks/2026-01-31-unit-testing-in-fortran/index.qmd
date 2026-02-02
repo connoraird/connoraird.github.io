@@ -6,6 +6,9 @@ format: revealjs
 subtitle: "FOSDEM 2026: Testing and Continuous Delivery devroom"
 title: Unit testing in Fortran
 logo: /assets/ucl_logo_light.png
+recording:
+  "[Devroom
+  recording](https://mirror.cyberbits.eu/fosdem/2026/h2213/QMWWPB-unit-testing-in-fortran.av1.webm)"
 ---
 
 {{< include _slides/current_state_of_fortran.qmd >}}
