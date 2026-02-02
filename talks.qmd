@@ -16,6 +16,7 @@ listing:
     - title
     - subtitle
     - author
+    - recording
   page-size: 10
   sort: date desc
   type: table
