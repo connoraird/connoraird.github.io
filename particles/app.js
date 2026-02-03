@@ -6,35 +6,13 @@ function choose_particles_config() {
   let month = date.getMonth();
   let day = date.getDate();
 
-  // Spring
-  if (1 < month && month < 5) {
-    // config = base_path + "spring.json"
-  }
-  // Summer
-  if (4 < month && month < 5) {
-    // config = base_path + "summer.json"
-  }
-  // Autumn
-  if (7 < month && month < 10) {
-    config = base_path + "autumn.json";
-  }
-  // Winter
-  else if (month > 9 || month < 2) {
+  // Winter in December
+  if (month == 11) {
     config = base_path + "winter.json";
-    // Halloween
-    if (month == 9 && day == 31) {
-    }
-    // Bonfire night
-    if (month == 10 && day == 5) {
-    }
-    // Christmas
-    if (month == 11 && day == 25) {
-      // config = base_path + "xmas.json"
-    }
-    // New Year
-    if ((month == 11 && day == 31) || (month == 0 && day == 1)) {
-      config = base_path + "new-year.json";
-    }
+  }
+  // New Year
+  if ((month == 11 && day == 31) || (month == 0 && day == 1)) {
+    config = base_path + "new-year.json";
   }
 
   return config;

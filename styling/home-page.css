@@ -29,12 +29,21 @@ h1 {
 
 @media screen and (max-width: 770px) {
   .left-column {
+    margin-right: 0em;
     margin-bottom: 1em;
   }
 
   .right-column {
     border-top: 1px solid rgb(86, 86, 86);
+    padding-left: 0em;
     padding-top: 2em;
+  }
+
+  .home-page-avatar {
+    border-radius: 100%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
   }
 }
 
