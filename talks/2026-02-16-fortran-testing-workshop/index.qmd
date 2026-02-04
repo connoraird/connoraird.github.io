@@ -1,0 +1,24 @@
+---
+author: Connor Aird
+institute: University College London
+date: 2026-02-16
+format: revealjs
+title: Testing in Fortran Workshop
+logo: /assets/ucl_logo_light.png
+---
+
+{{< include _slides/introduction.qmd >}}
+
+{{< include _slides/what_is_a_unit.qmd >}}
+
+<!-- {{< include _slides/refactoring_fortran.qmd >}} -->
+
+<!-- {{< include _slides/writing_your_first_unit_test.qmd >}} -->
+
+<!-- {{< include _slides/pfunit_syntax.qmd >}} -->
+
+<!-- {{< include _slides/integrating_with_build_systems.qmd >}} -->
+
+<!-- {{< include _slides/testing_with_mpi.qmd >}} -->
+
+<!-- {{< include _slides/feedback.qmd >}} -->

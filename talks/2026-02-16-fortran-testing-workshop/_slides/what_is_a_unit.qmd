@@ -1,0 +1,71 @@
+# What is a unit test
+
+## Definition {.smaller}
+
+A test which verifies the functionality of a single unit of code (procedure)
+
+> “If the parts don’t work by themselves, they probably won’t work well
+> together” – (Thomas and Hunt, 2019, The pragmatic programmer, Topic 51).
+
+::: {.fragment}
+
+Several key aspects define a unit test. They should be…
+
+- **Isolated** - Does not rely on any other unit of code within the repository.
+- **Minimal** - Tests only one unit of code.
+- **Fast** - Run on the scale of ms or s.
+
+:::
+
+## What does a unit test look like
+
+::: {.fragment}
+
+**Given** we are in some specific starting state
+
+```{.f90 code-line-numbers="-1|1,2|4,5"}
+! Load data from a file
+call read_input_file(file_path, x_size)
+
+! Allocate arrays
+allocate(x(x_size))
+```
+
+:::
+
+::: {.fragment}
+
+**When** we carry out a specific action
+
+```{.f90}
+call some_subroutine(x, y)
+```
+
+:::
+
+::: {.fragment}
+
+**Then** some specific event/outcome will have occurred
+
+```{.f90}
+if (.not. allocated(y)) write(*,*) "Error: y is not allocated"
+```
+
+:::
+
+## Challenge
+
+Write a unit test in pseudo code for the function `reverse_array` shown below.
+
+```{.f90}
+function reverse_array(a) result(r)
+    implicit none
+    integer, intent(in) :: a(:)
+    integer :: i, n, r(size(a))
+
+    n = size(a)
+    do i = 1, n
+        r(i) = a(n - i + 1)
+    end do
+end function reverse_array
+```

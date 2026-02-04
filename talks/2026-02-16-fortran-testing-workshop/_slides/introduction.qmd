@@ -1,0 +1,46 @@
+# Introduction
+
+## Schedule
+
+1. Getting setup
+2. What is a unit test
+3. How do we write testable Fortran
+4. Writing our first unit test
+5. Fortran unit test syntax
+6. Integrating tests with build systems
+7. Testing with MPI
+
+# Getting setup
+
+## Exercises repository
+
+Excersise repo -
+[github.com/UCL-ARC/fortran-unit-testing-exercises](https://github.com/UCL-ARC/fortran-unit-testing-exercises)
+
+{{< qrcode "https://github.com/UCL-ARC/fortran-unit-testing-exercises"
+colorDark="#ffffff" colorLight="#000000" height=550 width=550 >}}
+
+## Setting up your environment
+
+Do one of the following
+
+::::{.columns}
+
+:::{.column .fragment}
+
+### Via GitHub
+
+1. Open Codespaces
+
+:::
+
+::: {.column .fragment}
+
+### Via VSCode
+
+1. Clone exercises repo
+2. Reopen in Container
+
+:::
+
+::::
