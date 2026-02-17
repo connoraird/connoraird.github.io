@@ -47,7 +47,7 @@
 %----------------------------------------------------------------------------------------
 
 % include the fontawesome icon set
-\usepackage{fontawesome5}
+\usepackage{fontawesome6}
 
 % use to vertically center content
 % credits to: http://tex.stackexchange.com/questions/7219/how-to-vertically-center-two-images-next-to-each-other
@@ -413,77 +413,92 @@
 				%----------------------------------------------------------------------------------------
 				\fcolorbox{white}{white}{\begin{minipage}[c][1.5cm][c]{1\mpwidth}
 					\LARGE{\textbf{\textcolor{black}{Connor Aird}}} \\[2pt]
-					\normalsize{ \textcolor{black} {Research Software Engineer at UCL} }
+					\normalsize{ \textcolor{black} {Research Software Engineer at UCL} } \\[2pt]
+					\normalsize{ \textcolor{black} {London, United Kingdom} } \\[2pt]
+					\normalsize{ \textcolor{black} {British} }
 				\end{minipage}}
 
 				%---------------------------------------------------------------------------------------
 				%	META SKILLS
 				%----------------------------------------------------------------------------------------
-				\icontext{caret-right}{12}{London, United Kingdom}\\[6pt]
-				\icontext{caret-right}{12}{British}\\[6pt]
+				\cvsection{Skills}
 
-				\cvsection{Languages}
-
-					\cvskill{C++}{}{0.8} \\[10pt]
-					\cvskill{Fortran}{}{0.8} \\[10pt]
-					\cvskill{JavaScript}{}{0.2} \\[10pt]
-					\cvskill{Python}{}{1} \\[10pt]
-					\cvskill{MPI}{}{0.5} \\[10pt]
-					\cvskill{OpenMP}{}{0.5} \\[10pt]
+          \icontext{code}{12}{C++, Fortran, Python}\\[6pt]
+          \icontext{terminal}{12}{Docker, Git, Qt, Quarto}\\[6pt]
+          \icontext{gauge-high}{12}{MPI, OpenMP}
 
 				\cvsection{Education}
 
 					\cvmetaevent{09/2016 - 06/2020}{MPhys Physics}{University of York}{1st Class Honours (with distinction)}
+				
+        \cvsection{Awards}
+
+					\cvmetaevent{2026}{Qualified Carpentries Instructor}{}{Experience teaching UNIX shell, Python, Git and Fortran}
 
 				\cvsection{Contact}
 
-					\icontext{map-marker}{16}{London, United Kingdom}\\[6pt]
+					\icontext{location-dot}{16}{London, United Kingdom}\\[6pt]
 					\iconemail{envelope}{16}{connoraird@gmail.com}\\[6pt]
-					\iconhref{home}{16}{connoraird.github.io}{https://connoraird.github.io}\\[6pt]
+					\iconhref{house}{16}{connoraird.github.io}{https://connoraird.github.io}\\[6pt]
 					\iconhref{github}{16}{connoraird}{https://github.com/connoraird}\\[6pt]
 					\iconhref{linkedin}{16}{connoraird}{https://linkedin.com/in/connoraird}\\[6pt]
 
 			\end{leftcolumn}
 
 			\begin{rightcolumn}
-				% \cvsection{Summary}\label{summary}
-
-				% 	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-				% 	eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-				% 	voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-				% 	clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-				% 	amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-				% 	nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-				% 	sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-				% 	rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-				% 	ipsum dolor sit amet.
 
 				\cvsection{Experience}\label{experience}
 
 					\cvevent{08/2024 - Present}
 						{Research Software Engineer}
 						{Centre for Advanced Research Computing \newline University College London}
-						{In addition to the responsibilities of an Assistant RSE, I am now responsible for the management of a project, its staffing and the collaboration with the primary investigator. I have also gone beyond helping at software carpentries to now teaching and developing course material.}
+            {Beyond my Assistant RSE responsibilities, I now manage projects including staffing and PI collaboration. I develop
+            and deliver workshop training materials, and regularly present at conferences such as RSECon and FOSDEM.}
 
 					\cvevent{06/2023 - 08/2024}
 						{Assitant Research Software Engineer}
 						{Centre for Advanced Research Computing \newline University College London}
-						{As an Assistant RSE, I collaborated with research colleagues from across UCL to construct, improve and maintain research codes. I provided consulting on software best practices, techniques and designs to help build well tested maintainable software. I also aided in teaching activities through demonstrating software carpentries sessions and aiding with marking.}
+            {As Assistant RSE I collaborated with researchers across UCL to design, develop, improve and maintain research codes,
+            advised on software best practices, and supported Carpentries teaching and marking.}
 
 					\cvevent{08/2020 - 06/2023}
 						{Consultant}
-						{Infinity Works \newline Leeds, UK}
-						{Whilst at IW, I was part of multiple different teams working on a range of client accounts. My work consisted of developing and maintaining well-tested web applications. I was also responsible for developing cloud infrastructure-as-code for these applications using technologies such as Terraform. Deployments to this infrastructure were managed by myself and the rest of the team through the maintenance of CI/CD pipelines using Jenkins, GitHub actions and other CI/CD tools. Throughout my time at IW, I utilised agile methodologies to effectively deliver work.}
+						{Accenture \newline Leeds, UK}
+            {Whilst at Accenture I built well-tested web applications, wrote AWS infrastructure-as-code using Terraform and
+            maintained CI/CD pipelines with Jenkins and GitHub Actions.}
 
 				\cvsection{Projects}\label{projects}
 
-					\cvproj{GLASS, Porting to the python array API}{RSE}{GLASS, Generator for Large Scale Structure, is a python library for performing simulations useful in the field of cosmology.}{Porting existing functions utilising NumPy to be array api compatible.|||Creating a benchmark suite using pytest benchmark.}
+          \cvevent{09/2025 - Present}
+            {GLASS, Porting to the python array API}
+            {RSE}
+            {GLASS, Generator for Large Scale Structure, is a python library for performing simulations useful in the field of
+            cosmology. In my role I - ported existing functions utilising NumPy to be array api compatible and created a benchmark
+            suite using pytest benchmark.}
 
-					\cvproj{k-Plan Treatment Planning Module}{RSE, Project lead}{K-Plan is a Microsoft native User Interface written in c++ for simulating ultrasound treatment plans. In my role I:}{Schedule staffing on project.|||Prioritse work.|||Implement feature requests, bug fixes and general maintenance.|||Advise on testing strategies.}
+					\cvevent{07/2023 - Present}
+						{k-Plan Treatment Planning Module}
+						{RSE, Project lead}
+						{K-Plan is a User Interface written in c++ for simulating ultrasound treatment plans. In my role I - schedule staffing
+            on the project, Prioritse work, Implement feature requests, bug fixes and general maintenance and advise on
+            implementation and design.}
 
-					\cvproj{MUSIC, DiRAC GPU feasibility study}{RSE}{MUSIC is a Fortran code which simulates the interiors of stars. This study aimed to determine the potential gains and likely cost of implementing GPU offloading within the code base. In my role I:}{Enabled the OpenMP and CUDA backends of Trilinos (an external library utilised by MUSIC)|||Produced scripts to automate the building of Trilinos, music and Kokkos-tools.|||Wrote submission scripts to allow the rapid production of benchmark data.|||Profiled MUSIC using the NVIDIA NSIGHT system.}
+          \cvevent{04/2025 - 06/2025}
+            {MUSIC, DiRAC GPU feasibility study}
+            {RSE}
+            {MUSIC is a Fortran code which simulates the interiors of stars. This study aimed to determine the potential gains
+            and likely cost of implementing GPU offloading within MUSIC. In my role I - enabled the OpenMP and CUDA
+            backends of an external dependency (Trilinos), produced scripts to automate the building of Trilinos, music and
+            Kokkos-tools, wrote scripts to allow the rapid production of benchmark data and profiled MUSIC using the NVIDIA
+            NSIGHT system.}
 
-					\cvproj{CONQUEST, eCSE08 Improving Multi-threaded Scaling.}{RSE}{CONQUEST is a large-scale density functional theory (DFT) code written in Fortran. DFT employs principles of quantum physics and is used within many fields, such as physics, chemistry and materials science. In my role I:}{Refactored a particular kernel to maximise serial performance.|||Implemented both OpenMP and BLAS parallelisation within this refactored kernel.|||Carried out performance analysis using benchmarks and profilers to tune this parallel implementation.}
+          \cvevent{}
+            {CONQUEST, eCSE08 Improving Multi-threaded Scaling.}
+            {RSE}
+            {CONQUEST is a large-scale density functional theory (DFT) code written in Fortran. In my role I - refactored
+            a kernel to maximise serial performance, implemented both OpenMP and BLAS parallelisation and carried out performance
+            analysis using benchmarks and profilers to tune this parallel implementation.}
+
 			\end{rightcolumn}
 		\end{paracol}
 
