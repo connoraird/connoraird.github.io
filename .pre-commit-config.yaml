@@ -1,8 +1,7 @@
 ---
 exclude: |-
   (?x)^(
-    .*\/boars\.mp4|
-    .*\/poster\.png|
+    .*\.jpg|
     _extensions\/.*
   )$
 repos:

@@ -1,0 +1,69 @@
+# Pytest Benchmark
+
+## GLASS
+
+:::: {layout="[60,40]"}
+
+::: {.cell}
+
+Generator for Large Scale Structure
+
+- Python code which generates full-universe simulations for large galaxy
+  surveys.
+- Heavily depends on NumPy.
+
+:::
+
+::: {.cell}
+
+![](https://raw.githubusercontent.com/glass-dev/glass/refs/heads/main/docs/_static/spheres.png)
+
+:::
+
+::::
+
+:::: {.fragment}
+
+### Project aim
+
+Port GLASS to the array-api such that NumPy could be replaced by the user with
+any other array-api compatible library including one that is GPU enabled.
+
+::::
+
+## The Python Array-API (i)
+
+Before - Libraries limit the tools available
+
+![Credit: [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/array-ecosystem.png){.r-stretch}
+
+## The Python Array-API (ii)
+
+After - All libraries work with all tools
+
+![Credit: [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/ecosystem-modified.png){.r-stretch}
+
+## Why did we need benchmarks? {.r-fit-text}
+
+```{.python code-line-numbers="-1|1,4,9|5-6"}
+import array_api_compat
+
+def do_something(x, y):
+    xp = array_api_compat.array_namespace(x, y, use_compat=False)
+    if (xp.__name__ == "numpy"):
+      # Do something NumPy specific...
+
+def do_something_else(x):
+    xp = x.__array_namespace__()
+    #...
+```
+
+::: {.fragment}
+
+Porting to the array-api adds performance penalties.
+
+- Extra if conditions
+- Extra function calls
+- Transforming large arrays between backends
+
+:::

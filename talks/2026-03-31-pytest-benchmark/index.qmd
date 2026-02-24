@@ -1,0 +1,47 @@
+---
+author: Connor Aird
+institute: University College London
+date: 2026-01-31
+format: revealjs
+subtitle: "ARC Forum"
+title: Pytest Benchmark, was it worth it?
+logo: /assets/ucl_logo_light.png
+recording:
+---
+
+{{< include _slides/re-intro.qmd >}}
+
+{{< include _slides/project-context.qmd >}}
+
+# What is pytest benchmark
+
+- What is pytest?
+- What does pytest-benchnmark add?
+- How do you use it?
+- What does it output?
+
+# How we used pytest-benchmark
+
+- Initialy use separate repo. Eventually merged into single repo.
+- Reuse fixtures from core tests.
+- Define Regression tests which compare base ref to HEAD ref for PRs.
+  - Benchmarks used are those from the HEAD ref.
+  - Run in GitHub actions
+  - Both runs occur right after one another so in theory experince the same load
+    on the machine.
+
+# The issues
+
+- If the GLASS api chnged (i.e. new module) the regression tests would fail.
+- Flaky regression tests
+  - Split into stable and unstable with different metrics for each.
+  - Maximise problem size.
+  - Filter to only run for NumPy.
+
+# Conclusion
+
+- Not clear if it was worth it.
+- Has definitely highlighted regressions.
+- We hope to use it in the future
+  - Demonstrate GPU improvements.
+  - Benchmark machines.
