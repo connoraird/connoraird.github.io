@@ -45,7 +45,7 @@ After - All libraries work with all tools
 
 ## Why did we need benchmarks? {.r-fit-text}
 
-```{.python code-line-numbers="-1|1,4,9|5-6"}
+```{.py code-line-numbers="-1|1,4,9|5-6"}
 import array_api_compat
 
 def do_something(x, y):

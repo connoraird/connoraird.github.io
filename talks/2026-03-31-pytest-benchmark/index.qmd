@@ -13,12 +13,7 @@ recording:
 
 {{< include _slides/project-context.qmd >}}
 
-# What is pytest benchmark
-
-- What is pytest?
-- What does pytest-benchnmark add?
-- How do you use it?
-- What does it output?
+{{< include _slides/what-is-pytest-benchmark.qmd >}}
 
 # How we used pytest-benchmark
 
