@@ -1,6 +1,6 @@
 %============================================================================%
 %
-%	DOCUMENT DEFINITION
+%   DOCUMENT DEFINITION
 %
 %============================================================================%
 
@@ -8,7 +8,7 @@
 
 
 %----------------------------------------------------------------------------------------
-%	ENCODING
+%   ENCODING
 %----------------------------------------------------------------------------------------
 
 % we use utf8 since we want to build from any machine
@@ -18,7 +18,7 @@
 % \usepackage[numbers]{natbib}
 
 %----------------------------------------------------------------------------------------
-%	LOGIC
+%   LOGIC
 %----------------------------------------------------------------------------------------
 
 % provides \isempty test
@@ -29,7 +29,7 @@
 \usepackage{pdfpages}
 \usepackage{changepage}
 %----------------------------------------------------------------------------------------
-%	FONT BASICS
+%   FONT BASICS
 %----------------------------------------------------------------------------------------
 
 % some tex-live fonts - choose your own
@@ -43,7 +43,7 @@
 \usepackage{moresize}
 
 %----------------------------------------------------------------------------------------
-%	FONT AWESOME ICONS
+%   FONT AWESOME ICONS
 %----------------------------------------------------------------------------------------
 
 % include the fontawesome icon set
@@ -62,13 +62,13 @@
 
 % icon shortcut
 \newcommand{\icon}[2] {
-	\makebox(#2, #2){\textcolor{maincol}{\textcolor{maincol}{\faIcon{#1}}}}
+    \makebox(#2, #2){\textcolor{maincol}{\textcolor{maincol}{\faIcon{#1}}}}
 }
 
 
 % icon with text shortcut
 \newcommand{\icontext}[3]{
-	\vcenteredhbox{\icon{#1}{#2}}  \hspace{2pt}  \parbox{0.9\mpwidth}{\textcolor{black}{#3}}
+    \vcenteredhbox{\icon{#1}{#2}}  \hspace{2pt}  \parbox{0.9\mpwidth}{\textcolor{black}{#3}}
 }
 
 % icon with website url
@@ -82,7 +82,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	PAGE LAYOUT  DEFINITIONS
+%   PAGE LAYOUT  DEFINITIONS
 %----------------------------------------------------------------------------------------
 
 % page outer frames (debug-only)
@@ -112,7 +112,7 @@
 \setlength{\parindent}{0mm}
 
 %----------------------------------------------------------------------------------------
-%	TABLE /ARRAY DEFINITIONS
+%   TABLE /ARRAY DEFINITIONS
 %----------------------------------------------------------------------------------------
 
 % extended aligning of tabular cells
@@ -125,7 +125,7 @@
 
 
 %----------------------------------------------------------------------------------------
-%	GRAPHICS DEFINITIONS
+%   GRAPHICS DEFINITIONS
 %----------------------------------------------------------------------------------------
 
 %for header image
@@ -143,11 +143,11 @@
 \usetikzlibrary{shapes, backgrounds,mindmap, trees}
 
 %----------------------------------------------------------------------------------------
-%	Bibliography
+%   Bibliography
 %----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
-%	Color DEFINITIONS
+%   Color DEFINITIONS
 %----------------------------------------------------------------------------------------
 \usepackage{transparent}
 \usepackage{color}
@@ -180,69 +180,69 @@
 
 %============================================================================%
 %
-%	CV COMMANDS
+%   CV COMMANDS
 %
 %============================================================================%
 
 %----------------------------------------------------------------------------------------
-%	 CV TEXT
+%    CV TEXT
 %----------------------------------------------------------------------------------------
 
 % base class to wrap any text based stuff here. Renders like a paragraph.
 % Allows complex commands to be passed, too.
 % param 1: *any
 \newcommand{\cvtext}[1] {
-	\begin{tabular*}{1\mpwidth}{p{0.98\mpwidth}}
-		\parbox{1\mpwidth}{#1}
-	\end{tabular*}
+    \begin{tabular*}{1\mpwidth}{p{0.98\mpwidth}}
+        \parbox{1\mpwidth}{#1}
+    \end{tabular*}
 }
 \newcommand{\cvtextsmall}[1] {
-	\begin{tabular*}{0.8\mpwidth}{p{0.8\mpwidth}}
-		\parbox{0.8\mpwidth}{#1}
-	\end{tabular*}
+    \begin{tabular*}{0.8\mpwidth}{p{0.8\mpwidth}}
+        \parbox{0.8\mpwidth}{#1}
+    \end{tabular*}
 }
 %----------------------------------------------------------------------------------------
-%	CV SECTION
+%   CV SECTION
 %----------------------------------------------------------------------------------------
 
 % Renders a a CV section headline with a nice underline in main color.
 % param 1: section title
 \newlength{\barw}
 \newcommand{\cvsection}[1] {
-	\vspace{14pt}
-	\settowidth{\barw}{\textbf{\LARGE #1}}
-	\cvtext{
-		\textbf{\LARGE{\textcolor{darkcol}{#1}}}\\[-4pt]
-		\textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
-	}
+    \vspace{14pt}
+    \settowidth{\barw}{\textbf{\LARGE #1}}
+    \cvtext{
+        \textbf{\LARGE{\textcolor{darkcol}{#1}}}\\[-4pt]
+        \textcolor{accentcol}{ \rule{\barw}{1pt} } \\
+    }
 }
 
 \newcommand{\cvsubsection}[1] {
-	\vspace{14pt}
-	\settowidth{\barw}{\textbf{\Large #1}}
-	\cvtext{
-		\textbf{\Large{\textcolor{darkcol}{#1}}}\\[-4pt]
-		\textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
-	}
+    \vspace{14pt}
+    \settowidth{\barw}{\textbf{\Large #1}}
+    \cvtext{
+        \textbf{\Large{\textcolor{darkcol}{#1}}}\\[-4pt]
+        \textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
+    }
 }
 
 \newcommand{\cvheadline}[1] {
-	\vspace{16pt}
-	\cvtext{
-		\textbf{\Huge{\textcolor{accentcol}{#1}}}\\[-4pt]
+    \vspace{16pt}
+    \cvtext{
+        \textbf{\Huge{\textcolor{accentcol}{#1}}}\\[-4pt]
 
-	}
+    }
 }
 
 \newcommand{\cvsubheadline}[1] {
-	\vspace{16pt}
-	\cvtext{
-		\textbf{\huge{\textcolor{darkcol}{#1}}}\\[-4pt]
+    \vspace{16pt}
+    \cvtext{
+        \textbf{\huge{\textcolor{darkcol}{#1}}}\\[-4pt]
 
-	}
+    }
 }
 %----------------------------------------------------------------------------------------
-%	META SKILL
+%   META SKILL
 %----------------------------------------------------------------------------------------
 
 % Renders a progress-bar to indicate a certain skill in percent.
@@ -250,20 +250,20 @@
 % param 2: level (for example in years)
 % param 3: percent, values range from 0 to 1
 \newcommand{\cvskill}[3] {
-	\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
- 		\textcolor{black}{\textbf{#1}} & \textcolor{maincol}{#2}\\
-	\end{tabular*}%
+    \begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
+        \textcolor{black}{\textbf{#1}} & \textcolor{maincol}{#2}\\
+    \end{tabular*}%
 
-	\hspace{4pt}
-	\begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
-		\fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
-		\fill [accentcol] (0,0) rectangle (#3\mpwidth, 0.15);
-  	\end{tikzpicture}%
+    \hspace{4pt}
+    \begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
+        \fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
+        \fill [accentcol] (0,0) rectangle (#3\mpwidth, 0.15);
+    \end{tikzpicture}%
 }
 
 
 %----------------------------------------------------------------------------------------
-%	 CV EVENT
+%    CV EVENT
 %----------------------------------------------------------------------------------------
 
 % Renders a table and a paragraph (cvtext) wrapped in a parbox (to ensure minimum content
@@ -271,7 +271,7 @@
 % Additional Information can be passed in text or list form (or other environments).
 % the work you did
 % param 1: time-frame i.e. Sep 14 - Jan 15 etc.
-% param 2:	 event name (job position etc.)
+% param 2:   event name (job position etc.)
 % param 3: Customer, Employer, Industry
 % param 4: Short description
 % param 5: work done (optional)
@@ -279,54 +279,21 @@
 % param 7: achievements (optional)
 \newcommand{\cvevent}[4] {
 
-	% we wrap this part in a parbox, so title and description are not separated on a pagebreak
-	% if you need more control on page breaks, remove the parbox
-	\parbox{\mpwidth}{
-		\begin{tabular*}{1\mpwidth}{p{0.66\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#2}} & \colorbox{accentcol}{\makebox[0.32\mpwidth]{\textcolor{white}{\textbf{#1}}}} \\
-			\textcolor{maincol}{#3} & \\
-		\end{tabular*}\\[8pt]
+    % we wrap this part in a parbox, so title and description are not separated on a pagebreak
+    % if you need more control on page breaks, remove the parbox
+    \parbox{\mpwidth}{
+        \begin{tabular*}{1\mpwidth}{p{0.66\mpwidth}  r}
+            \textcolor{black}{\textbf{#2}} & \colorbox{accentcol}{\makebox[0.32\mpwidth]{\textcolor{white}{\textbf{#1}}}} \\
+            \textcolor{maincol}{#3} & \\
+        \end{tabular*}\\[2pt]
 
-		\ifthenelse{\isempty{#4}}{}{
-			\cvtext{#4}\\
-		}
-	}
-	\vspace{14pt}
-}
-
-\newcommand{\cvproj}[4] {
-	\parbox{\mpwidth}{
-		\begin{tabular*}{1\mpwidth}{p{0.66\mpwidth}  r}
-	 		\textcolor{black}{\textbf{#1}} & \\
-			\textcolor{maincol}{#2} & \\
-		\end{tabular*}\\[4pt]
-
-		\ifthenelse{\isempty{#3}}{}{
-			\cvtext{#3}\\
-		}
-
-		\ifthenelse{\isempty{#4}}{}{
-			\begin{itemize}
-				\expandafter\CVprojItems\expandafter{#4}
-			\end{itemize}
-		}
-	}
-	\vspace{14pt}
-}
-
-% Helper macro to process ||| separated items
-\def\CVprojItems#1{%
-	\def\ProcessItem##1|||{%
-		\ifx\relax##1\relax\else
-			\item ##1%
-			\expandafter\ProcessItem
-		\fi
-	}%
-	\expandafter\ProcessItem#1|||\relax|||%
+        \cvtext{#4}
+    }
+    \vspace{10pt}
 }
 
 %----------------------------------------------------------------------------------------
-%	 CV META EVENT
+%    CV META EVENT
 %----------------------------------------------------------------------------------------
 
 % Renders a CV event on the sidebar
@@ -335,17 +302,14 @@
 % param 3: customer, employer, etc,. (optional)
 % param 4: info text (optional)
 \newcommand{\cvmetaevent}[4] {
-	\textcolor{maincol} { \cvtext{\textbf{\begin{flushleft}#1\end{flushleft}}}}
-
-	\ifthenelse{\isempty{#2}}{}{
-	\textcolor{black} {\cvtext{\textbf{#2}} }
-	}
-
-	\ifthenelse{\isempty{#3}}{}{
-		\cvtext{{ \textcolor{maincol} {#3} }}\\
-	}
-
-	\cvtext{#4}\\[14pt]
+    \textcolor{maincol} { \cvtext{\textbf{\begin{flushleft}#1\end{flushleft}}}}\\
+    \ifthenelse{\isempty{#2}}{}{
+        \textcolor{black} {\cvtext{\textbf{#2}} }\\
+    }
+    \ifthenelse{\isempty{#3}}{}{
+        \cvtext{{ \textcolor{maincol} {#3} }}\\
+    }
+    \cvtext{#4}\\[14pt]
 }
 
 
@@ -383,124 +347,124 @@
 %
 %
 %
-%	DOCUMENT CONTENT
+%   DOCUMENT CONTENT
 %
 %
 %
 %============================================================================%
 \begin{document}
 
-	\columnratio{0.31}
-	\setlength{\columnsep}{2.2em}
-	\setlength{\columnseprule}{4pt}
-	\colseprulecolor{white}
+    \columnratio{0.31}
+    \setlength{\columnsep}{2.2em}
+    \setlength{\columnseprule}{4pt}
+    \colseprulecolor{white}
 
 
-	% LEBENSLAUF HIERE
-	\AtBeginShipoutFirst{\Header{CV}\Footer{1}}
-	\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{CV}\Footer{2}}}
+    % LEBENSLAUF HIERE
+    \AtBeginShipoutFirst{\Header{CV}\Footer{1}}
+    \AtBeginShipout{\AtBeginShipoutAddToBox{\Header{CV}\Footer{2}}}
 
-	\newpage
+    \newpage
 
-	\colseprulecolor{lightcol}
-	\columnratio{0.31}
-	\setlength{\columnsep}{2.2em}
-	\setlength{\columnseprule}{4pt}
-		\begin{paracol}{2}
-			\begin{leftcolumn}
-				%---------------------------------------------------------------------------------------
-				%	META IMAGE
-				%----------------------------------------------------------------------------------------
-				\fcolorbox{white}{white}{\begin{minipage}[c][1.5cm][c]{1\mpwidth}
-					\LARGE{\textbf{\textcolor{black}{Connor Aird}}} \\[2pt]
-					\normalsize{ \textcolor{black} {Research Software Engineer at UCL} } \\[2pt]
-					\normalsize{ \textcolor{black} {London, United Kingdom} } \\[2pt]
-					\normalsize{ \textcolor{black} {British} }
-				\end{minipage}}
+    \colseprulecolor{lightcol}
+    \columnratio{0.31}
+    \setlength{\columnsep}{2.2em}
+    \setlength{\columnseprule}{4pt}
+    \begin{paracol}{2}
+        \begin{leftcolumn}
+            %---------------------------------------------------------------------------------------
+            %   META IMAGE
+            %----------------------------------------------------------------------------------------
+            \fcolorbox{white}{white}{\begin{minipage}[c][1.5cm][c]{1\mpwidth}
+                \LARGE{\textbf{\textcolor{black}{Connor Aird}}} \\[2pt]
+                \normalsize{ \textcolor{black} {Research Software Engineer at UCL} } \\[2pt]
+                \normalsize{ \textcolor{black} {London, United Kingdom} } \\[2pt]
+                \normalsize{ \textcolor{black} {British} }
+            \end{minipage}}
 
-				%---------------------------------------------------------------------------------------
-				%	META SKILLS
-				%----------------------------------------------------------------------------------------
-				\cvsection{Skills}
+            %---------------------------------------------------------------------------------------
+            %   META SKILLS
+            %----------------------------------------------------------------------------------------
+            \cvsection{Skills}
 
-          \icontext{code}{12}{C++, Fortran, Python}\\[6pt]
-          \icontext{terminal}{12}{Docker, Git, Qt, Quarto}\\[6pt]
-          \icontext{gauge-high}{12}{MPI, OpenMP}
+            \icontext{code}{12}{C++, Fortran, Python}\\[6pt]
+            \icontext{terminal}{12}{Docker, Git, Qt, Quarto}\\[6pt]
+            \icontext{gauge-high}{12}{MPI, OpenMP}
 
-				\cvsection{Education}
+            \cvsection{Education}
 
-					\cvmetaevent{09/2016 - 06/2020}{MPhys Physics}{University of York}{1st Class Honours (with distinction)}
-				
-        \cvsection{Awards}
+                \cvmetaevent{09/2016 - 06/2020}{MPhys Physics}{University of York}{1st Class Honours (with distinction)}
 
-					\cvmetaevent{2026}{Qualified Carpentries Instructor}{}{Experience teaching UNIX shell, Python, Git and Fortran}
+            \cvsection{Awards}
 
-				\cvsection{Contact}
+                \cvmetaevent{2026}{Qualified Carpentries Instructor}{}{Experience teaching UNIX shell, Python, Git and Fortran}
 
-					\icontext{location-dot}{16}{London, United Kingdom}\\[6pt]
-					\iconemail{envelope}{16}{connoraird@gmail.com}\\[6pt]
-					\iconhref{house}{16}{connoraird.github.io}{https://connoraird.github.io}\\[6pt]
-					\iconhref{github}{16}{connoraird}{https://github.com/connoraird}\\[6pt]
-					\iconhref{linkedin}{16}{connoraird}{https://linkedin.com/in/connoraird}\\[6pt]
+            \cvsection{Contact}
 
-			\end{leftcolumn}
+                \icontext{location-dot}{16}{London, United Kingdom}\\[6pt]
+                \iconemail{envelope}{16}{connoraird@gmail.com}\\[6pt]
+                \iconhref{house}{16}{connoraird.github.io}{https://connoraird.github.io}\\[6pt]
+                \iconhref{github}{16}{connoraird}{https://github.com/connoraird}\\[6pt]
+                \iconhref{linkedin}{16}{connoraird}{https://linkedin.com/in/connoraird}\\[6pt]
 
-			\begin{rightcolumn}
+        \end{leftcolumn}
 
-				\cvsection{Experience}\label{experience}
+        \begin{rightcolumn}
 
-					\cvevent{08/2024 - Present}
-						{Research Software Engineer}
-						{Centre for Advanced Research Computing \newline University College London}
-            {Beyond my Assistant RSE responsibilities, I now manage projects including staffing and PI collaboration. I develop
-            and deliver workshop training materials, and regularly present at conferences such as RSECon and FOSDEM.}
+            \cvsection{Experience}\label{experience}
 
-					\cvevent{06/2023 - 08/2024}
-						{Assitant Research Software Engineer}
-						{Centre for Advanced Research Computing \newline University College London}
-            {As Assistant RSE I collaborated with researchers across UCL to design, develop, improve and maintain research codes,
-            advised on software best practices, and supported Carpentries teaching and marking.}
+                \cvevent{08/2024 - Present}
+                    {Research Software Engineer}
+                    {Centre for Advanced Research Computing \newline University College London}
+                    {Beyond my Assistant RSE responsibilities, I now manage projects including staffing and PI collaboration. I develop
+                    and deliver workshop training materials, and regularly present at conferences such as RSECon and FOSDEM.}
 
-					\cvevent{08/2020 - 06/2023}
-						{Consultant}
-						{Accenture \newline Leeds, UK}
-            {Whilst at Accenture I built well-tested web applications, wrote AWS infrastructure-as-code using Terraform and
-            maintained CI/CD pipelines with Jenkins and GitHub Actions.}
+                \cvevent{06/2023 - 08/2024}
+                    {Assitant Research Software Engineer}
+                    {Centre for Advanced Research Computing \newline University College London}
+                    {Collaborated with researchers across UCL to design, develop, improve and maintain research codes,
+                    advised on software best practices, and supported Carpentries teaching and marking.}
 
-				\cvsection{Projects}\label{projects}
+                \cvevent{08/2020 - 06/2023}
+                    {Consultant}
+                    {Accenture \newline Leeds, UK}
+                    {Built well-tested web applications, wrote AWS infrastructure-as-code using Terraform and
+                    maintained CI/CD pipelines with Jenkins and GitHub Actions.}
 
-          \cvevent{09/2025 - Present}
-            {GLASS, Porting to the python array API}
-            {RSE}
-            {GLASS, Generator for Large Scale Structure, is a python library for performing simulations useful in the field of
-            cosmology. In my role I - ported existing functions utilising NumPy to be array api compatible and created a benchmark
-            suite using pytest benchmark.}
+            \cvsection{Projects}\label{projects}
 
-					\cvevent{07/2023 - Present}
-						{k-Plan Treatment Planning Module}
-						{RSE, Project lead}
-						{K-Plan is a User Interface written in c++ for simulating ultrasound treatment plans. In my role I - schedule staffing
-            on the project, Prioritse work, Implement feature requests, bug fixes and general maintenance and advise on
-            implementation and design.}
+                \cvevent{09/2025 - Present}
+                    {GLASS, Porting to the python array API}
+                    {RSE, UCL}
+                    {Ported existing functions utilising NumPy, within this Python codebase, to be array api compatible and created a benchmark
+                    suite using pytest benchmark.}
 
-          \cvevent{04/2025 - 06/2025}
-            {MUSIC, DiRAC GPU feasibility study}
-            {RSE}
-            {MUSIC is a Fortran code which simulates the interiors of stars. This study aimed to determine the potential gains
-            and likely cost of implementing GPU offloading within MUSIC. In my role I - enabled the OpenMP and CUDA
-            backends of an external dependency (Trilinos), produced scripts to automate the building of Trilinos, music and
-            Kokkos-tools, wrote scripts to allow the rapid production of benchmark data and profiled MUSIC using the NVIDIA
-            NSIGHT system.}
+                \cvevent{07/2023 - Present}
+                    {k-Plan Treatment Planning Module}
+                    {RSE, UCL}
+                    {Schedule staffing on the project, Prioritse work, Implement feature requests, bug fixes and general maintenance and advise on
+                    implementation and design.}
 
-          \cvevent{}
-            {CONQUEST, eCSE08 Improving Multi-threaded Scaling.}
-            {RSE}
-            {CONQUEST is a large-scale density functional theory (DFT) code written in Fortran. In my role I - refactored
-            a kernel to maximise serial performance, implemented both OpenMP and BLAS parallelisation and carried out performance
-            analysis using benchmarks and profilers to tune this parallel implementation.}
+                \cvevent{04/2025 - 06/2025}
+                    {MUSIC, DiRAC GPU feasibility study}
+                    {RSE, UCL}
+                    {Aimed to determine the potential gains and likely cost of GPU offloading the MUSIC codebase. Produced scripts for building and
+                    generating benchmark data for MUSIC. Also profiled MUSIC using the NVIDIA NSIGHT system.}
 
-			\end{rightcolumn}
-		\end{paracol}
+                \cvevent{01/2024 - 06/2024}
+                    {CONQUEST, eCSE08 Improving Multi-threaded Scaling.}
+                    {RSE, UCL}
+                    {Refactored a kernel within this Fortran code to maximise serial performance, implemented OpenMP and BLAS parallelisation and
+                    carried out performance analysis using benchmarks and profilers to tune this parallel implementation.}
 
+            \cvsection{Professional Development}\label{professionaldevelopment}
 
+                \begin{tabular*}{1\mpwidth}{l l p{0.5\mpwidth}}
+                    \textcolor{black}{\textbf{02/2026}} & \textcolor{accentcol}{Fortran Course} & \cvtext{Developed and instructed my own course on unit testing Fortran.}\\[10pt]
+                    \textcolor{black}{\textbf{10/2025 - Present}} & \textcolor{accentcol}{TechSocials} & \cvtext{Organiser of the TechSocials series.}\\[10pt]
+                    \textcolor{black}{\textbf{09/2024 - Present}} & \textcolor{accentcol}{Fortran collaboration} & \cvtext{Fortran community collaboration (grant applications, hackathons, etc)}
+                \end{tabular*}
+
+        \end{rightcolumn}
+    \end{paracol}
 \end{document}

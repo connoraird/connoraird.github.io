@@ -13,5 +13,5 @@ site_libs
 *.DS_Store
 index_cache
 cv_cache
-
+/cv.tex
 **/*.quarto_ipynb
