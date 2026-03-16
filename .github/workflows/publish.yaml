@@ -45,6 +45,8 @@ jobs:
       - name: Set up Quarto
         # yamllint disable-line rule:line-length
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
 
       - name: Render ${{ github.ref_name }} branch
         if: github.ref != 'refs/heads/main'
