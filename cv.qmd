@@ -1,0 +1,8 @@
+---
+title: "Curriculum Vitae"
+format:
+  pdf:
+    template: _includes/cv.tex
+    pdf-engine: lualatex
+    keep-tex: true
+---

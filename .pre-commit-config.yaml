@@ -19,7 +19,6 @@ repos:
         exclude: >-
           (?x)(
             \.dic$|
-            \.tex$|
             _components/pfunit_Makefile.qmd
           )
   - repo: https://github.com/rbubley/mirrors-prettier

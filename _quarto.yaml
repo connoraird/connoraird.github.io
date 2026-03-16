@@ -55,6 +55,8 @@ website:
     left:
       - text: Talks
         href: talks.qmd
+      - text: CV
+        href: cv.qmd
     tools:
       - text: Email
         icon: envelope
