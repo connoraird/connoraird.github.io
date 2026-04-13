@@ -1,0 +1,71 @@
+{
+  "machine_info": {
+    "node": "Connors-MacBook-Pro-2.local",
+    "processor": "arm",
+    "machine": "arm64",
+    "python_compiler": "Clang 20.1.4 ",
+    "python_implementation": "CPython",
+    "python_implementation_version": "3.14.0",
+    "python_version": "3.14.0",
+    "python_build": ["main", "Oct 28 2025 12:03:45"],
+    "release": "25.2.0",
+    "system": "Darwin",
+    "cpu": {
+      "python_version": "3.14.0.final.0 (64 bit)",
+      "cpuinfo_version": [9, 0, 0],
+      "cpuinfo_version_string": "9.0.0",
+      "arch": "ARM_8",
+      "bits": 64,
+      "count": 8,
+      "arch_string_raw": "arm64",
+      "brand_raw": "Apple M2"
+    }
+  },
+  "commit_info": {
+    "id": "d639a15876d1caeaaf9662000c27e779bce8b53e",
+    "time": "2026-03-16T14:35:42Z",
+    "author_time": "2026-03-16T14:35:42Z",
+    "dirty": true,
+    "project": "hub.io",
+    "branch": "9-pytest-benchmark-talk"
+  },
+  "benchmarks": [
+    {
+      "group": null,
+      "name": "test_inc",
+      "fullname": "_code/pytest_example/test_with_benchmark.py::test_inc",
+      "params": null,
+      "param": null,
+      "extra_info": {},
+      "options": {
+        "disable_gc": false,
+        "timer": "perf_counter",
+        "min_rounds": 5,
+        "max_time": 1.0,
+        "min_time": 5e-6,
+        "warmup": false
+      },
+      "stats": {
+        "min": 3.7497375160455704e-7,
+        "max": 6.584014045074582e-6,
+        "mean": 4.496543409141616e-7,
+        "stddev": 6.043433154298173e-8,
+        "rounds": 40473,
+        "median": 4.580069798976183e-7,
+        "iqr": 4.1996827349066734e-8,
+        "q1": 4.169996827840805e-7,
+        "q3": 4.5899651013314724e-7,
+        "iqr_outliers": 382,
+        "stddev_outliers": 426,
+        "outliers": "426;382",
+        "ld15iqr": 3.7497375160455704e-7,
+        "hd15iqr": 5.409820005297661e-7,
+        "ops": 2223930.4928469458,
+        "total": 0.018198860139818862,
+        "iterations": 1
+      }
+    }
+  ],
+  "datetime": "2026-04-09T09:40:34.938982+00:00",
+  "version": "5.2.3"
+}

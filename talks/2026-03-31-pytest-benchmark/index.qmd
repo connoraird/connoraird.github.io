@@ -17,34 +17,41 @@ recording:
 
 # How we used pytest-benchmark
 
-## How we used pytest-benchmark
+## Overview
 
-#### Overview
+::: {.r-fit-text .columns}
 
-::: {.r-fit-text}
+::: {.column}
 
-- Define benchmark tests within the same repo as core-tests and src code.
-- Reuse fixtures from core-tests.
+- Add benchmark tests alongside core-tests.
+  - Reuse fixtures from core-tests.
 - Minimise assertions to avoid flakiness.
+- Only test for Numpy to begin with as that is all that existed before.
 - Define Regression tests which compare BASE ref to HEAD ref for PRs.
-  - Benchmark tests are defined in the HEAD ref.
+  - Benchmark test code is defined in the HEAD ref.
   - Run in GitHub actions.
-  - Both runs occur right after one another so in theory experince the same load
-    on the machine.
+  - Both runs occur right after one another so in theory experience the same
+    load on the machine.
 
 :::
 
-## Workflow
+::: {.column}
 
-Example workflow from GLASS
+![Screenshot of GitHub repo with benchmarks and core tests together](_assets/test_gh_screenshot.png)
 
-```yaml {code-line-numbers="5-19|20-32|61-67"}
-{ { < include _code/regression_test_Workflow.yaml > } }
+:::
+
+:::
+
+## Regression Tests
+
+Written using [Nox](https://nox.thea.codes/en/stable/), ran on pull-requests
+
+```py {code-line-numbers="21-109|32-45|47-54|14-17|56-60|62-74|76-92|94-108"}
+{{< include _code/noxfile_regression_test.py >}}
 ```
 
-## How we used pytest-benchmark
-
-#### issues
+## issues
 
 - If the GLASS api changed (i.e. new module) the regression tests would fail.
 - Many false positives, we think - i.e. flaky.

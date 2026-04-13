@@ -52,7 +52,13 @@ subprocess.run(["echo", f"$ {" ".join(command)}"])
 subprocess.run(command);
 ```
 
-## pytest-benchmark: Comparing runs
+## Json output
+
+```json {code-line-numbers="-1|2-30|31-38|39-76|55-73"}
+{{< include _code/pytest_example/example_benchmark_output.json >}}
+```
+
+## Comparing benchmarks
 
 We can also define regression tests
 
