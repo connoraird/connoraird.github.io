@@ -35,15 +35,17 @@ any other array-api compatible library including one that is GPU enabled.
 
 Before - Libraries limit the tools available
 
-![Credit: [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/array-ecosystem.png){.r-stretch}
+![Credit: [Aaron Meurer, ‘Python Array API Standard’, SciPy 2023](https://youtu.be/16rB-fosAWw) via [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/array-ecosystem.png){.r-stretch}
 
 ## The Python Array-API (ii)
 
 After - All libraries work with all tools
 
-![Credit: [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/ecosystem-modified.png){.r-stretch}
+![Credit: [Aaron Meurer, ‘Python Array API Standard’, SciPy 2023](https://youtu.be/16rB-fosAWw) via [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/ecosystem-modified.png){.r-stretch}
 
 ## Why did we need benchmarks? {.r-fit-text}
+
+Porting to the array-api adds performance penalties.
 
 ```{.py code-line-numbers="-1|1,4,9|5-6"}
 import array_api_compat
@@ -59,8 +61,6 @@ def do_something_else(x):
 ```
 
 ::: {.fragment}
-
-Porting to the array-api adds performance penalties.
 
 - Extra if conditions
 - Extra function calls

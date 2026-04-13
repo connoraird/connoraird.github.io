@@ -9,9 +9,7 @@ scale to support complex functional testing for applications and libraries._
 {{< include _code/pytest_example/test_standard.py >}}
 ```
 
-## Pytest
-
-#### Output
+## Pytest: Output
 
 ```{python}
 #| class-output: smaller
@@ -34,13 +32,9 @@ it.
 {{< include _code/pytest_example/test_with_benchmark.py >}}
 ```
 
-## pytest-benchmark
+## pytest-benchmark: Output
 
-#### Output
-
-::: {.r-fit-text}
-
-A table is outputted with various performance metrics for each test
+An output table contains performance metrics for each test
 
 ```{python}
 #| class-output: smaller
@@ -58,13 +52,7 @@ subprocess.run(["echo", f"$ {" ".join(command)}"])
 subprocess.run(command);
 ```
 
-:::
-
-## pytest-benchmark
-
-#### Comparing runs
-
-::: {.r-fit-text}
+## pytest-benchmark: Comparing runs
 
 We can also define regression tests
 
@@ -84,5 +72,3 @@ if (result.stdout):
 if (result.stderr):
     sys.stdout.write(result.stderr.decode())
 ```
-
-:::
