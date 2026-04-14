@@ -1,0 +1,35 @@
+# How we used pytest-benchmark
+
+## Overview
+
+::: {.r-fit-text .columns}
+
+::: {.column}
+
+- Add benchmark tests alongside core-tests.
+  - Reuse fixtures from core-tests.
+- Minimise assertions to avoid flakiness.
+- Only test for Numpy to begin with as that is all that existed before.
+- Define Regression tests which compare BASE ref to HEAD ref for PRs.
+  - Benchmark test code is defined in the HEAD ref.
+  - Run in GitHub actions.
+  - Both runs occur right after one another so in theory experience the same
+    load on the machine.
+
+:::
+
+::: {.column}
+
+![Screenshot of GitHub repo with benchmarks and core tests together](_assets/test_gh_screenshot.png)
+
+:::
+
+:::
+
+## Regression Tests
+
+Written using [Nox](https://nox.thea.codes/en/stable/), ran on pull-requests
+
+```py {code-line-numbers="21-109|32-45|47-54|14-17|56-60|62-74|76-92|94-108"}
+{{< include _code/noxfile_regression_test.py >}}
+```
