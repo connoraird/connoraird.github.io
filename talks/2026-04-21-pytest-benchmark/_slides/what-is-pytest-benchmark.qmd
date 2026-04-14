@@ -15,7 +15,7 @@ scale to support complex functional testing for applications and libraries._
 #| class-output: smaller
 import subprocess
 
-command = ["pytest", "_code/pytest_example", "-k", "test_standard"]
+command = ["pytest", "_code/pytest_example/test_standard.py"]
 subprocess.run(["echo", f"$ {" ".join(command)}"])
 subprocess.run(command);
 ```
@@ -47,14 +47,14 @@ benchmark_dir = pathlib.Path(".benchmarks")
 if benchmark_dir.exists():
     shutil.rmtree(benchmark_dir)
 
-command = ["pytest", "_code/pytest_example", "-k", "test_with_benchmark", "--benchmark-autosave"]
+command = ["pytest", "_code/pytest_example/test_with_benchmark.py", "--benchmark-autosave"]
 subprocess.run(["echo", f"$ {" ".join(command)}"])
 subprocess.run(command);
 ```
 
 ## Json output
 
-```json {code-line-numbers="-1|2-30|31-38|39-76|55-73"}
+```json
 {{< include _code/pytest_example/example_benchmark_output.json >}}
 ```
 
@@ -68,7 +68,7 @@ import subprocess
 import os
 import sys
 
-command = ["pytest", "_code/pytest_example", "-k", "test_with_benchmark", "--benchmark-compare=0001", "--benchmark-compare-fail=mean:5%"]
+command = ["pytest", "_code/pytest_example/test_with_benchmark.py", "--benchmark-compare=0001", "--benchmark-compare-fail=mean:5%"]
 
 os.environ["SLOW"] = "true"
 subprocess.run(["echo", f"$ SLOW=true {" ".join(command)}"])

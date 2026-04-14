@@ -1,7 +1,7 @@
 ---
 author: Connor Aird
 institute: University College London
-date: 2026-01-31
+date: 2026-04-21
 format: revealjs
 subtitle: "ARC Forum"
 title: Pytest Benchmark, was it worth it?
@@ -34,3 +34,13 @@ recording:
 - We hope to use it in the future for…
   - Demonstrating GPU improvements.
   - Benchmarking on different machines.
+
+# Acknowledgements
+
+::: {.nonincremental}
+
+{{< include /_includes/shared-acknowledgements.qmd >}}
+
+:::
+
+{{< include /_includes/qr-code.qmd >}}
