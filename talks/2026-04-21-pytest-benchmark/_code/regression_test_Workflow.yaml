@@ -1,0 +1,67 @@
+---
+name: Regression tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_ref:
+        description: >-
+          The hash for the revision of glass-dev/glass to act as the starting
+          state to be compared against.
+        required: true
+        default: main
+        type: string
+      head_ref:
+        description: >-
+          The hash for the revision of glass-dev/glass to act as the final state
+          to be compared with the initial.
+        required: true
+        type: string
+  pull_request:
+    paths:
+      - .github/workflows/regression-test.yaml
+      - glass/**
+      - noxfile.py
+      - pyproject.toml
+    branches:
+      - main
+    types:
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+
+jobs:
+  regression-tests:
+    if: github.event.pull_request.draft == false
+    name: Regression test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: 3.14
+
+      - name: Cache nox
+        uses: actions/cache@v5
+        with:
+          key:
+            regression-${{ hashFiles('pyproject.toml') }}-${{
+            hashFiles('noxfile.py') }}
+          path: .nox
+
+      - name: Install only dev dependencies
+        run: uv sync --only-dev
+
+      - name: Run regression test
+        run: uv run nox -s regression_tests -- "$BASE_REF" "$HEAD_REF"
+        env:
+          ARRAY_BACKEND: all
+          BASE_REF: ${{ inputs.base_ref || github.event.pull_request.base.ref }}
+          HEAD_REF: ${{ inputs.head_ref || github.event.pull_request.head.ref }}
+          FORCE_COLOR: 1

@@ -3,3 +3,17 @@
   max-height: 70px !important;
   max-width: unset !important;
 }
+
+/* Ensure code blocks and their outputs remain on the screen*/
+.reveal .cell-output pre {
+  max-width: 80vw;
+  max-height: 500px !important;
+  overflow-y: auto;
+  outline: 1px solid grey;
+  padding: 10px;
+}
+
+/* Only shrink code block output container font-size if the smaller class-output is specified */
+.reveal .cell[data-class-output~="smaller"] .cell-output pre {
+  font-size: 0.3em;
+}

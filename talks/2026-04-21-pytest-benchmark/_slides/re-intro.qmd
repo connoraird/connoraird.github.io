@@ -1,0 +1,130 @@
+# Re-Intro
+
+## Me in Maps
+
+::::::{.columns}
+
+:::::{.column}
+
+- **Hartlepool**, 1997 - 2016</br>
+- **York**, 2016 - 2023</br>
+- **London**, 2023 - now</br>
+
+:::::
+
+:::::{.column}
+
+```{python}
+from ipywidgets import Layout
+from ipyleaflet import Map, Marker, basemap_to_tiles, basemaps, Popup
+
+m = Map(
+    basemap=basemap_to_tiles(basemaps.OpenStreetMap.Mapnik, "Hartlepool"),
+    center=(53.028, -1.538),
+    zoom=6,
+    layout=Layout(height='60vh'),
+)
+# Hartlepool
+hartlepool_marker = Marker(location=(54.571, -1.248), title="Hartlepool")
+m.add_layer(hartlepool_marker)
+# York
+york_marker = Marker(location=(53.859, -1.081), title="York")
+m.add_layer(york_marker)
+# London
+london_marker = Marker(location=(51.454, -0.106), title="London")
+m.add_layer(london_marker)
+m
+```
+
+:::::
+
+::::::
+
+## Quick Summary: Work
+
+::::: {layout="[30,70]"}
+
+:::: {.cell}
+
+- Physics
+- Fortran
+- Python
+- C++
+- TechSocials
+- Teaching
+- HPC
+
+::::
+
+:::: {.cell}
+
+```{=html}
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+  <img src="_assets/fortran-logo.svg" alt="Fotran logo" style="max-height: 120px; object-fit: cover; border-radius: 8px;">
+  <img src="_assets/cpp-logo.png" alt="C++ logo" style="max-height: 120px; object-fit: cover; border-radius: 8px;">
+  <img src="_assets/python-logo.png" alt="Python logo" style="max-height: 120px; object-fit: cover; border-radius: 8px;">
+  <img src="_assets/swc-logo.png" alt="Software carpenties logo" style="max-height: 150px; object-fit: cover; border-radius: 8px;">
+  <img src="_assets/pizza.png" alt="Pizza emoji" style="max-height: 70px; object-fit: cover; border-radius: 8px;">
+  <img src="_assets/k-plan-logo.png" alt="k-Plan logo" style="max-height: 70px; object-fit: cover; border-radius: 8px;">
+  <img src="_assets/k-plan-ui.png" alt="k-Plan UI screenshot" style="max-height: 280px; object-fit: cover; border-radius: 8px;">
+</div>
+```
+
+::::
+
+:::::
+
+## Quick Summary: Hobbies
+
+:::::: {.columns}
+
+::::: {.column .nonincremental}
+
+- [Exercise (running, gym, etc)]{.fragment fragment-index=1}
+- [Board games]{.fragment fragment-index=2}
+- [Visiting breweries and distilleries]{.fragment fragment-index=3}
+- [Hiking]{.fragment fragment-index=5}
+- [Wild swimming]{.fragment fragment-index=7}
+- [Underwater Hockey (Octopush)]{.fragment fragment-index=8}
+
+:::::
+
+::::: {.column}
+
+:::: {.r-stack}
+
+![](./_assets/inis.jpg){height="300px" .fragment fragment-index=2
+.fade-in-then-out}
+
+![](./_assets/bowmore.jpg){height="400px" .fragment fragment-index=3
+.fade-in-then-out}
+
+![](./_assets/strathisla.jpg){height="400px" .fragment fragment-index=4
+.fade-in-then-out}
+
+![](./_assets/keswick.jpg){height="400px" .fragment fragment-index=5
+.fade-in-then-out}
+
+![](./_assets/derwent-water.jpg){height="550px" .fragment fragment-index=6
+.fade-in-then-out}
+
+![](./_assets/fairy-pools.jpg){height="550px" .fragment fragment-index=7
+.fade-in-then-out}
+
+::: {.fragment fragment-index=8}
+
+```{=html}
+<iframe width="500em" height="400em" src="https://www.youtube.com/embed/kG-kZM_y0yQ?si=6C3EKzimnzLeZRKe&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+
+:::
+
+::::
+
+:::::
+
+::::::
+
+## Got married in April 2025
+
+![](./_assets/wedding.jpg){.r-stretch}

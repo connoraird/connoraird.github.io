@@ -1,0 +1,80 @@
+# What is pytest benchmark?
+
+## Pytest {.smaller}
+
+_The pytest framework makes it easy to write small, readable tests, and can
+scale to support complex functional testing for applications and libraries._
+
+```py {code-line-numbers="3-5|7-9|1,11-23"}
+{{< include _code/pytest_example/test_standard.py >}}
+```
+
+## Pytest: Output
+
+```{python}
+#| class-output: smaller
+import subprocess
+
+command = ["pytest", "_code/pytest_example/test_standard.py"]
+subprocess.run(["echo", f"$ {" ".join(command)}"])
+subprocess.run(command);
+```
+
+## pytest-benchmark
+
+The [pytest-benchmark](https://pytest-benchmark.readthedocs.io/en/latest/)
+plugin provides a **benchmark** fixture which benchmarks any function passed to
+it.
+
+> benchmark(function_to_benchmark, args, kwargs)
+
+```py {code-line-numbers="4-7|9-11"}
+{{< include _code/pytest_example/test_with_benchmark.py >}}
+```
+
+## pytest-benchmark: Output
+
+An output table contains performance metrics for each test
+
+```{python}
+#| class-output: smaller
+import subprocess
+import pathlib
+import shutil
+
+# Delete old .benchmarks dir so we start from scratch
+benchmark_dir = pathlib.Path(".benchmarks")
+if benchmark_dir.exists():
+    shutil.rmtree(benchmark_dir)
+
+command = ["pytest", "_code/pytest_example/test_with_benchmark.py", "--benchmark-autosave"]
+subprocess.run(["echo", f"$ {" ".join(command)}"])
+subprocess.run(command);
+```
+
+## Json output
+
+```json
+{{< include _code/pytest_example/example_benchmark_output.json >}}
+```
+
+## Comparing benchmarks
+
+We can also define regression tests
+
+```{python}
+#| class-output: smaller
+import subprocess
+import os
+import sys
+
+command = ["pytest", "_code/pytest_example/test_with_benchmark.py", "--benchmark-compare=0001", "--benchmark-compare-fail=mean:5%"]
+
+os.environ["SLOW"] = "true"
+subprocess.run(["echo", f"$ SLOW=true {" ".join(command)}"])
+result = subprocess.run(command, capture_output=True)
+if (result.stdout):
+    sys.stdout.write(result.stdout.decode())
+if (result.stderr):
+    sys.stdout.write(result.stderr.decode())
+```
