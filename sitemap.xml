@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://connoraird.github.io/talks/rsecon-2025-unit-testing-in-fortran/index.html</loc>
-    <lastmod>2026-03-16T17:08:51.401Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/index.html</loc>
-    <lastmod>2026-03-16T17:08:51.399Z</lastmod>
-  </url>
-  <url>
     <loc>https://connoraird.github.io/talks.html</loc>
-    <lastmod>2026-03-16T17:08:51.399Z</lastmod>
+    <lastmod>2026-04-14T14:55:05.746Z</lastmod>
   </url>
   <url>
     <loc>https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran/index.html</loc>
-    <lastmod>2026-03-16T17:08:51.400Z</lastmod>
+    <lastmod>2026-04-14T14:55:05.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/talks/2026-04-21-pytest-benchmark/index.html</loc>
+    <lastmod>2026-04-14T14:55:05.768Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/talks/rsecon-2025-unit-testing-in-fortran/index.html</loc>
+    <lastmod>2026-04-14T14:55:05.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/index.html</loc>
+    <lastmod>2026-04-14T14:55:05.746Z</lastmod>
   </url>
 </urlset>
