@@ -3,9 +3,7 @@ local function slugify(s)
     -- Convert spaces/slashes to hyphens
     s = s:gsub("[%s+/]+", "-")
     -- Remove non-alphanumeric/non-hyphen characters and convert to lowercase
-    s = s:gsub("[^%w-]+", ""):lower()
-    -- trim whitespace
-    return s:gsub("^%s*(.-)%s*$", "%1")
+    return s:gsub("[^%w-]+", ""):lower()
 end
 
 local function combine_and_slugify(...)
