@@ -4,7 +4,7 @@ institute: University College London
 date: 2026-04-21
 format: revealjs
 subtitle: "ARC Forum"
-title: Pytest Benchmark, was it worth it?
+title: "Pytest Benchmark, was it worth it?"
 logo: /assets/ucl_logo_light.png
 recording:
 ---
