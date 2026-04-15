@@ -24,7 +24,7 @@ format:
     code-copy: true
     css: styling/talks.css
     filters:
-      - _filters/slugify.lua
+      - ./_filters/slugify.lua
     footer: "{{< meta title >}} - [Back to talks](/talks.html)"
     hash-type: number
     history: false
