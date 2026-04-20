@@ -1,4 +1,4 @@
-# What is pytest benchmark?
+# What is pytest-benchmark?
 
 ## Pytest {.smaller}
 

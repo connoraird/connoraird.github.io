@@ -9,7 +9,7 @@
 - Add benchmark tests alongside core-tests.
   - Reuse fixtures from core-tests.
 - Minimise assertions to avoid flakiness.
-- Only test for Numpy to begin with as that is all that existed before.
+- Only test for NumPy to begin with, as that is all that existed before.
 - Define Regression tests which compare BASE ref to HEAD ref for PRs.
   - Benchmark test code is defined in the HEAD ref.
   - Run in GitHub actions.

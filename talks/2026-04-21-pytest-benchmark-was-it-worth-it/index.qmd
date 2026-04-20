@@ -17,10 +17,10 @@ recording:
 
 {{< include _slides/how-we-used-it.qmd >}}
 
-## issues
+## Issues
 
 - If the GLASS api changed (i.e. new module) the regression tests would fail.
-- Many false positives, we think - i.e. flaky.
+- Many false positives, we think, i.e. flaky.
   - Split benchmark-tests into stable and unstable, with different regression
     test metrics.
   - Maximise problem size.
@@ -29,9 +29,11 @@ recording:
 
 # Conclusion
 
+- pytest-benchmark is a great quick solution to benchmarking python but
+  difficult to "master".
 - Has definitely highlighted regressions.
-- Not clear if it was worth it.
-- We hope to use it in the future for…
+- Not 100% clear if it was worth it.
+- We hope to use it in the future for:
   - Demonstrating GPU improvements.
   - Benchmarking on different machines.
 

@@ -1,4 +1,4 @@
-# Pytest Benchmark
+# pytest-benchmark
 
 ## GLASS
 
@@ -26,18 +26,18 @@ Generator for Large Scale Structure
 
 ### Project aim
 
-Port GLASS to the array-api such that NumPy could be replaced by the user with
-any other array-api compatible library including one that is GPU enabled.
+Port GLASS to the Array API such that NumPy could be replaced by the user with
+any other Array API compatible library including one that is GPU enabled.
 
 ::::
 
-## The Python Array-API (i)
+## The Python Array API (i)
 
 Before - Libraries limit the tools available
 
 ![Credit: [Aaron Meurer, ‘Python Array API Standard’, SciPy 2023](https://youtu.be/16rB-fosAWw) via [Lucas Colley, A Hitchhiker’s Guide to the Array API Standard Ecosystem, EuroSciPy 2025](https://lucascolley.github.io/talks/euroscipy-25-array-api/)](./_assets/array-ecosystem.png){.r-stretch}
 
-## The Python Array-API (ii)
+## The Python Array API (ii)
 
 After - All libraries work with all tools
 
@@ -45,7 +45,7 @@ After - All libraries work with all tools
 
 ## Why did we need benchmarks? {.r-fit-text}
 
-Porting to the array-api adds performance penalties.
+Porting to the Array API adds performance penalties.
 
 ```{.py code-line-numbers="-1|1,4,9|5-6"}
 import array_api_compat
