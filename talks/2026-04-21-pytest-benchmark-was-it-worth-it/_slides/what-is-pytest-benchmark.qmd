@@ -52,6 +52,28 @@ subprocess.run(["echo", f"$ {" ".join(command)}"])
 subprocess.run(command);
 ```
 
+## What's actually happening? {.smaller}
+
+- Attempts to reduce noise by running your function many times and averaging
+  together.
+- A [pedantic](https://pytest-benchmark.readthedocs.io/en/latest/pedantic.html)
+  mode exists which allows full control of how the data is gathered.
+- Seems better to use the default settings and make tweaks with the CLI options.
+
+::: {.fragment position="absolute"}
+
+```{=html}
+<iframe
+    height="400px"
+    src="https://pytest-benchmark.readthedocs.io/en/latest/usage.html#commandline-options"
+    title="pytest-benchmark cli options"
+    width="1000px"
+>
+</iframe>
+```
+
+:::
+
 ## Json output
 
 ```json {code-line-numbers="-1|2-23|24-31|32-68|48-66"}
