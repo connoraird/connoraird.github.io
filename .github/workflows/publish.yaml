@@ -53,6 +53,13 @@ jobs:
         # yamllint disable-line rule:line-length
         uses: quarto-dev/quarto-actions/render@v2
 
+      - name: Upload artifact
+        if: github.ref != 'refs/heads/main'
+        # Automatically uploads an artifact from the './_site' directory by default
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: _site
+
       - name: Publish main branch
         if: github.ref == 'refs/heads/main'
         # yamllint disable-line rule:line-length
