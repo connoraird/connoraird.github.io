@@ -13,8 +13,8 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Connor Aird">
-  <meta name="dcterms.date" content="2026-01-31">
-  <title>Connor Aird – Unit testing in Fortran</title>
+  <meta name="dcterms.date" content="2026-06-16">
+  <title>Connor Aird – Fortran Carpentries</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,14 +195,18 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="dark">
+  <script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Unit testing in Fortran</h1>
-  <p class="subtitle">FOSDEM 2026: Testing and Continuous Delivery devroom</p>
+  <h1 class="title">Fortran Carpentries</h1>
+  <p class="subtitle">Durham HPC Days 2026</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -215,7 +219,7 @@ Connor Aird
     </div>
 </div>
 
-  <p class="date">2026-01-31</p>
+  <p class="date">2026-06-16</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
@@ -382,165 +386,82 @@ Connor Aird
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Integrating with build systems</h1>
-<p>pFUnit can be integrated into both Make and CMake build systems using functions provided by pFUnit</p>
+<h1>Software carpentries</h1>
+<p><em>The Carpentries teaches foundational coding and data science skills to researchers worldwide.</em></p>
 </section>
 <section class="slide level2">
-<h2>Integrating with Make</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="-1|1-4|13,14|6-11|14,6-11|16-18"><pre class="sourceCode numberSource mk number-lines code-with-copy"><code class="sourceCode makefile"><span id="cb2-1"><a></a><span class="co"># Include PFUNIT.mk from a locally installed version of pFUnit</span></span>
-<span id="cb2-2"><a></a><span class="dt">PFUNIT_INCLUDE_DIR</span> <span class="ch">?=</span><span class="st"> </span><span class="ch">$(</span><span class="dt">ROOT_DIR</span><span class="ch">)</span><span class="st">/../pfunit/build/installed/PFUNIT-4.12/include</span></span>
-<span id="cb2-3"><a></a><span class="kw">include</span> <span class="ch">$(</span><span class="dt">PFUNIT_INCLUDE_DIR</span><span class="ch">)</span>/PFUNIT.mk</span>
-<span id="cb2-4"><a></a><span class="dt">TEST_FLAGS</span> <span class="ch">=</span><span class="st"> </span><span class="ch">$(</span><span class="dt">PFUNIT_EXTRA_FFLAGS</span><span class="ch">)</span><span class="st"> -I</span><span class="ch">$(</span><span class="dt">BUILD_DIR</span><span class="ch">)</span><span class="st"> </span><span class="ch">$(</span><span class="dt">FC_FLAGS</span><span class="ch">)</span><span class="st"> </span><span class="ch">$(</span><span class="dt">LIBS</span><span class="ch">)</span></span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co"># Define variables to be picked up by make_pfunit_test</span></span>
-<span id="cb2-7"><a></a><span class="dt">tests_TESTS</span> <span class="ch">=</span><span class="st"> </span><span class="ch">\</span></span>
-<span id="cb2-8"><a></a><span class="st">  test_something.pf </span><span class="ch">\</span></span>
-<span id="cb2-9"><a></a><span class="st">  test_something_else.pf</span></span>
-<span id="cb2-10"><a></a><span class="dt">tests_OTHER_SOURCES</span> <span class="ch">=</span><span class="st"> </span><span class="ch">$(</span><span class="kw">filter-out</span><span class="st"> </span><span class="ch">$(</span><span class="dt">BUILD_DIR</span><span class="ch">)</span><span class="st">/main.o</span><span class="kw">,</span><span class="st"> </span><span class="ch">$(</span><span class="dt">SRC_OBJS</span><span class="ch">))</span></span>
-<span id="cb2-11"><a></a><span class="dt">tests_OTHER_LIBRARIES</span> <span class="ch">=</span><span class="st"> </span><span class="ch">$(</span><span class="dt">TEST_FLAGS</span><span class="ch">)</span></span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co"># Triggers pre-processing and defines rule for building test executable</span></span>
-<span id="cb2-14"><a></a><span class="ch">$(</span><span class="kw">eval</span><span class="st"> </span><span class="ch">$(</span><span class="kw">call</span><span class="st"> make_pfunit_test</span><span class="kw">,</span><span class="st">tests</span><span class="ch">))</span></span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a><span class="co"># Converts pre-processed test files into objects ready for building of the executable</span></span>
-<span id="cb2-17"><a></a><span class="dv">%.o:</span><span class="dt"> %.F90</span></span>
-<span id="cb2-18"><a></a><span class="er">    </span><span class="ch">$(</span><span class="dt">FC</span><span class="ch">)</span> -c <span class="ch">$(</span><span class="dt">TEST_FLAGS</span><span class="ch">)</span> <span class="ch">$&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h2>Carpentries and the incubator</h2>
+<ul>
+<li class="fragment">Carpentries lessons are small, volunteer-led, hands on workshops.</li>
+<li class="fragment">The <a href="https://carpentries-incubator.org/">incubator</a> is a space to host lessons that are still in-development.</li>
+<li class="fragment">Lessons can remain in the incubator for years.</li>
+<li class="fragment">Incubator lessons can still be taught.</li>
+<li class="fragment">Lessons move through the <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html">lesson life cycle</a>.</li>
+</ul>
 </section>
 <section class="slide level2">
-<h2>Integrating with CMake</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="-1|1|16-20|18,10-14|19,7-8"><pre class="sourceCode numberSource cmake number-lines code-with-copy"><code class="sourceCode cmake"><span id="cb3-1"><a></a><span class="kw">find_package</span>(PFUNIT <span class="ot">REQUIRED</span>)</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="co"># Filter out the main.f90 files. We can only have one main() function in our tests</span></span>
-<span id="cb3-4"><a></a><span class="kw">set</span>(PROJ_SRC_FILES_EXEC_MAIN <span class="dv">${PROJ_SRC_FILES}</span>)</span>
-<span id="cb3-5"><a></a><span class="kw">list</span>(<span class="ot">FILTER</span> PROJ_SRC_FILES_EXEC_MAIN <span class="ot">EXCLUDE</span> <span class="ot">REGEX</span> <span class="st">".*main.f90"</span>)</span>
-<span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a><span class="co"># Create library for src code</span></span>
-<span id="cb3-8"><a></a><span class="kw">add_library</span> (<span class="bn">sut</span> <span class="ot">STATIC</span> <span class="dv">${PROJ_SRC_FILES_EXEC_MAIN}</span>)</span>
-<span id="cb3-9"><a></a></span>
-<span id="cb3-10"><a></a><span class="co"># List all test files</span></span>
-<span id="cb3-11"><a></a><span class="kw">set</span>(test_srcs</span>
-<span id="cb3-12"><a></a>  <span class="st">"</span><span class="dv">${PROJECT_SOURCE_DIR}</span><span class="st">/tests/test_something.pf"</span></span>
-<span id="cb3-13"><a></a>  <span class="st">"</span><span class="dv">${PROJECT_SOURCE_DIR}</span><span class="st">/tests/test_something_else.pf"</span></span>
-<span id="cb3-14"><a></a>)</span>
-<span id="cb3-15"><a></a></span>
-<span id="cb3-16"><a></a><span class="co"># Triggers pre-processing and defines rule for building test executable</span></span>
-<span id="cb3-17"><a></a><span class="fu">add_pfunit_ctest </span>(test_something_interesting</span>
-<span id="cb3-18"><a></a>  TEST_SOURCES <span class="dv">${test_srcs}</span></span>
-<span id="cb3-19"><a></a>  <span class="dv">LINK_LIBRARIES</span> sut <span class="co"># your application library</span></span>
-<span id="cb3-20"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Automated testing with pFUnit in CI (GitHub Actions)</h1>
-
-</section>
-<section class="slide level2 smaller">
-<h2>Automating with Docker</h2>
-<p>To ensure a consitent environment when running pFUnit tests through GitHub actions, one can make use of containerisation (<strong>Docker</strong>, in my case)…</p>
+<h2>Workshop material</h2>
 <ul>
-<li class="fragment">Within a Dockerfile…
-<ul>
-<li class="fragment">Install and build depenencies.</li>
-<li class="fragment">Build src and test objects and executables.</li>
-<li class="fragment">Run all tests.</li>
-</ul></li>
-<li class="fragment">Wrap slow changing dependencies, such as pFUnit, into a parent Dockerfile to be built less frequently.</li>
-<li class="fragment">Proprietary software can be difficult to build within Dockerfiles.</li>
+<li class="fragment">A Fortran curriculum is in-development.</li>
+<li class="fragment">Further lessons are planned</li>
 </ul>
 <div class="fragment">
-<p>See <a href="https://github.com/UCL-ARC/fortran-unit-testing-exercises">UCL-ARC/fortran-unit-testing-exercises</a> for an example of this being used in practice</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    accTitle: Learner Pathways for the Introduction to Modern Fortran Course
+    accDescr {This diagram shows the possible learning pathways after completing the Introduction to Modern Fortran course.
+    The Intermediate and Advanced Topics in Modern Fortran courses are in the pre-alpha stage.
+    The MPI and OpenMP courses are from ARCHER2, the UK's national supercomputing facility, courses.}
+    A("Introduction to Modern Fortran") --&gt; B
+    B(Intermediate Modern Fortran) --&gt; C &amp; D &amp; E
+    C(Advanced Topics&lt;br&gt;in Modern Fortran)
+    D(Message-passing&lt;br&gt;Programming with MPI)
+    E(Shared Memory&lt;br&gt;Programming with OpenMP)
+    F(Making Legacy Fortran Sustainable) --&gt; G
+    B --&gt; G(Unit Testing in Fortran)
+
+    linkStyle default stroke:#000,stroke-width:2px
+    classDef archer2 fill:#201f5e,stroke:#fff,stroke-width:1px,color:#fff
+    classDef default fill:#ddd,stroke:#000,stroke-width:1px,color:#000
+    classDef existing fill:#ddd,stroke:#000,stroke-width:1px,color:#2a78dd
+    class D,E archer2
+    class A,G existing
+    click A href "https://carpentries-incubator.github.io/intro-to-modern-fortran/" "Link to the Introduction to modern Fortran Course"
+    click G href "https://carpentries-incubator.github.io/fortran-unit-testing/" "Link to the Unit Testing in Fortran Course"
+    click D href "https://www.archer2.ac.uk/training/courses/#message-passing-programming-with-mpi" "Link to the MPI Archer2 Course"
+    click E href "https://www.archer2.ac.uk/training/courses/#shared-memory-programming-with-openmp" "Link to the OpenMP Archer2 Course"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Example Dockerfile</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="-1|1|3-5|7-9|11-12"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb4-1"><a></a><span class="kw">FROM</span> parent-image:main</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="co"># Copy src and test code into the container</span></span>
-<span id="cb4-4"><a></a><span class="kw">COPY</span> my-project /my-project</span>
-<span id="cb4-5"><a></a><span class="kw">WORKDIR</span> /my-project</span>
-<span id="cb4-6"><a></a></span>
-<span id="cb4-7"><a></a><span class="co"># Build tests with cmake</span></span>
-<span id="cb4-8"><a></a><span class="kw">RUN</span> <span class="fu">cmake</span> <span class="at">-B</span> build <span class="at">-DCMAKE_PREFIX_PATH</span><span class="op">=</span>/path/to/pfunit/build/installed <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
-<span id="cb4-9"><a></a>    <span class="fu">cmake</span> <span class="at">--build</span> build</span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="co"># Run pfunit tests with ctest</span></span>
-<span id="cb4-12"><a></a><span class="kw">RUN</span> <span class="ex">ctest</span> <span class="at">--test-dir</span> build <span class="at">--output-on-failure</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section class="slide level2">
-<h2>Example workflow</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="-1|4-7|12-16|22-23"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="pp">---</span></span>
-<span id="cb5-2"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Build and test with pFUnit</span></span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb5-6"><a></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
-<span id="cb5-7"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
-<span id="cb5-8"><a></a></span>
-<span id="cb5-9"><a></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">testing</span><span class="kw">:</span></span>
-<span id="cb5-11"><a></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb5-12"><a></a><span class="at">    </span><span class="fu">permissions</span><span class="kw">:</span></span>
-<span id="cb5-13"><a></a><span class="at">      </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> read</span></span>
-<span id="cb5-14"><a></a><span class="at">      </span><span class="fu">packages</span><span class="kw">:</span><span class="at"> read</span></span>
-<span id="cb5-15"><a></a><span class="at">      </span><span class="fu">attestations</span><span class="kw">:</span><span class="at"> read</span></span>
-<span id="cb5-16"><a></a><span class="at">      </span><span class="fu">id-token</span><span class="kw">:</span><span class="at"> write</span></span>
-<span id="cb5-17"><a></a></span>
-<span id="cb5-18"><a></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb5-19"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
-<span id="cb5-20"><a></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb5-21"><a></a></span>
-<span id="cb5-22"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Build dockerfile</span></span>
-<span id="cb5-23"><a></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> docker build .</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Future Work</h1>
-
-</section>
-<section class="slide level2 smaller">
-<h2>Fortran testing workshop (UCL)</h2>
-<p>I have been developing a <a href="https://software-carpentry.org/">software carpentry</a> style lesson for unit testing in Fortran.</p>
+<h2>Get involved</h2>
 <ul>
-<li class="fragment">In person workshop, 16th and 18th of Februrary at UCL - sign up at <a href="https://pretix.eu/ARC/2026-02-16-Fortran/">pretix.eu/ARC/2026-02-16-Fortran/</a></li>
-<li class="fragment">Material written so far - <a href="https://github-pages.arc.ucl.ac.uk/fortran-unit-testing-lesson/">github-pages.arc.ucl.ac.uk/fortran-unit-testing-lesson</a></li>
-<li class="fragment">Repository of exercises - <a href="https://github.com/UCL-ARC/fortran-unit-testing-exercises">UCL-ARC/fortran-unit-testing-exercises</a>.</li>
-<li class="fragment">Plans to expand to cover…
-<ul>
-<li class="fragment">Automated testing (GitHub Actions and Docker)</li>
-<li class="fragment">Linting and formatting (<a href="https://fortitude.readthedocs.io/en/stable/">fortitude</a>)</li>
-<li class="fragment">Automatic documentation generation (<a href="https://forddocs.readthedocs.io/en/stable/">Ford</a> and/or <a href="https://www.doxygen.nl/">Doxygen</a>)</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Conclusions</h1>
-
-</section>
-<section class="slide level2 smaller" data-menu-title="Summary">
-<h2></h2>
-<ul>
-<li class="fragment">Fortran is still relevant.</li>
-<li class="fragment">Popular Fortran projects are often lacking unit tests.</li>
-<li class="fragment">It is recommended to use pFUnit for Fortran unit tests.</li>
-<li class="fragment">pFUnit…
-<ul>
-<li class="fragment">uses a preprocessor to convert <code>.pf</code> files to <code>.f90</code>.</li>
-<li class="fragment">assertions are provided as preprocessor directives.</li>
-<li class="fragment">integrates with Make and CMake.</li>
-</ul></li>
-<li class="fragment">Automatic pFUnit testing can be done within CI pipelines using containerisation.
-<ul>
-<li class="fragment">Can be difficult if relying on Legacy or proprietary dependencies.</li>
-</ul></li>
+<li class="fragment">Future workshops will deliver the lessons that have been developed so far.</li>
+<li class="fragment">If you are interested, sign-up to our mailing list.</li>
+<li class="fragment">We are also happy to accept contributions to the material (i.e.&nbsp;worked examples, curriculum suggestions)</li>
 </ul>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Acknowledgements</h1>
 <ul>
+<li>Development of the Introduction to Modern Fortran has been driven by <a href="https://github.com/astroDimitrios">Dimitrios Theodorakis</a>.</li>
 <li>Credit to the maintainers of pFUnit at <a href="https://github.com/Goddard-Fortran-Ecosystem">github.com/Goddard-Fortran-Ecosystem</a>, in particular <a href="https://github.com/tclune">Tom Clune</a> and <a href="https://github.com/mathomp4">Matt Thompson</a>.</li>
 <li>Thank you to Paddy J. Roddy for their <a href="https://github.com/paddyroddy/talks">quarto template</a> and <a href="https://paddyroddy.github.io/talks/quarto-making-talks/">helpful talk</a> which made this talk possible.</li>
 </ul>
+</section>
+
+<section class="title-slide slide level1 center">
+<h1>Thank you</h1>
+
 </section>
 
 <section class="title-slide slide level1 center" data-menu-title="QR Code">
@@ -551,7 +472,7 @@ Connor Aird
 <p>Scan to view the slides</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 78.0%;justify-content: flex-start;">
-<img alt="QR code linking to this talk's web page." src="https://api.qrserver.com/v1/create-qr-code/?data=https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran
+<img alt="QR code linking to this talk's web page." src="https://api.qrserver.com/v1/create-qr-code/?data=https://connoraird.github.io/talks/2026-06-16-fortran-carpentries
 &amp;bgcolor=000000&amp;color=ffffff&amp;size=550x550" style="display:block;margin:auto;width:550px;">
 </div>
 </div>
@@ -563,7 +484,7 @@ Connor Aird
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../../assets/ucl_logo_light.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Unit testing in Fortran - <a href="../../talks.html">Back to talks</a></p>
+<p>Fortran Carpentries - <a href="../../talks.html">Back to talks</a></p>
 </div>
 </div></div>
 
