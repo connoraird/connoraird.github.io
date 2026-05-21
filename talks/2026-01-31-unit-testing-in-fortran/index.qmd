@@ -11,11 +11,11 @@ recording:
   recording](https://fosdem.org/2026/schedule/event/QMWWPB-unit-testing-in-fortran/)"
 ---
 
-{{< include _slides/current_state_of_fortran.qmd >}}
+{{< include ../_slides/current_state_of_fortran.qmd >}}
 
-{{< include _slides/available_frameworks.qmd >}}
+{{< include ../_slides/available_fortran_test_frameworks.qmd >}}
 
-{{< include _slides/what_is_pfunit.qmd >}}
+{{< include ../_slides/what_is_pfunit.qmd >}}
 
 {{< include _slides/integrating_with_build_systems.qmd >}}
 

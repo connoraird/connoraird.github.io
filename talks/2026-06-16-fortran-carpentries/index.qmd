@@ -1,0 +1,91 @@
+---
+author: Connor Aird
+institute: University College London
+date: 2026-06-16
+format: revealjs
+subtitle: "Durham HPC Days 2026"
+title: "Fortran Carpentries"
+logo: /assets/ucl_logo_light.png
+recording:
+---
+
+{{< include ../_slides/current_state_of_fortran.qmd >}}
+
+{{< include ../_slides/available_fortran_test_frameworks.qmd >}}
+
+{{< include ../_slides/what_is_pfunit.qmd >}}
+
+# Software carpentries
+
+_The Carpentries teaches foundational coding and data science skills to
+researchers worldwide._
+
+## Carpentries and the incubator
+
+- Carpentries lessons are small, volunteer-led, hands on workshops.
+- The [incubator](https://carpentries-incubator.org/) is a space to host lessons
+  that are still in-development.
+- Lessons can remain in the incubator for years.
+- Incubator lessons can still be taught.
+- Lessons move through the
+  [lesson life cycle](https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html).
+
+## Workshop material
+
+- A Fortran curriculum is in-development.
+- Further lessons are planned
+
+::: {.fragment}
+
+```{mermaid}
+flowchart TD
+    accTitle: Learner Pathways for the Introduction to Modern Fortran Course
+    accDescr {This diagram shows the possible learning pathways after completing the Introduction to Modern Fortran course.
+    The Intermediate and Advanced Topics in Modern Fortran courses are in the pre-alpha stage.
+    The MPI and OpenMP courses are from ARCHER2, the UK's national supercomputing facility, courses.}
+    A("Introduction to Modern Fortran") --> B
+    B(Intermediate Modern Fortran) --> C & D & E
+    C(Advanced Topics<br>in Modern Fortran)
+    D(Message-passing<br>Programming with MPI)
+    E(Shared Memory<br>Programming with OpenMP)
+    F(Making Legacy Fortran Sustainable) --> G
+    B --> G(Unit Testing in Fortran)
+
+    linkStyle default stroke:#000,stroke-width:2px
+    classDef archer2 fill:#201f5e,stroke:#fff,stroke-width:1px,color:#fff
+    classDef default fill:#ddd,stroke:#000,stroke-width:1px,color:#000
+    classDef existing fill:#ddd,stroke:#000,stroke-width:1px,color:#2a78dd
+    class D,E archer2
+    class A,G existing
+    click A href "https://carpentries-incubator.github.io/intro-to-modern-fortran/" "Link to the Introduction to modern Fortran Course"
+    click G href "https://carpentries-incubator.github.io/fortran-unit-testing/" "Link to the Unit Testing in Fortran Course"
+    click D href "https://www.archer2.ac.uk/training/courses/#message-passing-programming-with-mpi" "Link to the MPI Archer2 Course"
+    click E href "https://www.archer2.ac.uk/training/courses/#shared-memory-programming-with-openmp" "Link to the OpenMP Archer2 Course"
+```
+
+:::
+
+## Get involved
+
+- Future workshops will deliver the lessons that have been developed so far.
+- If you are interested, sign-up to our mailing list.
+- We are also happy to accept contributions to the material (i.e. worked
+  examples, curriculum suggestions)
+
+# Acknowledgements
+
+::: {.nonincremental}
+
+- Development of the Introduction to Modern Fortran has been driven by
+  [Dimitrios Theodorakis](https://github.com/astroDimitrios).
+- Credit to the maintainers of pFUnit at
+  [github.com/Goddard-Fortran-Ecosystem](https://github.com/Goddard-Fortran-Ecosystem),
+  in particular [Tom Clune](https://github.com/tclune) and
+  [Matt Thompson](https://github.com/mathomp4).
+  {{< include /_includes/shared-acknowledgements.qmd >}}
+
+:::
+
+# Thank you
+
+{{< include /_includes/qr-code.qmd >}}

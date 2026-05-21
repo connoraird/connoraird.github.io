@@ -8,7 +8,7 @@
 - Availale under a
   [NASA OPEN SOURCE AGREEMENT VERSION 1.3](https://www.nasa.gov/wp-content/uploads/2025/08/nasa-open-source-agreement-1-3.pdf?emrc=575464)
   licence
-  - Permissive Licenses similar to MIT and BSD but there are differences.
+  - Permissive license similar to MIT and BSD but there are differences.
 - Uses a preprocessor to convert `.pf` files to `.f90`.
 - Follows the style of JUnit. i.e. Directives
   ([annotations](https://docs.junit.org/6.0.1/writing-tests/annotations.html) in
@@ -21,7 +21,7 @@
 `.pf` syntax is similar to `.f90` with preprocessor directives, such as `@Test`
 and `@assertEqual`.
 
-{{< include _components/pfunit_code_example.qmd >}}
+{{< include ../_code_examples/pfunit_code_example.qmd >}}
 
 ## The preprocessor {.smaller}
 
@@ -29,12 +29,13 @@ and `@assertEqual`.
 - Converts `.pf` with directives into `.f90`.
 - Called automatically when building with Make or CMake.
 - Directives exist for the following tasks
-  - Labeling custom types (test parameters and test cases).
-  - Labeling test subroutines.
+  - Labeling subroutines as tests.
+  - Parameterising tests.
+  - Labelling subroutines as setup and teardown steps.
   - Specifying assertions.
     - The [documentation](https://pfunit.sourceforge.net/page_Assert.html) needs
       some work.
-    - I have a PR open to begin improvements
+    - I had a PR merged to begin improvements
       ([#519](https://github.com/Goddard-Fortran-Ecosystem/pFUnit/pull/519))
 
 ## Assert preprocessor directives
