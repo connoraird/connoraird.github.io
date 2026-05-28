@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://connoraird.github.io/talks.html</loc>
-    <lastmod>2026-05-21T19:22:15.866Z</lastmod>
+    <loc>https://connoraird.github.io/talks/rsecon-2025-unit-testing-in-fortran/index.html</loc>
+    <lastmod>2026-05-28T16:26:01.464Z</lastmod>
   </url>
   <url>
     <loc>https://connoraird.github.io/talks/2026-06-16-fortran-carpentries/index.html</loc>
-    <lastmod>2026-05-21T19:22:15.888Z</lastmod>
+    <lastmod>2026-05-28T16:26:01.463Z</lastmod>
   </url>
   <url>
-    <loc>https://connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html</loc>
-    <lastmod>2026-05-21T19:22:15.888Z</lastmod>
+    <loc>https://connoraird.github.io/talks.html</loc>
+    <lastmod>2026-05-28T16:26:01.440Z</lastmod>
   </url>
   <url>
     <loc>https://connoraird.github.io/index.html</loc>
-    <lastmod>2026-05-21T19:22:15.865Z</lastmod>
+    <lastmod>2026-05-28T16:26:01.440Z</lastmod>
   </url>
   <url>
-    <loc>https://connoraird.github.io/talks/rsecon-2025-unit-testing-in-fortran/index.html</loc>
-    <lastmod>2026-05-21T19:22:15.890Z</lastmod>
+    <loc>https://connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html</loc>
+    <lastmod>2026-05-28T16:26:01.463Z</lastmod>
   </url>
   <url>
     <loc>https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran/index.html</loc>
-    <lastmod>2026-05-21T19:22:15.866Z</lastmod>
+    <lastmod>2026-05-28T16:26:01.441Z</lastmod>
   </url>
 </urlset>
