@@ -2,6 +2,9 @@
 
 ## Overview of pFUnit {.smaller}
 
+The Parallel Fortran Unit Testing Framework (pFUnit) is a framework for unit
+testing Fortran.
+
 - Created by developers from NASA.
 - Open source on GitHub and accepting contributions -
   [Goddard-Fortran-Ecosystem/pFUnit](https://github.com/Goddard-Fortran-Ecosystem/pFUnit)

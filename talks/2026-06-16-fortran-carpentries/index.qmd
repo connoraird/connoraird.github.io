@@ -65,13 +65,15 @@ flowchart TD
 
 ## Get involved
 
-- Future workshops will deliver the lessons that have been developed so far.
+- Funded through my
+  [CAKE Fellowship](https://www.cake.ac.uk/about/ke-fellowships/), future
+  workshops will deliver the lessons that have been developed so far.
 - If you are interested,
   [sign-up to our mailing list](https://forms.office.com/Pages/ResponsePage.aspx?id=_oivH5ipW0yTySEKEdmlwh9wJ_RqDu5Nvx22YKnFhItUNzNINU5WSjlKOTY0SElHSUQyOFBCNVJFVi4u).
 - We are also happy to accept contributions to the material (i.e. worked
   examples, curriculum suggestions). Visit our repos:
   - [Introduction to Modern Fortran](https://github.com/carpentries-incubator/intro-to-modern-fortran/)
-  - [Unit testing Fortran](https://github.com/carpentries-incubator/fortran-unit-testing)
+  - [Unit testing in Fortran](https://github.com/carpentries-incubator/fortran-unit-testing)
 
 # Acknowledgements
 
