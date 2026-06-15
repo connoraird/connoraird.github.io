@@ -9,7 +9,13 @@ logo: /assets/ucl_logo_light.png
 recording:
 ---
 
-{{< include ../_slides/current_state_of_fortran.qmd >}}
+## TL;DR
+
+- **The problem:** Scientific Fortran codes often don't have unit tests.
+- Therefore, I have written a _Unit Testing in Fortran_ workshop in the
+  carpentries style to teach **pFUnit**.
+- I will be running these workshops over the next 12 months.
+- Other Fortran **carpentries** workshops are also in development.
 
 {{< include ../_slides/what_is_pfunit.qmd >}}
 
