@@ -7,9 +7,7 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Connor Aird">
@@ -221,77 +219,15 @@ Connor Aird
 
   <p class="date">2026-06-16</p>
 </section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Current state of Fortran testing</h1>
-
-</section>
-<section class="slide level2 smaller scrollable" data-footer="false">
-<h2>Some known Fortran projects</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Repository</th>
-<th>Description</th>
-<th>Integration tests</th>
-<th>Unit tests</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://github.com/epochpic/epoch">epochpic/epoch</a> <img src="https://img.shields.io/github/stars/epochpic/epoch"></td>
-<td>Popular particle-in-cell plasma code</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/ukaea/ReMKiT1D">ukaea/ReMKiT1D</a> <img src="https://img.shields.io/github/stars/ukaea/ReMKiT1D"></td>
-<td>Framework for 1D multifluid and kinetic simulations of Tokamaks</td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/geoschem/geos-chem">geoschem/geos-chem</a> <img src="https://img.shields.io/github/stars/geoschem/geos-chem"></td>
-<td>Popular atmospheric chemistry code</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-</tr>
-<tr class="even">
-<td><a href="https://github.com/MetOffice/ukca">MetOffice/ukca</a> <img src="https://img.shields.io/github/stars/MetOffice/ukca"></td>
-<td>The UK’s main atmospheric chemistry code</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-x" aria-label="x"></i></p></td>
-</tr>
-<tr class="odd">
-<td><a href="https://github.com/MetOffice/lfric_core">MetOffice/lfric_core</a> <img src="https://img.shields.io/github/stars/MetOffice/lfric_core"></td>
-<td>The Met Office’s next generation weather model</td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="slide level2 smaller">
-<h2>Why is testing Fortran hard</h2>
-<p>Note that these points are from my experience in academia.</p>
+<section class="slide level2">
+<h2>TL;DR</h2>
 <ul>
-<li class="fragment">Fortran is often legacy code.
-<ul>
-<li class="fragment">Lots of global state.</li>
-<li class="fragment">Lack of units to test.</li>
-<li class="fragment">Locked into specific compilers or dependencies.</li>
-</ul></li>
-<li class="fragment">Many custom testing setups exist
-<ul>
-<li class="fragment">Test frameworks do not benefit from open source contibutions.</li>
-</ul></li>
-<li class="fragment">Lack of know-how
-<ul>
-<li class="fragment">Developers are often PhD students new to Fortran development.</li>
-</ul></li>
-<li class="fragment">Unclear which frameworks to choose.</li>
+<li class="fragment"><strong>The problem:</strong> Scientific Fortran codes often don’t have unit tests.</li>
+<li class="fragment">Therefore, I have written a <em>Unit Testing in Fortran</em> workshop in the carpentries style to teach <strong>pFUnit</strong>.</li>
+<li class="fragment">I will be running these workshops over the next 12 months.</li>
+<li class="fragment">Other Fortran <strong>carpentries</strong> workshops are also in development.</li>
 </ul>
-</section></section>
+</section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>What is pFUnit</h1>
