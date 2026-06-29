@@ -9,6 +9,11 @@ logo: /assets/ucl_logo_light.png
 recording:
   "[Devroom
   recording](https://fosdem.org/2026/schedule/event/QMWWPB-unit-testing-in-fortran/)"
+type: talk
+categories:
+  - fortran
+  - testing
+  - conference-talks
 ---
 
 {{< include _slides/current_state_of_fortran.qmd >}}

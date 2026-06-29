@@ -7,6 +7,11 @@ subtitle: "ARC Forum"
 title: "Pytest Benchmark, was it worth it?"
 logo: /assets/ucl_logo_light.png
 recording:
+type: talk
+categories:
+  - teaching
+  - python
+  - testing
 ---
 
 {{< include _slides/re-intro.qmd >}}

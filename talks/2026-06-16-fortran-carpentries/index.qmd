@@ -7,6 +7,12 @@ subtitle: "Durham HPC Days 2026"
 title: "Fortran Carpentries"
 logo: /assets/ucl_logo_light.png
 recording:
+type: talk
+categories:
+  - teaching
+  - fortran
+  - testing
+  - conference-talks
 ---
 
 ## TL;DR

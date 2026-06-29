@@ -5,6 +5,11 @@ format: html
 path: 2025-09-11-rsecon-unit-testing-in-fortran/index.qmd
 subtitle: "RSECon 2025"
 title: "Unit testing in Fortran"
+type: walkthrough
+categories:
+  - fortran
+  - testing
+  - conference-talks
 ---
 
 {{< pdf index.pdf height=600 width=100% >}}

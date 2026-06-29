@@ -2,3 +2,8 @@
   max-height: 75px;
   border-radius: 100%;
 }
+
+.quarto-post {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}

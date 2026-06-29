@@ -2,21 +2,25 @@
 pagetitle: Connor Aird
 format:
   html:
-    css: styling/home-page.css
+    css:
+      - styling/home-page.css
+      - styling/listings.css
 links:
   - text: Strava
     icon: strava
     href: https://www.strava.com/athletes/connoraird
 listing:
+  id: updates-listing
   contents:
     - projects
     - talks
   date-format: iso
   exclude:
     title: Page Not Found
-  page-size: 3
+  page-size: 4
   sort: date desc
   type: default
+  categories: false
   fields:
     - date
     - title
@@ -24,6 +28,7 @@ listing:
     - author
     - categories
     - image
+    - type
 ---
 
 :::::: {.column-page}
@@ -70,4 +75,10 @@ for (item in all_items) {
 
 ::::::
 
-## Latest Updates
+# Latest Updates
+
+::: {#updates-listing}
+
+:::
+
+[Reset query](/)

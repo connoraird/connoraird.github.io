@@ -1,0 +1,44 @@
+/* css styles */
+
+.quarto-listing-default {
+  padding-bottom: 1em;
+}
+
+.quarto-post {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 20px;
+  margin-bottom: 24px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  /* background-color: #fff; */
+  -webkit-transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    color 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    color 0.2s;
+  text-decoration: none;
+}
+
+.quarto-post:hover {
+  border-color: #419599;
+  background-color: transparent;
+  box-shadow:
+    0px 1px 2px rgba(0, 0, 0, 0.1),
+    0px 2px 4px rgba(0, 0, 0, 0.1),
+    0px 4px 8px rgba(0, 0, 0, 0.1),
+    0px 8px 16px rgba(0, 0, 0, 0.1);
+}
