@@ -1,31 +1,28 @@
 ---
-title: Talks
+title: Projects
 aliases:
-  - /talks/
-  - /presentations/
-subtitle: A collection of my previous and upcoming talks
+  - /projects/
+subtitle: A collection of my previous and upcoming projects
 format:
   html:
     page-layout: full
     css:
       - styling/listings.css
 listing:
-  contents: talks
+  contents: projects
   date-format: iso
   exclude:
     title: Page Not Found
-  field-display-names:
-    subtitle: Event
+  page-size: 4
+  sort: date desc
+  type: default
   categories: true
   fields:
-    - categories
     - date
     - title
     - subtitle
     - author
-    - recording
+    - categories
     - image
-  page-size: 4
-  sort: date desc
-  type: default
+    - type
 ---
