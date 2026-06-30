@@ -1,5 +1,11 @@
 ---
-format: html
+title: Projects
+aliases:
+  - /projects/
+subtitle: A collection of my previous and upcoming projects
+format:
+  html:
+    page-layout: full
 listing:
   contents: projects
   date-format: iso
