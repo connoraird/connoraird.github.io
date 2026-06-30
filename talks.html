@@ -27,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -83,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-subtitle','listing-author','listing-recording',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-categories','listing-date','listing-title','listing-subtitle','listing-author','listing-recording','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -137,6 +136,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styling/site-wide.css">
+<link rel="stylesheet" href="styling/listings.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -168,13 +168,17 @@ window.Quarto = {
     <a class="nav-link" href="./cv.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+              <div class="quarto-navbar-tools tools-wide">
     <a href="mailto:c.aird@ucl.ac.uk" title="Email" class="quarto-navigation-tool px-1" aria-label="Email"><i class="bi bi-envelope"></i></a>
     <a href="https://github.com/connoraird" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
     <a href="https://www.linkedin.com/in/connoraird/" title="Linkedin" class="quarto-navigation-tool px-1" aria-label="Linkedin"><i class="bi bi-linkedin"></i></a>
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -182,9 +186,11 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29uZmVyZW5jZS10YWxrcw==">conference-talks <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Zm9ydHJhbg==">fortran <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVhY2hpbmc=">teaching <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVzdGluZw==">testing <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 <div id="tsparticles"></div>
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -195,7 +201,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -211,138 +217,154 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-author" data-direction="asc">
-        Author
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="dGVhY2hpbmclMkNmb3J0cmFuJTJDdGVzdGluZyUyQ2NvbmZlcmVuY2UtdGFsa3M=" data-listing-date-sort="1781568000000" data-listing-file-modified-sort="1782827020445" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="446">
+<div class="thumbnail"><a href="./talks/2026-06-16-fortran-carpentries/index.html" class="no-external">
+
+<img loading="lazy" src="./_includes/fortran-logo.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./talks/2026-06-16-fortran-carpentries/index.html" class="no-external">Fortran Carpentries</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./talks/2026-06-16-fortran-carpentries/index.html" class="no-external">Durham HPC Days 2026</a>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('dGVhY2hpbmc='); return false;">teaching</div>
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9ydHJhbg=='); return false;">fortran</div>
 
-<th>
-Event
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('dGVzdGluZw=='); return false;">testing</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZS10YWxrcw=='); return false;">conference-talks</div>
 
-<th>
-recording
-</th>
+</div>
+</div>
+<div class="metadata">
+<a href="./talks/2026-06-16-fortran-carpentries/index.html" class="no-external">
+<div class="listing-date">
+2026-06-16
+</div>
+<div class="listing-author">
+Connor Aird
+</div>
+<div class="metadata-value listing-recording">
+&nbsp;
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="cHl0aG9uJTJDdGVzdGluZw==" data-listing-date-sort="1776729600000" data-listing-file-modified-sort="1782827020445" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
+<div class="thumbnail"><a href="./talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html" class="no-external">
 
-</tr>
-</thead>
-<tbody class="list">
+<img loading="lazy" src="./_includes/pytest-logo.png" class="thumbnail-image">
 
-<tr data-index="0" data-listing-date-sort="1781568000000" data-listing-file-modified-sort="1781563016575" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="446" data-listing-title-sort="Fortran Carpentries" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">2026-06-16</span>
-</td>
-<td>
-<a href="./talks/2026-06-16-fortran-carpentries/index.html" class="title listing-title">Fortran Carpentries</a>
-</td>
-<td>
-<span class="listing-subtitle">Durham HPC Days 2026</span>
-</td>
-<td>
-<span class="listing-author">Connor Aird</span>
-</td>
-<td>
-<span class="listing-recording">&nbsp;</span>
-</td>
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html" class="no-external">Pytest Benchmark, was it worth it?</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html" class="no-external">ARC Forum</a>
+</div>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
 
-<tr data-index="1" data-listing-date-sort="1776729600000" data-listing-file-modified-sort="1781563016575" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126" data-listing-title-sort="Pytest Benchmark, was it worth it?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">2026-04-21</span>
-</td>
-<td>
-<a href="./talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html" class="title listing-title">Pytest Benchmark, was it worth it?</a>
-</td>
-<td>
-<span class="listing-subtitle">ARC Forum</span>
-</td>
-<td>
-<span class="listing-author">Connor Aird</span>
-</td>
-<td>
-<span class="listing-recording">&nbsp;</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('dGVzdGluZw=='); return false;">testing</div>
 
-</tr>
+</div>
+</div>
+<div class="metadata">
+<a href="./talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html" class="no-external">
+<div class="listing-date">
+2026-04-21
+</div>
+<div class="listing-author">
+Connor Aird
+</div>
+<div class="metadata-value listing-recording">
+&nbsp;
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Zm9ydHJhbiUyQ3Rlc3RpbmclMkNjb25mZXJlbmNlLXRhbGtz" data-listing-date-sort="1769817600000" data-listing-file-modified-sort="1782827020428" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
+<div class="thumbnail"><a href="./talks/2026-01-31-unit-testing-in-fortran/index.html" class="no-external">
 
-<tr data-index="2" data-listing-date-sort="1769817600000" data-listing-file-modified-sort="1781563016553" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49" data-listing-title-sort="Unit testing in Fortran" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">2026-01-31</span>
-</td>
-<td>
-<a href="./talks/2026-01-31-unit-testing-in-fortran/index.html" class="title listing-title">Unit testing in Fortran</a>
-</td>
-<td>
-<span class="listing-subtitle">FOSDEM 2026: Testing and Continuous Delivery devroom</span>
-</td>
-<td>
-<span class="listing-author">Connor Aird</span>
-</td>
-<td>
-<span class="listing-recording"><a href="https://fosdem.org/2026/schedule/event/QMWWPB-unit-testing-in-fortran/">Devroom recording</a></span>
-</td>
+<img loading="lazy" src="./_includes/fosdem-logo.png" class="thumbnail-image">
 
-</tr>
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./talks/2026-01-31-unit-testing-in-fortran/index.html" class="no-external">Unit testing in Fortran</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./talks/2026-01-31-unit-testing-in-fortran/index.html" class="no-external">FOSDEM 2026: Testing and Continuous Delivery devroom</a>
+</div>
+<div class="listing-categories">
 
-<tr data-index="3" data-listing-date-sort="1762819200000" data-listing-file-modified-sort="1781563016575" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6" data-listing-title-sort="Unit testing in Fortran" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">2025-11-11</span>
-</td>
-<td>
-<a href="./talks/rsecon-2025-unit-testing-in-fortran/index.html" class="title listing-title">Unit testing in Fortran</a>
-</td>
-<td>
-<span class="listing-subtitle">RSECon 2025</span>
-</td>
-<td>
-<span class="listing-author">Connor Aird</span>
-</td>
-<td>
-<span class="listing-recording">&nbsp;</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9ydHJhbg=='); return false;">fortran</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('dGVzdGluZw=='); return false;">testing</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZS10YWxrcw=='); return false;">conference-talks</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="./talks/2026-01-31-unit-testing-in-fortran/index.html" class="no-external">
+<div class="listing-date">
+2026-01-31
+</div>
+<div class="listing-author">
+Connor Aird
+</div>
+</a><div class="metadata-value listing-recording"><a href="./talks/2026-01-31-unit-testing-in-fortran/index.html" class="no-external">
+</a><a href="https://fosdem.org/2026/schedule/event/QMWWPB-unit-testing-in-fortran/">Devroom recording</a>
+</div>
+
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Zm9ydHJhbiUyQ3Rlc3RpbmclMkNjb25mZXJlbmNlLXRhbGtz" data-listing-date-sort="1757548800000" data-listing-file-modified-sort="1782827020428" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
+<div class="thumbnail"><a href="./talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html" class="no-external">
+
+<img loading="lazy" src="./_includes/rsesoc-logo.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html" class="no-external">Unit testing in Fortran</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html" class="no-external">RSECon 2025</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9ydHJhbg=='); return false;">fortran</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVzdGluZw=='); return false;">testing</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZS10YWxrcw=='); return false;">conference-talks</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="./talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html" class="no-external">
+<div class="listing-date">
+2025-09-11
+</div>
+<div class="listing-author">
+Connor Aird
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

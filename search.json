@@ -4,11 +4,25 @@
     "href": "index.html",
     "title": "Connor Aird",
     "section": "",
-    "text": "Connor Aird\n\nResearch Software Engineer Centre for Advanced Research Computing University College London\n           \n\n\n\n\n\n\n\n\n\nI am a Research Software Engineer at the Centre for Advanced Research Computing, University College London and have been since June 2023. I work across a range of projects, from parallelising High Performance Fortran to developing open-source python applications. Check out my GitHub to see what I’ve been up to lately.\n\n\n\n\n\nI graduated from the University of York in 2020 with a First Class Masters Degree in Physics. My master’s dissertation focused on 1D modelling of turbulence in Tokamak fusion reactors.\n\n\n\n\n\nIn my spare time I enjoy playing underwater hockey. I began playing at university before graduating to the city team, York Octopush. I now train with Islington Underwater Hockey.\n\n\n\n\n\nI love hiking around Britain. In particular, I have been trying to walk all the Wainwright fells."
+    "text": "Connor Aird\n\nResearch Software Engineer Centre for Advanced Research Computing University College London\n           \n\n\n\n\n\n\n\n\n\nI am a Research Software Engineer at the Centre for Advanced Research Computing, University College London and have been since June 2023. I work across a range of projects, from parallelising High Performance Fortran to developing open-source python applications. Check out my GitHub to see what I’ve been up to lately.\n\n\n\n\n\nI graduated from the University of York in 2020 with a First Class Masters Degree in Physics. My master’s dissertation focused on 1D modelling of turbulence in Tokamak fusion reactors.\n\n\n\n\n\nIn my spare time I enjoy playing underwater hockey. I began playing at university before graduating to the city team, York Octopush. I now train with Islington Underwater Hockey.\n\n\n\n\n\nI love hiking around Britain. In particular, I have been trying to walk all the Wainwright fells.\n\n\n\n\n\n\n\nLatest Updates\n\n\n\n\n\n\n\n\n\n\nCAKE Fellowship\n\n\nImproving software sustainability and testing practices within the Fortran research software community\n\n\n\naward\n\nteaching\n\nfortran\n\ntesting\n\n\n\n\n\n\n2026-07-01\n\n\nConnor Aird\n\n\nFellowship\n\n\n\n\n\n\n\n\n\n\n\n\nFortran Carpentries\n\n\nDurham HPC Days 2026\n\n\n\nteaching\n\nfortran\n\ntesting\n\nconference-talks\n\n\n\n\n\n\n2026-06-16\n\n\nConnor Aird\n\n\ntalk\n\n\n\n\n\n\n\n\n\n\n\n\nPytest Benchmark, was it worth it?\n\n\nARC Forum\n\n\n\npython\n\ntesting\n\n\n\n\n\n\n2026-04-21\n\n\nConnor Aird\n\n\ntalk\n\n\n\n\n\n\n\n\n\n\n\n\nUnit testing in Fortran\n\n\nFOSDEM 2026: Testing and Continuous Delivery devroom\n\n\n\nfortran\n\ntesting\n\nconference-talks\n\n\n\n\n\n\n2026-01-31\n\n\nConnor Aird\n\n\ntalk\n\n\n\n\n\n\n\n\n\n\n\n\nUnit testing in Fortran\n\n\nRSECon 2025\n\n\n\nfortran\n\ntesting\n\nconference-talks\n\n\n\n\n\n\n2025-09-11\n\n\nConnor Aird\n\n\nwalkthrough\n\n\n\n\n\nNo matching items\n\n  \n\n\nReset query"
   },
   {
-    "objectID": "talks/rsecon-2025-unit-testing-in-fortran/index.html",
-    "href": "talks/rsecon-2025-unit-testing-in-fortran/index.html",
+    "objectID": "dissertation.html",
+    "href": "dissertation.html",
+    "title": "Masters Dissertation",
+    "section": "",
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "CAKE Fellowship\n\n\nImproving software sustainability and testing practices within the Fortran research software community\n\n\n\naward\n\nteaching\n\nfortran\n\ntesting\n\n\n\n\n\n\n2026-07-01\n\n\nConnor Aird\n\n\nFellowship\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html",
+    "href": "talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html",
     "title": "Unit testing in Fortran",
     "section": "",
     "text": "Download PDF file."
@@ -18,6 +32,13 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nEvent\n\n\n\nAuthor\n\n\n\nrecording\n\n\n\n\n\n\n\n\n2026-06-16\n\n\nFortran Carpentries\n\n\nDurham HPC Days 2026\n\n\nConnor Aird\n\n\n \n\n\n\n\n\n\n2026-04-21\n\n\nPytest Benchmark, was it worth it?\n\n\nARC Forum\n\n\nConnor Aird\n\n\n \n\n\n\n\n\n\n2026-01-31\n\n\nUnit testing in Fortran\n\n\nFOSDEM 2026: Testing and Continuous Delivery devroom\n\n\nConnor Aird\n\n\nDevroom recording\n\n\n\n\n\n\n2025-11-11\n\n\nUnit testing in Fortran\n\n\nRSECon 2025\n\n\nConnor Aird\n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Fortran Carpentries\n\n\nDurham HPC Days 2026\n\n\n\nteaching\n\nfortran\n\ntesting\n\nconference-talks\n\n\n\n\n\n\n2026-06-16\n\n\nConnor Aird\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nPytest Benchmark, was it worth it?\n\n\nARC Forum\n\n\n\npython\n\ntesting\n\n\n\n\n\n\n2026-04-21\n\n\nConnor Aird\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nUnit testing in Fortran\n\n\nFOSDEM 2026: Testing and Continuous Delivery devroom\n\n\n\nfortran\n\ntesting\n\nconference-talks\n\n\n\n\n\n\n2026-01-31\n\n\nConnor Aird\n\n\nDevroom recording\n\n\n\n\n\n\n\n\n\n\n\n\nUnit testing in Fortran\n\n\nRSECon 2025\n\n\n\nfortran\n\ntesting\n\nconference-talks\n\n\n\n\n\n\n2025-09-11\n\n\nConnor Aird\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/cake-fellowship/index.html",
+    "href": "projects/cake-fellowship/index.html",
+    "title": "CAKE Fellowship",
+    "section": "",
+    "text": "I have been successful in securing a DRI Knowledge Exchange Fellowships in the second cohort of CAKE fellows.\n\nAbstract\nFortran research software underpins much of the UK’s scientific computing infrastructure, yet key software engineering practices such as unit testing are not widely adopted across the community. Although tools such as pFUnit exist, awareness and uptake remain limited. Through this fellowship, I will develop and deliver workshops to introduce Fortran developers to unit testing and demonstrate how these tools can be applied in practice. Feedback from these workshops, alongside broader community engagement, will help identify gaps in existing tools and guide future improvements to the Fortran ecosystem, strengthening the sustainability and reliability of Fortran research software."
   }
 ]
