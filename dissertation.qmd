@@ -1,0 +1,8 @@
+---
+title: "Masters Dissertation"
+aliases:
+  - /dissertation/
+format: html
+---
+
+{{< pdf _includes/dissertation.pdf height=600 width=100% >}}
