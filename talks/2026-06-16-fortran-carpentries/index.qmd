@@ -13,6 +13,7 @@ categories:
   - fortran
   - testing
   - conference-talks
+image: /_includes/fortran-logo.png
 ---
 
 ## TL;DR

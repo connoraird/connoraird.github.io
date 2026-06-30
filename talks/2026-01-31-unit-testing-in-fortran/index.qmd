@@ -14,6 +14,7 @@ categories:
   - fortran
   - testing
   - conference-talks
+image: /_includes/fosdem-logo.png
 ---
 
 {{< include _slides/current_state_of_fortran.qmd >}}

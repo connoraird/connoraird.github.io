@@ -1,5 +1,9 @@
 /* css styles */
 
+.thumbnail-image {
+  max-width: 80%;
+}
+
 .quarto-listing-default {
   padding-bottom: 1em;
 }
@@ -40,4 +44,12 @@
     0px 2px 4px rgba(0, 0, 0, 0.1),
     0px 4px 8px rgba(0, 0, 0, 0.1),
     0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.list.quarto-listing-default .quarto-post:last-of-type {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.list.quarto-listing-default:hover .quarto-post:last-of-type:hover {
+  border-color: #419599;
 }

@@ -6,13 +6,23 @@ subtitle: A collection of my previous and upcoming projects
 format:
   html:
     page-layout: full
+    css:
+      - styling/listings.css
 listing:
   contents: projects
   date-format: iso
   exclude:
     title: Page Not Found
-  page-size: 3
+  page-size: 4
   sort: date desc
   type: default
   categories: true
+  fields:
+    - date
+    - title
+    - subtitle
+    - author
+    - categories
+    - image
+    - type
 ---

@@ -7,6 +7,8 @@ subtitle: A collection of my previous and upcoming talks
 format:
   html:
     page-layout: full
+    css:
+      - styling/listings.css
 listing:
   contents: talks
   date-format: iso
@@ -14,13 +16,16 @@ listing:
     title: Page Not Found
   field-display-names:
     subtitle: Event
+  categories: true
   fields:
+    - categories
     - date
     - title
     - subtitle
     - author
     - recording
-  page-size: 10
+    - image
+  page-size: 4
   sort: date desc
-  type: table
+  type: default
 ---

@@ -12,6 +12,7 @@ categories:
   - teaching
   - python
   - testing
+image: /_includes/pytest-logo.png
 ---
 
 {{< include _slides/re-intro.qmd >}}
