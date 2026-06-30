@@ -9,7 +9,6 @@ logo: /assets/ucl_logo_light.png
 recording:
 type: talk
 categories:
-  - teaching
   - python
   - testing
 image: /_includes/pytest-logo.png
