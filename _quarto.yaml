@@ -45,6 +45,7 @@ format:
 
 resources:
   - particles
+  - posters
 
 website:
   favicon: assets/favicon.ico
@@ -61,6 +62,8 @@ website:
         href: cv.qmd
       - text: Projects
         href: projects.qmd
+      - text: Posters
+        href: posters.qmd
     tools:
       - text: Email
         icon: envelope
