@@ -9,18 +9,7 @@ format:
     css:
       - styling/listings.css
 listing:
-  contents:
-    - date: 2026-06-16
-      author:
-        - Connor Aird
-        - "[Patrick Roddy](https://github.com/paddyroddy)"
-        - "[Saransh Chopra](https://github.com/Saransh-cpp)"
-        - "[Nicolas Tessore](https://github.com/ntessore)"
-      path: posters/rsecon-2026/index.svg
-      subtitle: >-
-        [RSECon 2026](https://rsecon26.society-rse.org/)
-      title: >-
-        Porting GLASS to the Python Array API: A Clear View to GPU Portability
+  contents: posters
   date-format: iso
   exclude:
     title: Page Not Found

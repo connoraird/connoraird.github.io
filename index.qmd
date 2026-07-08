@@ -12,6 +12,7 @@ links:
 listing:
   id: updates-listing
   contents:
+    - posters
     - projects
     - talks
   date-format: iso

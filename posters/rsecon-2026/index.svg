@@ -27,14 +27,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.53184161"
-     inkscape:cx="1626.4241"
-     inkscape:cy="3174.8174"
+     inkscape:zoom="0.37606881"
+     inkscape:cx="1588.805"
+     inkscape:cy="3359.7575"
      inkscape:window-width="1920"
      inkscape:window-height="1022"
      inkscape:window-x="0"
      inkscape:window-y="30"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer-MC0"
      inkscape:document-units="mm"
      inkscape:export-bgcolor="#ffffffff"
@@ -181,11 +181,11 @@
      inkscape:label="Vertical"
      transform="matrix(2.0023809,0,0,2.0023809,-2.7064283e-6,-9.4983672e-5)"><path
        id="path12"
-       d="M 1.4081863,2074.964 H 1587.9913 V 861.65726 H 1.4081863 Z"
-       style="display:none;fill:#7b6676;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.31116;stroke-opacity:1" /><path
+       d="M 1.4082703,2037.7809 H 1587.9912 V 860.32939 H 1.4082703 Z"
+       style="display:inline;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.29164;stroke-opacity:1" /><path
        id="bottom-box"
        d="M 2.6999999e-6,2245.0395 H 1587.2818 V 2037.3748 H 2.6999999e-6 Z"
-       style="fill:#a6317c;fill-opacity:0.8;fill-rule:nonzero;stroke:none;stroke-width:0.542559"
+       style="fill:#b35190;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.542559"
        sodipodi:nodetypes="ccccc" /><path
        id="second-box"
        d="M 0.11985082,860.23233 H 1587.4016 V 595.56763 H 0.11985082 Z"
@@ -281,10 +281,10 @@
          inkscape:label="text-4"><tspan
            x="820"
            y="1391.5928"
-           id="tspan23">Benchmarking with </tspan><tspan
+           id="tspan1">Benchmarking with </tspan><tspan
            x="820"
            y="1434.2595"
-           id="tspan24">pytest-benchmark
+           id="tspan2">pytest-benchmark
 </tspan></text><image
          width="1264.1635"
          height="402.89435"
@@ -338,7 +338,7 @@
          inkscape:label="text-3"><tspan
            x="811.75781"
            y="930.20411"
-           id="tspan25">Handling the immutability of JAX</tspan></text><g
+           id="tspan3">Handling the immutability of JAX</tspan></text><g
          id="g17"
          inkscape:label="yield-array-api-version"
          transform="translate(1.9431769,13.596187)"><image
@@ -519,10 +519,10 @@
          inkscape:label="text-2"><tspan
            x="88"
            y="1422.5928"
-           id="tspan26">Wrapping functions outside </tspan><tspan
+           id="tspan4">Wrapping functions outside </tspan><tspan
            x="88"
            y="1465.2595"
-           id="tspan27">the specification</tspan></text><g
+           id="tspan5">the specification</tspan></text><g
          id="g18"
          inkscape:label="gradient"><image
            width="1422.3876"
@@ -565,7 +565,7 @@
          inkscape:label="text-1"><tspan
            x="81"
            y="943.59279"
-           id="tspan28">The Python Array API</tspan></text><g
+           id="tspan6">The Python Array API</tspan></text><g
          id="g14"
          inkscape:label="unit-vector-numpy"
          style="display:inline"><image
@@ -621,10 +621,10 @@
        inkscape:label="title"><tspan
          x="9.359375"
          y="109.60932"
-         id="tspan29">Porting GLASS to </tspan><tspan
+         id="tspan7">Porting GLASS to </tspan><tspan
          x="9.359375"
          y="236.27558"
-         id="tspan30">the Array API</tspan></text><text
+         id="tspan8">the Array API</tspan></text><text
        xml:space="preserve"
        id="text6"
        style="font-size:74.6667px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect6);display:inline;fill:#9827a3;fill-opacity:1"
@@ -634,16 +634,16 @@
        inkscape:label="subtitle"><tspan
          x="23.400391"
          y="171.08163"
-         id="tspan31">A Clear </tspan><tspan
+         id="tspan9">A Clear </tspan><tspan
          x="23.400391"
          y="264.41501"
-         id="tspan32">View to </tspan><tspan
+         id="tspan10">View to </tspan><tspan
          x="23.400391"
          y="357.74838"
-         id="tspan33">GPU </tspan><tspan
+         id="tspan11">GPU </tspan><tspan
          x="23.400391"
          y="451.08176"
-         id="tspan34">Portability</tspan></text><text
+         id="tspan12">Portability</tspan></text><text
        xml:space="preserve"
        id="text7"
        style="font-size:37.3333px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:end;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect8);display:inline;fill:#f3c09a;fill-opacity:1"
@@ -653,19 +653,19 @@
        inkscape:label="authors"><tspan
          x="1155.8904"
          y="559.78101"
-         id="tspan35">Connor Aird
+         id="tspan13">Connor Aird
 </tspan><tspan
          x="1079.3279"
          y="606.44763"
-         id="tspan36">Patrick J. Roddy
+         id="tspan14">Patrick J. Roddy
 </tspan><tspan
          x="1079.7654"
          y="653.11426"
-         id="tspan37">Saransh Chopra
+         id="tspan15">Saransh Chopra
 </tspan><tspan
          x="1092.0519"
          y="699.78088"
-         id="tspan38">Nicolas Tessore
+         id="tspan16">Nicolas Tessore
 </tspan></text><g
        style="fill:none"
        id="g5"
@@ -689,13 +689,13 @@
        inkscape:label="take-home"><tspan
          x="174.95409"
          y="677.98181"
-         id="tspan39">The Array API takes </tspan><tspan
+         id="tspan17">The Array API takes </tspan><tspan
          x="58.417705"
          y="744.64843"
-         id="tspan40">scientific Python beyond </tspan><tspan
+         id="tspan18">scientific Python beyond </tspan><tspan
          x="519.27681"
          y="811.31506"
-         id="tspan41">NumPy</tspan></text><text
+         id="tspan19">NumPy</tspan></text><text
        xml:space="preserve"
        id="text19"
        style="font-size:48px;line-height:1.75;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect19);display:inline;fill:#000000;fill-opacity:1"
@@ -705,13 +705,13 @@
        inkscape:label="highlights"><tspan
          x="811.75781"
          y="675.21764"
-         id="tspan42">Real-world porting experience
+         id="tspan20">Real-world porting experience
 </tspan><tspan
          x="811.75781"
          y="759.21764"
-         id="tspan43">GPU-backed simulations
+         id="tspan21">GPU-backed simulations
 </tspan><tspan
          x="811.75781"
          y="843.21764"
-         id="tspan44">Differentiable workflows
+         id="tspan22">Differentiable workflows
 </tspan></text></g></svg>

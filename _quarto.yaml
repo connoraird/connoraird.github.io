@@ -50,7 +50,7 @@ resources:
 website:
   favicon: assets/favicon.ico
   navbar:
-    pinned: true
+    pinned: false
     collapse-below: lg
     tools-collapse: true
     logo: https://www.gravatar.com/avatar/a24925988bd171effa08b9bbe9a9cb16cf3f6e902f6e348857d4e509a4810ad1?s=1000

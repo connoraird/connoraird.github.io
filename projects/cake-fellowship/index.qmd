@@ -6,7 +6,7 @@ subtitle:
 author: Connor Aird
 date: 2026-07-01
 type: Fellowship
-image: cake-logo.png
+image: /_includes/cake-logo.png
 format: html
 categories:
   - award
