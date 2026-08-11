@@ -45,22 +45,25 @@ format:
 
 resources:
   - particles
+  - posters
 
 website:
   favicon: assets/favicon.ico
   navbar:
-    pinned: true
+    pinned: false
     collapse-below: lg
     tools-collapse: true
     logo: https://www.gravatar.com/avatar/a24925988bd171effa08b9bbe9a9cb16cf3f6e902f6e348857d4e509a4810ad1?s=1000
     logo-alt: "Connor Aird"
     left:
-      - text: Talks
-        href: talks.qmd
       - text: CV
         href: cv.qmd
+      - text: Talks
+        href: talks.qmd
       - text: Projects
         href: projects.qmd
+      - text: Posters
+        href: posters.qmd
     tools:
       - text: Email
         icon: envelope

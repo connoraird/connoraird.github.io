@@ -1,0 +1,30 @@
+---
+title: Posters
+aliases:
+  - /posters/
+subtitle: A collection of my conference posters
+format:
+  html:
+    page-layout: full
+    css:
+      - styling/listings.css
+listing:
+  contents: posters
+  date-format: iso
+  exclude:
+    title: Page Not Found
+  field-display-names:
+    subtitle: Event
+  page-size: 4
+  sort: date desc
+  type: default
+  categories: true
+  fields:
+    - date
+    - title
+    - subtitle
+    - author
+    - categories
+    - image
+    - type
+---
