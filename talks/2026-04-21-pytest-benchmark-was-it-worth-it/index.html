@@ -7,8 +7,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-eec68b17241c1efd3eae2de50d816e3e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Connor Aird">
   <meta name="dcterms.date" content="2026-04-21">
@@ -22,10 +22,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -209,7 +212,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Connor Aird 
+Connor Aird
 </div>
         <p class="quarto-title-affiliation">
             University College London
@@ -234,10 +237,10 @@ Connor Aird
 <li class="fragment"><strong>London</strong>, 2023 - now<br></li>
 </ul>
 </div><div class="column">
-<div id="ba254077" class="cell" data-execution_count="1">
+<div id="0a57217b" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"7bea58a8f2284133960d3022e65a7bef","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"3d4941a2c064484b8411698c870bf28f","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -341,16 +344,16 @@ Connor Aird
 <section class="slide level2">
 <h2>Why did we need benchmarks?</h2>
 <p>Porting to the Array API adds performance penalties.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="-1|1,4,9|5-6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> array_api_compat</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="kw">def</span> do_something(x, y):</span>
-<span id="cb1-4"><a></a>    xp <span class="op">=</span> array_api_compat.array_namespace(x, y, use_compat<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb1-5"><a></a>    <span class="cf">if</span> (xp.<span class="va">__name__</span> <span class="op">==</span> <span class="st">"numpy"</span>):</span>
-<span id="cb1-6"><a></a>      <span class="co"># Do something NumPy specific...</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="kw">def</span> do_something_else(x):</span>
-<span id="cb1-9"><a></a>    xp <span class="op">=</span> x.__array_namespace__()</span>
-<span id="cb1-10"><a></a>    <span class="co">#...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="-1|1,4,9|5-6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a><span class="im">import</span> array_api_compat</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="kw">def</span> do_something(x, y):</span>
+<span id="cb1-4"><a aria-label="4"></a>    xp <span class="op">=</span> array_api_compat.array_namespace(x, y, use_compat<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-5"><a aria-label="5"></a>    <span class="cf">if</span> (xp.<span class="va">__name__</span> <span class="op">==</span> <span class="st">"numpy"</span>):</span>
+<span id="cb1-6"><a aria-label="6"></a>      <span class="co"># Do something NumPy specific...</span></span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="kw">def</span> do_something_else(x):</span>
+<span id="cb1-9"><a aria-label="9"></a>    xp <span class="op">=</span> x.__array_namespace__()</span>
+<span id="cb1-10"><a aria-label="10"></a>    <span class="co">#...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <ul>
 <li class="fragment">Extra if conditions</li>
@@ -367,33 +370,33 @@ Connor Aird
 <section class="slide level2 smaller">
 <h2>Pytest</h2>
 <p><em>The pytest framework makes it easy to write small, readable tests, and can scale to support complex functional testing for applications and libraries.</em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="-1|3-5|7-9|1,11-23"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> pytest</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="co"># src code</span></span>
-<span id="cb2-4"><a></a><span class="kw">def</span> inc(x):</span>
-<span id="cb2-5"><a></a>    <span class="cf">return</span> x <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># Basic example</span></span>
-<span id="cb2-8"><a></a><span class="kw">def</span> test_inc():</span>
-<span id="cb2-9"><a></a>    <span class="cf">assert</span> inc(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">4</span></span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a><span class="co"># Example with fixtures</span></span>
-<span id="cb2-12"><a></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>)</span>
-<span id="cb2-13"><a></a><span class="kw">def</span> inputs():</span>
-<span id="cb2-14"><a></a>    <span class="cf">return</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>)</span>
-<span id="cb2-17"><a></a><span class="kw">def</span> outputs():</span>
-<span id="cb2-18"><a></a>    <span class="cf">return</span> [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</span>
-<span id="cb2-19"><a></a></span>
-<span id="cb2-20"><a></a><span class="kw">def</span> test_inc_with_fixtures(inputs, outputs):</span>
-<span id="cb2-21"><a></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(inputs)):</span>
-<span id="cb2-22"><a></a>      <span class="cf">assert</span> inc(inputs[i]) <span class="op">==</span> outputs[i]</span>
-<span id="cb2-23"><a></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="-1|3-5|7-9|1,11-23"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> pytest</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="co"># src code</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="kw">def</span> inc(x):</span>
+<span id="cb2-5"><a aria-label="5"></a>    <span class="cf">return</span> x <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="co"># Basic example</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="kw">def</span> test_inc():</span>
+<span id="cb2-9"><a aria-label="9"></a>    <span class="cf">assert</span> inc(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb2-10"><a aria-label="10"></a></span>
+<span id="cb2-11"><a aria-label="11"></a><span class="co"># Example with fixtures</span></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>)</span>
+<span id="cb2-13"><a aria-label="13"></a><span class="kw">def</span> inputs():</span>
+<span id="cb2-14"><a aria-label="14"></a>    <span class="cf">return</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]</span>
+<span id="cb2-15"><a aria-label="15"></a></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>)</span>
+<span id="cb2-17"><a aria-label="17"></a><span class="kw">def</span> outputs():</span>
+<span id="cb2-18"><a aria-label="18"></a>    <span class="cf">return</span> [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]</span>
+<span id="cb2-19"><a aria-label="19"></a></span>
+<span id="cb2-20"><a aria-label="20"></a><span class="kw">def</span> test_inc_with_fixtures(inputs, outputs):</span>
+<span id="cb2-21"><a aria-label="21"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(inputs)):</span>
+<span id="cb2-22"><a aria-label="22"></a>      <span class="cf">assert</span> inc(inputs[i]) <span class="op">==</span> outputs[i]</span>
+<span id="cb2-23"><a aria-label="23"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 <h2>Pytest: Output</h2>
-<div id="69afc0b2" class="cell" data-class-output="smaller" data-execution_count="2">
+<div id="60f79ae2" class="cell" data-class-output="smaller" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
 <pre>$ pytest _code/pytest_example/test_standard.py
@@ -406,7 +409,7 @@ benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=
 
 rootdir: /home/runner/work/connoraird.github.io/connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it
 
-plugins: benchmark-5.2.3, anyio-4.14.1
+plugins: anyio-4.14.2, benchmark-5.2.3
 
 collected 2 items
 
@@ -428,23 +431,23 @@ _code/pytest_example/test_standard.py <span class="ansi-green-fg">.</span><span 
 <blockquote>
 <p>benchmark(function_to_benchmark, args, kwargs)</p>
 </blockquote>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="-1|4-7|9-11"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> time</span>
-<span id="cb3-2"><a></a><span class="im">import</span> os</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="kw">def</span> inc_slow(x):</span>
-<span id="cb3-5"><a></a>    <span class="cf">if</span> (os.getenv(<span class="st">"SLOW"</span>)):</span>
-<span id="cb3-6"><a></a>        time.sleep(<span class="dv">1</span>)</span>
-<span id="cb3-7"><a></a>    <span class="cf">return</span> x <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb3-8"><a></a></span>
-<span id="cb3-9"><a></a><span class="kw">def</span> test_inc(benchmark):</span>
-<span id="cb3-10"><a></a>    result <span class="op">=</span> benchmark(inc_slow, <span class="dv">3</span>)</span>
-<span id="cb3-11"><a></a>    <span class="cf">assert</span> result <span class="op">==</span> <span class="dv">4</span></span>
-<span id="cb3-12"><a></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="-1|4-7|9-11"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a><span class="im">import</span> time</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="im">import</span> os</span>
+<span id="cb3-3"><a aria-label="3"></a></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="kw">def</span> inc_slow(x):</span>
+<span id="cb3-5"><a aria-label="5"></a>    <span class="cf">if</span> (os.getenv(<span class="st">"SLOW"</span>)):</span>
+<span id="cb3-6"><a aria-label="6"></a>        time.sleep(<span class="dv">1</span>)</span>
+<span id="cb3-7"><a aria-label="7"></a>    <span class="cf">return</span> x <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a aria-label="8"></a></span>
+<span id="cb3-9"><a aria-label="9"></a><span class="kw">def</span> test_inc(benchmark):</span>
+<span id="cb3-10"><a aria-label="10"></a>    result <span class="op">=</span> benchmark(inc_slow, <span class="dv">3</span>)</span>
+<span id="cb3-11"><a aria-label="11"></a>    <span class="cf">assert</span> result <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb3-12"><a aria-label="12"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 <h2>pytest-benchmark: Output</h2>
 <p>An output table contains performance metrics for each test</p>
-<div id="35d7e475" class="cell" data-class-output="smaller" data-execution_count="3">
+<div id="c988fb06" class="cell" data-class-output="smaller" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
 <pre>$ pytest _code/pytest_example/test_with_benchmark.py --benchmark-autosave
@@ -457,7 +460,7 @@ benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=
 
 rootdir: /home/runner/work/connoraird.github.io/connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it
 
-plugins: benchmark-5.2.3, anyio-4.14.1
+plugins: anyio-4.14.2, benchmark-5.2.3
 
 collected 1 item
 
@@ -477,7 +480,7 @@ Name (time in ns)          Min          Max      Mean    StdDev    Median      I
 
 <span class="ansi-yellow-fg">------------------------------------------------------------------------------------------------------------------------------</span>
 
-test_inc            <span class="ansi-bold">  671.0000</span><span class="ansi-bold">  25,958.0000</span><span class="ansi-bold">  735.6282</span><span class="ansi-bold">  251.1753</span><span class="ansi-bold">  721.0000</span><span class="ansi-bold">  30.0000</span>  428;2105<span class="ansi-bold">        1.3594</span>   69677           1
+test_inc            <span class="ansi-bold">  851.0000</span><span class="ansi-bold">  31,908.0000</span><span class="ansi-bold">  938.3521</span><span class="ansi-bold">  385.5492</span><span class="ansi-bold">  912.0000</span><span class="ansi-bold">  31.0000</span>  291;2655<span class="ansi-bold">        1.0657</span>   63360           1
 
 <span class="ansi-yellow-fg">------------------------------------------------------------------------------------------------------------------------------</span>
 
@@ -489,7 +492,7 @@ Legend:
 
   OPS: Operations Per Second, computed as 1 / Mean
 
-<span class="ansi-green-fg">============================== </span><span class="ansi-green-fg ansi-bold">1 passed</span><span class="ansi-green-fg"> in 2.36s</span><span class="ansi-green-fg"> ===============================</span>
+<span class="ansi-green-fg">============================== </span><span class="ansi-green-fg ansi-bold">1 passed</span><span class="ansi-green-fg"> in 2.40s</span><span class="ansi-green-fg"> ===============================</span>
 </pre>
 </div>
 </div>
@@ -509,83 +512,83 @@ Legend:
 </section>
 <section class="slide level2">
 <h2>Json output</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="-1|2-23|24-31|32-68|48-66"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a></a><span class="fu">{</span></span>
-<span id="cb4-2"><a></a>  <span class="dt">"machine_info"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-3"><a></a>    <span class="dt">"node"</span><span class="fu">:</span> <span class="st">"Connors-MacBook-Pro-2.local"</span><span class="fu">,</span></span>
-<span id="cb4-4"><a></a>    <span class="dt">"processor"</span><span class="fu">:</span> <span class="st">"arm"</span><span class="fu">,</span></span>
-<span id="cb4-5"><a></a>    <span class="dt">"machine"</span><span class="fu">:</span> <span class="st">"arm64"</span><span class="fu">,</span></span>
-<span id="cb4-6"><a></a>    <span class="dt">"python_compiler"</span><span class="fu">:</span> <span class="st">"Clang 20.1.4 "</span><span class="fu">,</span></span>
-<span id="cb4-7"><a></a>    <span class="dt">"python_implementation"</span><span class="fu">:</span> <span class="st">"CPython"</span><span class="fu">,</span></span>
-<span id="cb4-8"><a></a>    <span class="dt">"python_implementation_version"</span><span class="fu">:</span> <span class="st">"3.14.0"</span><span class="fu">,</span></span>
-<span id="cb4-9"><a></a>    <span class="dt">"python_version"</span><span class="fu">:</span> <span class="st">"3.14.0"</span><span class="fu">,</span></span>
-<span id="cb4-10"><a></a>    <span class="dt">"python_build"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"main"</span><span class="ot">,</span> <span class="st">"Oct 28 2025 12:03:45"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-11"><a></a>    <span class="dt">"release"</span><span class="fu">:</span> <span class="st">"25.2.0"</span><span class="fu">,</span></span>
-<span id="cb4-12"><a></a>    <span class="dt">"system"</span><span class="fu">:</span> <span class="st">"Darwin"</span><span class="fu">,</span></span>
-<span id="cb4-13"><a></a>    <span class="dt">"cpu"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-14"><a></a>      <span class="dt">"python_version"</span><span class="fu">:</span> <span class="st">"3.14.0.final.0 (64 bit)"</span><span class="fu">,</span></span>
-<span id="cb4-15"><a></a>      <span class="dt">"cpuinfo_version"</span><span class="fu">:</span> <span class="ot">[</span><span class="dv">9</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-16"><a></a>      <span class="dt">"cpuinfo_version_string"</span><span class="fu">:</span> <span class="st">"9.0.0"</span><span class="fu">,</span></span>
-<span id="cb4-17"><a></a>      <span class="dt">"arch"</span><span class="fu">:</span> <span class="st">"ARM_8"</span><span class="fu">,</span></span>
-<span id="cb4-18"><a></a>      <span class="dt">"bits"</span><span class="fu">:</span> <span class="dv">64</span><span class="fu">,</span></span>
-<span id="cb4-19"><a></a>      <span class="dt">"count"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
-<span id="cb4-20"><a></a>      <span class="dt">"arch_string_raw"</span><span class="fu">:</span> <span class="st">"arm64"</span><span class="fu">,</span></span>
-<span id="cb4-21"><a></a>      <span class="dt">"brand_raw"</span><span class="fu">:</span> <span class="st">"Apple M2"</span></span>
-<span id="cb4-22"><a></a>    <span class="fu">}</span></span>
-<span id="cb4-23"><a></a>  <span class="fu">},</span></span>
-<span id="cb4-24"><a></a>  <span class="dt">"commit_info"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-25"><a></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"d639a15876d1caeaaf9662000c27e779bce8b53e"</span><span class="fu">,</span></span>
-<span id="cb4-26"><a></a>    <span class="dt">"time"</span><span class="fu">:</span> <span class="st">"2026-03-16T14:35:42Z"</span><span class="fu">,</span></span>
-<span id="cb4-27"><a></a>    <span class="dt">"author_time"</span><span class="fu">:</span> <span class="st">"2026-03-16T14:35:42Z"</span><span class="fu">,</span></span>
-<span id="cb4-28"><a></a>    <span class="dt">"dirty"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb4-29"><a></a>    <span class="dt">"project"</span><span class="fu">:</span> <span class="st">"hub.io"</span><span class="fu">,</span></span>
-<span id="cb4-30"><a></a>    <span class="dt">"branch"</span><span class="fu">:</span> <span class="st">"9-pytest-benchmark-talk"</span></span>
-<span id="cb4-31"><a></a>  <span class="fu">},</span></span>
-<span id="cb4-32"><a></a>  <span class="dt">"benchmarks"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb4-33"><a></a>    <span class="fu">{</span></span>
-<span id="cb4-34"><a></a>      <span class="dt">"group"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
-<span id="cb4-35"><a></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"test_inc"</span><span class="fu">,</span></span>
-<span id="cb4-36"><a></a>      <span class="dt">"fullname"</span><span class="fu">:</span> <span class="st">"_code/pytest_example/test_with_benchmark.py::test_inc"</span><span class="fu">,</span></span>
-<span id="cb4-37"><a></a>      <span class="dt">"params"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
-<span id="cb4-38"><a></a>      <span class="dt">"param"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
-<span id="cb4-39"><a></a>      <span class="dt">"extra_info"</span><span class="fu">:</span> <span class="fu">{},</span></span>
-<span id="cb4-40"><a></a>      <span class="dt">"options"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-41"><a></a>        <span class="dt">"disable_gc"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
-<span id="cb4-42"><a></a>        <span class="dt">"timer"</span><span class="fu">:</span> <span class="st">"perf_counter"</span><span class="fu">,</span></span>
-<span id="cb4-43"><a></a>        <span class="dt">"min_rounds"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
-<span id="cb4-44"><a></a>        <span class="dt">"max_time"</span><span class="fu">:</span> <span class="fl">1.0</span><span class="fu">,</span></span>
-<span id="cb4-45"><a></a>        <span class="dt">"min_time"</span><span class="fu">:</span> <span class="dv">5e-6</span><span class="fu">,</span></span>
-<span id="cb4-46"><a></a>        <span class="dt">"warmup"</span><span class="fu">:</span> <span class="kw">false</span></span>
-<span id="cb4-47"><a></a>      <span class="fu">},</span></span>
-<span id="cb4-48"><a></a>      <span class="dt">"stats"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb4-49"><a></a>        <span class="dt">"min"</span><span class="fu">:</span> <span class="fl">3.7497375160455704e-7</span><span class="fu">,</span></span>
-<span id="cb4-50"><a></a>        <span class="dt">"max"</span><span class="fu">:</span> <span class="fl">6.584014045074582e-6</span><span class="fu">,</span></span>
-<span id="cb4-51"><a></a>        <span class="dt">"mean"</span><span class="fu">:</span> <span class="fl">4.496543409141616e-7</span><span class="fu">,</span></span>
-<span id="cb4-52"><a></a>        <span class="dt">"stddev"</span><span class="fu">:</span> <span class="fl">6.043433154298173e-8</span><span class="fu">,</span></span>
-<span id="cb4-53"><a></a>        <span class="dt">"rounds"</span><span class="fu">:</span> <span class="dv">40473</span><span class="fu">,</span></span>
-<span id="cb4-54"><a></a>        <span class="dt">"median"</span><span class="fu">:</span> <span class="fl">4.580069798976183e-7</span><span class="fu">,</span></span>
-<span id="cb4-55"><a></a>        <span class="dt">"iqr"</span><span class="fu">:</span> <span class="fl">4.1996827349066734e-8</span><span class="fu">,</span></span>
-<span id="cb4-56"><a></a>        <span class="dt">"q1"</span><span class="fu">:</span> <span class="fl">4.169996827840805e-7</span><span class="fu">,</span></span>
-<span id="cb4-57"><a></a>        <span class="dt">"q3"</span><span class="fu">:</span> <span class="fl">4.5899651013314724e-7</span><span class="fu">,</span></span>
-<span id="cb4-58"><a></a>        <span class="dt">"iqr_outliers"</span><span class="fu">:</span> <span class="dv">382</span><span class="fu">,</span></span>
-<span id="cb4-59"><a></a>        <span class="dt">"stddev_outliers"</span><span class="fu">:</span> <span class="dv">426</span><span class="fu">,</span></span>
-<span id="cb4-60"><a></a>        <span class="dt">"outliers"</span><span class="fu">:</span> <span class="st">"426;382"</span><span class="fu">,</span></span>
-<span id="cb4-61"><a></a>        <span class="dt">"ld15iqr"</span><span class="fu">:</span> <span class="fl">3.7497375160455704e-7</span><span class="fu">,</span></span>
-<span id="cb4-62"><a></a>        <span class="dt">"hd15iqr"</span><span class="fu">:</span> <span class="fl">5.409820005297661e-7</span><span class="fu">,</span></span>
-<span id="cb4-63"><a></a>        <span class="dt">"ops"</span><span class="fu">:</span> <span class="fl">2223930.4928469458</span><span class="fu">,</span></span>
-<span id="cb4-64"><a></a>        <span class="dt">"total"</span><span class="fu">:</span> <span class="fl">0.018198860139818862</span><span class="fu">,</span></span>
-<span id="cb4-65"><a></a>        <span class="dt">"iterations"</span><span class="fu">:</span> <span class="dv">1</span></span>
-<span id="cb4-66"><a></a>      <span class="fu">}</span></span>
-<span id="cb4-67"><a></a>    <span class="fu">}</span></span>
-<span id="cb4-68"><a></a>  <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-69"><a></a>  <span class="dt">"datetime"</span><span class="fu">:</span> <span class="st">"2026-04-09T09:40:34.938982+00:00"</span><span class="fu">,</span></span>
-<span id="cb4-70"><a></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"5.2.3"</span></span>
-<span id="cb4-71"><a></a><span class="fu">}</span></span>
-<span id="cb4-72"><a></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="-1|2-23|24-31|32-68|48-66"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="dt">"machine_info"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-3"><a aria-label="3"></a>    <span class="dt">"node"</span><span class="fu">:</span> <span class="st">"Connors-MacBook-Pro-2.local"</span><span class="fu">,</span></span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="dt">"processor"</span><span class="fu">:</span> <span class="st">"arm"</span><span class="fu">,</span></span>
+<span id="cb4-5"><a aria-label="5"></a>    <span class="dt">"machine"</span><span class="fu">:</span> <span class="st">"arm64"</span><span class="fu">,</span></span>
+<span id="cb4-6"><a aria-label="6"></a>    <span class="dt">"python_compiler"</span><span class="fu">:</span> <span class="st">"Clang 20.1.4 "</span><span class="fu">,</span></span>
+<span id="cb4-7"><a aria-label="7"></a>    <span class="dt">"python_implementation"</span><span class="fu">:</span> <span class="st">"CPython"</span><span class="fu">,</span></span>
+<span id="cb4-8"><a aria-label="8"></a>    <span class="dt">"python_implementation_version"</span><span class="fu">:</span> <span class="st">"3.14.0"</span><span class="fu">,</span></span>
+<span id="cb4-9"><a aria-label="9"></a>    <span class="dt">"python_version"</span><span class="fu">:</span> <span class="st">"3.14.0"</span><span class="fu">,</span></span>
+<span id="cb4-10"><a aria-label="10"></a>    <span class="dt">"python_build"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"main"</span><span class="ot">,</span> <span class="st">"Oct 28 2025 12:03:45"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-11"><a aria-label="11"></a>    <span class="dt">"release"</span><span class="fu">:</span> <span class="st">"25.2.0"</span><span class="fu">,</span></span>
+<span id="cb4-12"><a aria-label="12"></a>    <span class="dt">"system"</span><span class="fu">:</span> <span class="st">"Darwin"</span><span class="fu">,</span></span>
+<span id="cb4-13"><a aria-label="13"></a>    <span class="dt">"cpu"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-14"><a aria-label="14"></a>      <span class="dt">"python_version"</span><span class="fu">:</span> <span class="st">"3.14.0.final.0 (64 bit)"</span><span class="fu">,</span></span>
+<span id="cb4-15"><a aria-label="15"></a>      <span class="dt">"cpuinfo_version"</span><span class="fu">:</span> <span class="ot">[</span><span class="dv">9</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">,</span> <span class="dv">0</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-16"><a aria-label="16"></a>      <span class="dt">"cpuinfo_version_string"</span><span class="fu">:</span> <span class="st">"9.0.0"</span><span class="fu">,</span></span>
+<span id="cb4-17"><a aria-label="17"></a>      <span class="dt">"arch"</span><span class="fu">:</span> <span class="st">"ARM_8"</span><span class="fu">,</span></span>
+<span id="cb4-18"><a aria-label="18"></a>      <span class="dt">"bits"</span><span class="fu">:</span> <span class="dv">64</span><span class="fu">,</span></span>
+<span id="cb4-19"><a aria-label="19"></a>      <span class="dt">"count"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb4-20"><a aria-label="20"></a>      <span class="dt">"arch_string_raw"</span><span class="fu">:</span> <span class="st">"arm64"</span><span class="fu">,</span></span>
+<span id="cb4-21"><a aria-label="21"></a>      <span class="dt">"brand_raw"</span><span class="fu">:</span> <span class="st">"Apple M2"</span></span>
+<span id="cb4-22"><a aria-label="22"></a>    <span class="fu">}</span></span>
+<span id="cb4-23"><a aria-label="23"></a>  <span class="fu">},</span></span>
+<span id="cb4-24"><a aria-label="24"></a>  <span class="dt">"commit_info"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-25"><a aria-label="25"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"d639a15876d1caeaaf9662000c27e779bce8b53e"</span><span class="fu">,</span></span>
+<span id="cb4-26"><a aria-label="26"></a>    <span class="dt">"time"</span><span class="fu">:</span> <span class="st">"2026-03-16T14:35:42Z"</span><span class="fu">,</span></span>
+<span id="cb4-27"><a aria-label="27"></a>    <span class="dt">"author_time"</span><span class="fu">:</span> <span class="st">"2026-03-16T14:35:42Z"</span><span class="fu">,</span></span>
+<span id="cb4-28"><a aria-label="28"></a>    <span class="dt">"dirty"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb4-29"><a aria-label="29"></a>    <span class="dt">"project"</span><span class="fu">:</span> <span class="st">"hub.io"</span><span class="fu">,</span></span>
+<span id="cb4-30"><a aria-label="30"></a>    <span class="dt">"branch"</span><span class="fu">:</span> <span class="st">"9-pytest-benchmark-talk"</span></span>
+<span id="cb4-31"><a aria-label="31"></a>  <span class="fu">},</span></span>
+<span id="cb4-32"><a aria-label="32"></a>  <span class="dt">"benchmarks"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-33"><a aria-label="33"></a>    <span class="fu">{</span></span>
+<span id="cb4-34"><a aria-label="34"></a>      <span class="dt">"group"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb4-35"><a aria-label="35"></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"test_inc"</span><span class="fu">,</span></span>
+<span id="cb4-36"><a aria-label="36"></a>      <span class="dt">"fullname"</span><span class="fu">:</span> <span class="st">"_code/pytest_example/test_with_benchmark.py::test_inc"</span><span class="fu">,</span></span>
+<span id="cb4-37"><a aria-label="37"></a>      <span class="dt">"params"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb4-38"><a aria-label="38"></a>      <span class="dt">"param"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb4-39"><a aria-label="39"></a>      <span class="dt">"extra_info"</span><span class="fu">:</span> <span class="fu">{},</span></span>
+<span id="cb4-40"><a aria-label="40"></a>      <span class="dt">"options"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-41"><a aria-label="41"></a>        <span class="dt">"disable_gc"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb4-42"><a aria-label="42"></a>        <span class="dt">"timer"</span><span class="fu">:</span> <span class="st">"perf_counter"</span><span class="fu">,</span></span>
+<span id="cb4-43"><a aria-label="43"></a>        <span class="dt">"min_rounds"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb4-44"><a aria-label="44"></a>        <span class="dt">"max_time"</span><span class="fu">:</span> <span class="fl">1.0</span><span class="fu">,</span></span>
+<span id="cb4-45"><a aria-label="45"></a>        <span class="dt">"min_time"</span><span class="fu">:</span> <span class="dv">5e-6</span><span class="fu">,</span></span>
+<span id="cb4-46"><a aria-label="46"></a>        <span class="dt">"warmup"</span><span class="fu">:</span> <span class="kw">false</span></span>
+<span id="cb4-47"><a aria-label="47"></a>      <span class="fu">},</span></span>
+<span id="cb4-48"><a aria-label="48"></a>      <span class="dt">"stats"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-49"><a aria-label="49"></a>        <span class="dt">"min"</span><span class="fu">:</span> <span class="fl">3.7497375160455704e-7</span><span class="fu">,</span></span>
+<span id="cb4-50"><a aria-label="50"></a>        <span class="dt">"max"</span><span class="fu">:</span> <span class="fl">6.584014045074582e-6</span><span class="fu">,</span></span>
+<span id="cb4-51"><a aria-label="51"></a>        <span class="dt">"mean"</span><span class="fu">:</span> <span class="fl">4.496543409141616e-7</span><span class="fu">,</span></span>
+<span id="cb4-52"><a aria-label="52"></a>        <span class="dt">"stddev"</span><span class="fu">:</span> <span class="fl">6.043433154298173e-8</span><span class="fu">,</span></span>
+<span id="cb4-53"><a aria-label="53"></a>        <span class="dt">"rounds"</span><span class="fu">:</span> <span class="dv">40473</span><span class="fu">,</span></span>
+<span id="cb4-54"><a aria-label="54"></a>        <span class="dt">"median"</span><span class="fu">:</span> <span class="fl">4.580069798976183e-7</span><span class="fu">,</span></span>
+<span id="cb4-55"><a aria-label="55"></a>        <span class="dt">"iqr"</span><span class="fu">:</span> <span class="fl">4.1996827349066734e-8</span><span class="fu">,</span></span>
+<span id="cb4-56"><a aria-label="56"></a>        <span class="dt">"q1"</span><span class="fu">:</span> <span class="fl">4.169996827840805e-7</span><span class="fu">,</span></span>
+<span id="cb4-57"><a aria-label="57"></a>        <span class="dt">"q3"</span><span class="fu">:</span> <span class="fl">4.5899651013314724e-7</span><span class="fu">,</span></span>
+<span id="cb4-58"><a aria-label="58"></a>        <span class="dt">"iqr_outliers"</span><span class="fu">:</span> <span class="dv">382</span><span class="fu">,</span></span>
+<span id="cb4-59"><a aria-label="59"></a>        <span class="dt">"stddev_outliers"</span><span class="fu">:</span> <span class="dv">426</span><span class="fu">,</span></span>
+<span id="cb4-60"><a aria-label="60"></a>        <span class="dt">"outliers"</span><span class="fu">:</span> <span class="st">"426;382"</span><span class="fu">,</span></span>
+<span id="cb4-61"><a aria-label="61"></a>        <span class="dt">"ld15iqr"</span><span class="fu">:</span> <span class="fl">3.7497375160455704e-7</span><span class="fu">,</span></span>
+<span id="cb4-62"><a aria-label="62"></a>        <span class="dt">"hd15iqr"</span><span class="fu">:</span> <span class="fl">5.409820005297661e-7</span><span class="fu">,</span></span>
+<span id="cb4-63"><a aria-label="63"></a>        <span class="dt">"ops"</span><span class="fu">:</span> <span class="fl">2223930.4928469458</span><span class="fu">,</span></span>
+<span id="cb4-64"><a aria-label="64"></a>        <span class="dt">"total"</span><span class="fu">:</span> <span class="fl">0.018198860139818862</span><span class="fu">,</span></span>
+<span id="cb4-65"><a aria-label="65"></a>        <span class="dt">"iterations"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb4-66"><a aria-label="66"></a>      <span class="fu">}</span></span>
+<span id="cb4-67"><a aria-label="67"></a>    <span class="fu">}</span></span>
+<span id="cb4-68"><a aria-label="68"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-69"><a aria-label="69"></a>  <span class="dt">"datetime"</span><span class="fu">:</span> <span class="st">"2026-04-09T09:40:34.938982+00:00"</span><span class="fu">,</span></span>
+<span id="cb4-70"><a aria-label="70"></a>  <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"5.2.3"</span></span>
+<span id="cb4-71"><a aria-label="71"></a><span class="fu">}</span></span>
+<span id="cb4-72"><a aria-label="72"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 <h2>Comparing benchmarks</h2>
 <p>We can also define regression tests</p>
-<div id="944bb416" class="cell" data-class-output="smaller" data-execution_count="4">
+<div id="36d803d1" class="cell" data-class-output="smaller" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
 <pre>$ SLOW=true pytest _code/pytest_example/test_with_benchmark.py --benchmark-compare=0001 --benchmark-compare-fail=mean:5%
@@ -598,7 +601,7 @@ benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=
 
 rootdir: /home/runner/work/connoraird.github.io/connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it
 
-plugins: benchmark-5.2.3, anyio-4.14.1
+plugins: anyio-4.14.2, benchmark-5.2.3
 
 collected 1 item
 
@@ -610,17 +613,17 @@ _code/pytest_example/test_with_benchmark.py <span class="ansi-green-fg">.</span>
 
 
 
-<span class="ansi-yellow-fg">----------------------------------------------------------------------------------------------------------------- benchmark: 2 tests -----------------------------------------------------------------------------------------------------------------</span>
+<span class="ansi-yellow-fg">------------------------------------------------------------------------------------------------------------------ benchmark: 2 tests ------------------------------------------------------------------------------------------------------------------</span>
 
-Name (time in ns)                          Min                           Max                          Mean                StdDev                        Median                   IQR            Outliers             OPS            Rounds  Iterations
+Name (time in ns)                          Min                           Max                          Mean                 StdDev                        Median                    IQR            Outliers             OPS            Rounds  Iterations
 
-<span class="ansi-yellow-fg">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="ansi-yellow-fg">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
-test_inc (0001_2fe5e0c)   <span class="ansi-green-fg ansi-bold">            671.0000 (1.0)    </span><span class="ansi-green-fg ansi-bold">         25,958.0000 (1.0)    </span><span class="ansi-green-fg ansi-bold">            735.6282 (1.0)    </span><span class="ansi-green-fg ansi-bold">    251.1753 (1.0)    </span><span class="ansi-green-fg ansi-bold">            721.0000 (1.0)    </span><span class="ansi-green-fg ansi-bold">     30.0000 (1.0)    </span>  428;2105<span class="ansi-green-fg ansi-bold">  1,359,382.2848 (1.0)    </span>   69677           1
+test_inc (0001_5105b4e)   <span class="ansi-green-fg ansi-bold">            851.0000 (1.0)    </span><span class="ansi-green-fg ansi-bold">         31,908.0000 (1.0)    </span><span class="ansi-green-fg ansi-bold">            938.3521 (1.0)    </span><span class="ansi-green-fg ansi-bold">     385.5492 (1.0)    </span><span class="ansi-green-fg ansi-bold">            912.0000 (1.0)    </span><span class="ansi-green-fg ansi-bold">      31.0000 (1.0)    </span>  291;2655<span class="ansi-green-fg ansi-bold">  1,065,698.0476 (1.0)    </span>   63360           1
 
-test_inc (NOW)            <span class="ansi-red-fg ansi-bold">  1,000,106,694.0000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  1,000,117,350.0000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  1,000,113,575.2000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  4,083.3158 (16.26)  </span><span class="ansi-red-fg ansi-bold">  1,000,114,505.0000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  4,110.7500 (137.02) </span>       1;0<span class="ansi-red-fg ansi-bold">          0.9999 (0.00)   </span>       5           1
+test_inc (NOW)            <span class="ansi-red-fg ansi-bold">  1,000,102,881.0000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  1,000,138,666.0000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  1,000,126,104.6000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  14,958.8683 (38.80)  </span><span class="ansi-red-fg ansi-bold">  1,000,133,848.0000 (&gt;1000.0)</span><span class="ansi-red-fg ansi-bold">  21,211.7500 (684.25) </span>       1;0<span class="ansi-red-fg ansi-bold">          0.9999 (0.00)   </span>       5           1
 
-<span class="ansi-yellow-fg">------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="ansi-yellow-fg">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
 
 
 
@@ -630,11 +633,11 @@ Legend:
 
   OPS: Operations Per Second, computed as 1 / Mean
 
-/home/runner/work/connoraird.github.io/connoraird.github.io/.venv/lib/python3.12/site-packages/pytest_benchmark/logger.py:44: PytestBenchmarkWarning: Benchmark machine_info is different. Current: {"cpu": {"arch": "X86_64", "arch_string_raw": "x86_64", "bits": 64, "brand_raw": "AMD EPYC 9V74 80-Core Processor", "count": 4, "cpuinfo_version": [9, 0, 0], "cpuinfo_version_string": "9.0.0", "family": 25, "flags": ["3dnowext", "3dnowprefetch", "abm", "adx", "aes", "aperfmperf", "apic", "arat", "avx", "avx2", "avx512_bf16", "avx512_bitalg", "avx512_vbmi2", "avx512_vnni", "avx512_vpopcntdq", "avx512bitalg", "avx512bw", "avx512cd", "avx512dq", "avx512f", "avx512ifma", "avx512vbmi", "avx512vbmi2", "avx512vl", "avx512vnni", "avx512vpopcntdq", "bmi1", "bmi2", "clflush", "clflushopt", "clwb", "clzero", "cmov", "cmp_legacy", "constant_tsc", "cpuid", "cr8_legacy", "cx16", "cx8", "de", "decodeassists", "erms", "extd_apicid", "f16c", "flushbyasid", "fma", "fpu", "fsgsbase", "fsrm", "fxsr", "fxsr_opt", "gfni", "ht", "hypervisor", "invpcid", "lahf_lm", "lm", "mca", "mce", "misalignsse", "mmx", "mmxext", "movbe", "msr", "mtrr", "nonstop_tsc", "nopl", "npt", "nrip_save", "nx", "osvw", "osxsave", "pae", "pat", "pausefilter", "pcid", "pclmulqdq", "pdpe1gb", "pfthreshold", "pge", "pni", "popcnt", "pse", "pse36", "rdpid", "rdpru", "rdrand", "rdrnd", "rdseed", "rdtscp", "rep_good", "sep", "sha", "sha_ni", "smap", "smep", "sse", "sse2", "sse4_1", "sse4_2", "sse4a", "ssse3", "svm", "syscall", "topoext", "tsc", "tsc_known_freq", "tsc_reliable", "tsc_scale", "umip", "user_shstk", "v_vmsave_vmload", "vaes", "vmcb_clean", "vme", "vmmcall", "vpclmulqdq", "xgetbv1", "xsave", "xsavec", "xsaveerptr", "xsaveopt", "xsaves", "xtopology"], "hz_actual": [3689820000, 0], "hz_actual_friendly": "3.6898 GHz", "hz_advertised": [3689820000, 0], "hz_advertised_friendly": "3.6898 GHz", "l1_data_cache_size": 65536, "l1_instruction_cache_size": 65536, "l2_cache_associativity": 6, "l2_cache_line_size": 1024, "l2_cache_size": 2097152, "l3_cache_size": 1048576, "model": 17, "python_version": "3.12.3.final.0 (64 bit)", "stepping": 1, "vendor_id_raw": "AuthenticAMD"}, "machine": "x86_64", "node": "runnervmmklqx", "processor": "x86_64", "python_build": ["main", "Mar 23 2026 19:04:32"], "python_compiler": "GCC 13.3.0", "python_implementation": "CPython", "python_implementation_version": "3.12.3", "python_version": "3.12.3", "release": "6.17.0-1018-azure", "system": "Linux"} VS saved: {"cpu": {"arch": "X86_64", "arch_string_raw": "x86_64", "bits": 64, "brand_raw": "AMD EPYC 9V74 80-Core Processor", "count": 4, "cpuinfo_version": [9, 0, 0], "cpuinfo_version_string": "9.0.0", "family": 25, "flags": ["3dnowext", "3dnowprefetch", "abm", "adx", "aes", "aperfmperf", "apic", "arat", "avx", "avx2", "avx512_bf16", "avx512_bitalg", "avx512_vbmi2", "avx512_vnni", "avx512_vpopcntdq", "avx512bitalg", "avx512bw", "avx512cd", "avx512dq", "avx512f", "avx512ifma", "avx512vbmi", "avx512vbmi2", "avx512vl", "avx512vnni", "avx512vpopcntdq", "bmi1", "bmi2", "clflush", "clflushopt", "clwb", "clzero", "cmov", "cmp_legacy", "constant_tsc", "cpuid", "cr8_legacy", "cx16", "cx8", "de", "decodeassists", "erms", "extd_apicid", "f16c", "flushbyasid", "fma", "fpu", "fsgsbase", "fsrm", "fxsr", "fxsr_opt", "gfni", "ht", "hypervisor", "invpcid", "lahf_lm", "lm", "mca", "mce", "misalignsse", "mmx", "mmxext", "movbe", "msr", "mtrr", "nonstop_tsc", "nopl", "npt", "nrip_save", "nx", "osvw", "osxsave", "pae", "pat", "pausefilter", "pcid", "pclmulqdq", "pdpe1gb", "pfthreshold", "pge", "pni", "popcnt", "pse", "pse36", "rdpid", "rdpru", "rdrand", "rdrnd", "rdseed", "rdtscp", "rep_good", "sep", "sha", "sha_ni", "smap", "smep", "sse", "sse2", "sse4_1", "sse4_2", "sse4a", "ssse3", "svm", "syscall", "topoext", "tsc", "tsc_known_freq", "tsc_reliable", "tsc_scale", "umip", "user_shstk", "v_vmsave_vmload", "vaes", "vmcb_clean", "vme", "vmmcall", "vpclmulqdq", "xgetbv1", "xsave", "xsavec", "xsaveerptr", "xsaveopt", "xsaves", "xtopology"], "hz_actual": [3694013000, 0], "hz_actual_friendly": "3.6940 GHz", "hz_advertised": [3694013000, 0], "hz_advertised_friendly": "3.6940 GHz", "l1_data_cache_size": 65536, "l1_instruction_cache_size": 65536, "l2_cache_associativity": 6, "l2_cache_line_size": 1024, "l2_cache_size": 2097152, "l3_cache_size": 1048576, "model": 17, "python_version": "3.12.3.final.0 (64 bit)", "stepping": 1, "vendor_id_raw": "AuthenticAMD"}, "machine": "x86_64", "node": "runnervmmklqx", "processor": "x86_64", "python_build": ["main", "Mar 23 2026 19:04:32"], "python_compiler": "GCC 13.3.0", "python_implementation": "CPython", "python_implementation_version": "3.12.3", "python_version": "3.12.3", "release": "6.17.0-1018-azure", "system": "Linux"} (location: .benchmarks).
+/home/runner/work/connoraird.github.io/connoraird.github.io/.venv/lib/python3.12/site-packages/pytest_benchmark/logger.py:44: PytestBenchmarkWarning: Benchmark machine_info is different. Current: {"cpu": {"arch": "X86_64", "arch_string_raw": "x86_64", "bits": 64, "brand_raw": "AMD EPYC 9V74 80-Core Processor", "count": 4, "cpuinfo_version": [9, 0, 0], "cpuinfo_version_string": "9.0.0", "family": 25, "flags": ["3dnowext", "3dnowprefetch", "abm", "adx", "aes", "aperfmperf", "apic", "arat", "avx", "avx2", "bmi1", "bmi2", "clflush", "clflushopt", "clwb", "clzero", "cmov", "cmp_legacy", "constant_tsc", "cpuid", "cr8_legacy", "cx16", "cx8", "de", "decodeassists", "erms", "extd_apicid", "f16c", "flushbyasid", "fma", "fpu", "fsgsbase", "fsrm", "fxsr", "fxsr_opt", "ht", "hypervisor", "invpcid", "lahf_lm", "lm", "mca", "mce", "misalignsse", "mmx", "mmxext", "movbe", "msr", "mtrr", "nonstop_tsc", "nopl", "npt", "nrip_save", "nx", "osvw", "osxsave", "pae", "pat", "pausefilter", "pcid", "pclmulqdq", "pdpe1gb", "pfthreshold", "pge", "pni", "popcnt", "pse", "pse36", "rdpid", "rdpru", "rdrand", "rdrnd", "rdseed", "rdtscp", "rep_good", "sep", "sha", "sha_ni", "smap", "smep", "sse", "sse2", "sse4_1", "sse4_2", "sse4a", "ssse3", "svm", "syscall", "topoext", "tsc", "tsc_known_freq", "tsc_reliable", "tsc_scale", "umip", "user_shstk", "v_vmsave_vmload", "vaes", "vmcb_clean", "vme", "vmmcall", "vpclmulqdq", "xgetbv1", "xsave", "xsavec", "xsaveerptr", "xsaveopt", "xsaves"], "hz_actual": [2877100000, 0], "hz_actual_friendly": "2.8771 GHz", "hz_advertised": [2877100000, 0], "hz_advertised_friendly": "2.8771 GHz", "l1_data_cache_size": 65536, "l1_instruction_cache_size": 65536, "l2_cache_associativity": 6, "l2_cache_line_size": 1024, "l2_cache_size": 2097152, "l3_cache_size": 1048576, "model": 17, "python_version": "3.12.3.final.0 (64 bit)", "stepping": 1, "vendor_id_raw": "AuthenticAMD"}, "machine": "x86_64", "node": "runnervmzvulz", "processor": "x86_64", "python_build": ["main", "Jun 19 2026 12:46:00"], "python_compiler": "GCC 13.3.0", "python_implementation": "CPython", "python_implementation_version": "3.12.3", "python_version": "3.12.3", "release": "6.17.0-1022-azure", "system": "Linux"} VS saved: {"cpu": {"arch": "X86_64", "arch_string_raw": "x86_64", "bits": 64, "brand_raw": "AMD EPYC 9V74 80-Core Processor", "count": 4, "cpuinfo_version": [9, 0, 0], "cpuinfo_version_string": "9.0.0", "family": 25, "flags": ["3dnowext", "3dnowprefetch", "abm", "adx", "aes", "aperfmperf", "apic", "arat", "avx", "avx2", "bmi1", "bmi2", "clflush", "clflushopt", "clwb", "clzero", "cmov", "cmp_legacy", "constant_tsc", "cpuid", "cr8_legacy", "cx16", "cx8", "de", "decodeassists", "erms", "extd_apicid", "f16c", "flushbyasid", "fma", "fpu", "fsgsbase", "fsrm", "fxsr", "fxsr_opt", "ht", "hypervisor", "invpcid", "lahf_lm", "lm", "mca", "mce", "misalignsse", "mmx", "mmxext", "movbe", "msr", "mtrr", "nonstop_tsc", "nopl", "npt", "nrip_save", "nx", "osvw", "osxsave", "pae", "pat", "pausefilter", "pcid", "pclmulqdq", "pdpe1gb", "pfthreshold", "pge", "pni", "popcnt", "pse", "pse36", "rdpid", "rdpru", "rdrand", "rdrnd", "rdseed", "rdtscp", "rep_good", "sep", "sha", "sha_ni", "smap", "smep", "sse", "sse2", "sse4_1", "sse4_2", "sse4a", "ssse3", "svm", "syscall", "topoext", "tsc", "tsc_known_freq", "tsc_reliable", "tsc_scale", "umip", "user_shstk", "v_vmsave_vmload", "vaes", "vmcb_clean", "vme", "vmmcall", "vpclmulqdq", "xgetbv1", "xsave", "xsavec", "xsaveerptr", "xsaveopt", "xsaves"], "hz_actual": [2871135000, 0], "hz_actual_friendly": "2.8711 GHz", "hz_advertised": [2871135000, 0], "hz_advertised_friendly": "2.8711 GHz", "l1_data_cache_size": 65536, "l1_instruction_cache_size": 65536, "l2_cache_associativity": 6, "l2_cache_line_size": 1024, "l2_cache_size": 2097152, "l3_cache_size": 1048576, "model": 17, "python_version": "3.12.3.final.0 (64 bit)", "stepping": 1, "vendor_id_raw": "AuthenticAMD"}, "machine": "x86_64", "node": "runnervmzvulz", "processor": "x86_64", "python_build": ["main", "Jun 19 2026 12:46:00"], "python_compiler": "GCC 13.3.0", "python_implementation": "CPython", "python_implementation_version": "3.12.3", "python_version": "3.12.3", "release": "6.17.0-1022-azure", "system": "Linux"} (location: .benchmarks).
 
   warner(PytestBenchmarkWarning(text))
 
-<span class="ansi-magenta-fg">Comparing against benchmarks from: Linux-CPython-3.12-64bit/0001_2fe5e0ccfa8ac9069dc68e23f9b342c9837827cb_20260630_134559.json</span>
+<span class="ansi-magenta-fg">Comparing against benchmarks from: Linux-CPython-3.12-64bit/0001_5105b4edbc704ccee33d254f235c711a91e55140_20260811_153913.json</span>
 
 
 
@@ -642,7 +645,7 @@ Legend:
 
 <span class="ansi-red-fg ansi-bold">Performance has regressed:
 
-    test_inc (0001_2fe5e0c) - Field 'mean' has failed PercentageRegressionCheck: 135953567.691834748 &gt; 5.000000000</span>
+    test_inc (0001_5105b4e) - Field 'mean' has failed PercentageRegressionCheck: 106583143.701551735 &gt; 5.000000000</span>
 
 <span class="ansi-red-fg ansi-bold">--------------------------------------------------------------------------------</span>
 
@@ -827,116 +830,116 @@ pytest_benchmark.session.PerformanceRegression: Performance has regressed.
 <section class="slide level2">
 <h2>Regression Tests</h2>
 <p>Written using <a href="https://nox.thea.codes/en/stable/">Nox</a>, ran on pull-requests</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="21-109|32-45|47-54|14-17|56-60|62-74|76-92|94-108"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co">"""Nox config."""</span></span>
-<span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a><span class="im">import</span> os</span>
-<span id="cb5-4"><a></a><span class="im">import</span> pathlib</span>
-<span id="cb5-5"><a></a><span class="im">import</span> shutil</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a><span class="im">import</span> nox</span>
-<span id="cb5-8"><a></a><span class="im">import</span> nox_uv</span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a><span class="co"># Options to modify nox behaviour</span></span>
-<span id="cb5-11"><a></a>nox.options.default_venv_backend <span class="op">=</span> <span class="st">"uv"</span></span>
-<span id="cb5-12"><a></a>nox.options.reuse_existing_virtualenvs <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb5-13"><a></a></span>
-<span id="cb5-14"><a></a>ARRAY_BACKENDS <span class="op">=</span> {</span>
-<span id="cb5-15"><a></a>    <span class="st">"array_api_strict"</span>: <span class="st">"array-api-strict&gt;=2"</span>,</span>
-<span id="cb5-16"><a></a>    <span class="st">"jax"</span>: <span class="st">"jax&gt;=0.4.32"</span>,</span>
-<span id="cb5-17"><a></a>}</span>
-<span id="cb5-18"><a></a>BENCH_TESTS_LOC <span class="op">=</span> pathlib.Path(<span class="st">"tests/benchmarks"</span>)</span>
-<span id="cb5-19"><a></a></span>
-<span id="cb5-20"><a></a></span>
-<span id="cb5-21"><a></a><span class="at">@nox_uv.session</span>(</span>
-<span id="cb5-22"><a></a>    uv_no_install_project<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb5-23"><a></a>    uv_only_groups<span class="op">=</span>[<span class="st">"test"</span>],</span>
-<span id="cb5-24"><a></a>)</span>
-<span id="cb5-25"><a></a><span class="kw">def</span> regression_tests(session: nox.Session) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb5-26"><a></a>    <span class="co">"""</span></span>
-<span id="cb5-27"><a></a><span class="co">    Run regression benchmark tests between two revisions.</span></span>
-<span id="cb5-28"><a></a></span>
-<span id="cb5-29"><a></a><span class="co">    Note it is not possible to pass extra options to pytest.</span></span>
-<span id="cb5-30"><a></a></span>
-<span id="cb5-31"><a></a><span class="co">    """</span></span>
-<span id="cb5-32"><a></a>    <span class="co"># Check for valid user input</span></span>
-<span id="cb5-33"><a></a>    expected_count <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb5-34"><a></a>    <span class="cf">if</span> <span class="kw">not</span> session.posargs:</span>
-<span id="cb5-35"><a></a>        msg <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>expected_count<span class="sc">}</span><span class="ss"> revision(s) not provided"</span></span>
-<span id="cb5-36"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(msg)</span>
-<span id="cb5-37"><a></a></span>
-<span id="cb5-38"><a></a>    <span class="cf">if</span> <span class="bu">len</span>(session.posargs) <span class="op">!=</span> expected_count:</span>
-<span id="cb5-39"><a></a>        msg <span class="op">=</span> (</span>
-<span id="cb5-40"><a></a>            <span class="ss">f"Incorrect number of revisions provided (</span><span class="sc">{</span><span class="bu">len</span>(session.posargs)<span class="sc">}</span><span class="ss">), "</span></span>
-<span id="cb5-41"><a></a>            <span class="ss">f"expected </span><span class="sc">{</span>expected_count<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb5-42"><a></a>        )</span>
-<span id="cb5-43"><a></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(msg)</span>
-<span id="cb5-44"><a></a></span>
-<span id="cb5-45"><a></a>    before_revision, after_revision <span class="op">=</span> session.posargs</span>
-<span id="cb5-46"><a></a></span>
-<span id="cb5-47"><a></a>    <span class="co"># Install the correct array-backends based on environment variables</span></span>
-<span id="cb5-48"><a></a>    array_backend <span class="op">=</span> os.environ.get(<span class="st">"ARRAY_BACKEND"</span>)</span>
-<span id="cb5-49"><a></a>    <span class="cf">if</span> array_backend <span class="op">==</span> <span class="st">"array_api_strict"</span>:</span>
-<span id="cb5-50"><a></a>        session.install(ARRAY_BACKENDS[<span class="st">"array_api_strict"</span>])</span>
-<span id="cb5-51"><a></a>    <span class="cf">elif</span> array_backend <span class="op">==</span> <span class="st">"jax"</span>:</span>
-<span id="cb5-52"><a></a>        session.install(ARRAY_BACKENDS[<span class="st">"jax"</span>])</span>
-<span id="cb5-53"><a></a>    <span class="cf">elif</span> array_backend <span class="op">==</span> <span class="st">"all"</span>:</span>
-<span id="cb5-54"><a></a>        session.install(<span class="op">*</span>ARRAY_BACKENDS.values())</span>
-<span id="cb5-55"><a></a></span>
-<span id="cb5-56"><a></a>    <span class="co"># make sure benchmark directory is clean</span></span>
-<span id="cb5-57"><a></a>    benchmark_dir <span class="op">=</span> pathlib.Path(<span class="st">".benchmarks"</span>)</span>
-<span id="cb5-58"><a></a>    <span class="cf">if</span> benchmark_dir.exists():</span>
-<span id="cb5-59"><a></a>        session.log(<span class="ss">f"Deleting previous benchmark directory: </span><span class="sc">{</span>benchmark_dir<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-60"><a></a>        shutil.rmtree(benchmark_dir)</span>
-<span id="cb5-61"><a></a></span>
-<span id="cb5-62"><a></a>    <span class="co"># Generate starting state benchmark</span></span>
-<span id="cb5-63"><a></a>    session.log(<span class="ss">f"Generating prior benchmark from revision </span><span class="sc">{</span>before_revision<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-64"><a></a>    session.install(<span class="ss">f"git+https://github.com/glass-dev/glass@</span><span class="sc">{</span>before_revision<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-65"><a></a>    session.run(</span>
-<span id="cb5-66"><a></a>        <span class="st">"pytest"</span>,</span>
-<span id="cb5-67"><a></a>        BENCH_TESTS_LOC,</span>
-<span id="cb5-68"><a></a>        <span class="st">"--benchmark-autosave"</span>,</span>
-<span id="cb5-69"><a></a>        <span class="st">"--benchmark-calibration-precision=1000"</span>,</span>
-<span id="cb5-70"><a></a>        <span class="st">"--benchmark-columns=mean,stddev,rounds"</span>,</span>
-<span id="cb5-71"><a></a>        <span class="st">"--benchmark-max-time=5.0"</span>,</span>
-<span id="cb5-72"><a></a>        <span class="st">"--benchmark-sort=name"</span>,</span>
-<span id="cb5-73"><a></a>        <span class="st">"--benchmark-timer=time.process_time"</span>,</span>
-<span id="cb5-74"><a></a>    )</span>
-<span id="cb5-75"><a></a></span>
-<span id="cb5-76"><a></a>    <span class="co"># Generate and compare "stable" benchmark tests</span></span>
-<span id="cb5-77"><a></a>    session.log(<span class="ss">f"Comparing </span><span class="sc">{</span>before_revision<span class="sc">}</span><span class="ss"> benchmark to revision </span><span class="sc">{</span>after_revision<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-78"><a></a>    session.install(<span class="ss">f"git+https://github.com/glass-dev/glass@</span><span class="sc">{</span>after_revision<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-79"><a></a>    session.log(<span class="st">"Running stable regression tests"</span>)</span>
-<span id="cb5-80"><a></a>    session.run(</span>
-<span id="cb5-81"><a></a>        <span class="st">"pytest"</span>,</span>
-<span id="cb5-82"><a></a>        BENCH_TESTS_LOC,</span>
-<span id="cb5-83"><a></a>        <span class="st">"-m"</span>,</span>
-<span id="cb5-84"><a></a>        <span class="st">"stable"</span>,</span>
-<span id="cb5-85"><a></a>        <span class="st">"--benchmark-compare=0001"</span>,</span>
-<span id="cb5-86"><a></a>        <span class="st">"--benchmark-compare-fail=mean:5%"</span>,</span>
-<span id="cb5-87"><a></a>        <span class="st">"--benchmark-calibration-precision=1000"</span>,</span>
-<span id="cb5-88"><a></a>        <span class="st">"--benchmark-columns=mean,stddev,rounds"</span>,</span>
-<span id="cb5-89"><a></a>        <span class="st">"--benchmark-max-time=5.0"</span>,</span>
-<span id="cb5-90"><a></a>        <span class="st">"--benchmark-sort=name"</span>,</span>
-<span id="cb5-91"><a></a>        <span class="st">"--benchmark-timer=time.process_time"</span>,</span>
-<span id="cb5-92"><a></a>    )</span>
-<span id="cb5-93"><a></a></span>
-<span id="cb5-94"><a></a>    <span class="co"># Generate and compare "unstable" benchmark tests</span></span>
-<span id="cb5-95"><a></a>    session.log(<span class="st">"Running unstable regression tests"</span>)</span>
-<span id="cb5-96"><a></a>    session.run(</span>
-<span id="cb5-97"><a></a>        <span class="st">"pytest"</span>,</span>
-<span id="cb5-98"><a></a>        BENCH_TESTS_LOC,</span>
-<span id="cb5-99"><a></a>        <span class="st">"-m"</span>,</span>
-<span id="cb5-100"><a></a>        <span class="st">"unstable"</span>,</span>
-<span id="cb5-101"><a></a>        <span class="st">"--benchmark-compare=0001"</span>,</span>
-<span id="cb5-102"><a></a>        <span class="co"># Absolute time comparison in seconds</span></span>
-<span id="cb5-103"><a></a>        <span class="st">"--benchmark-compare-fail=mean:0.0005"</span>,</span>
-<span id="cb5-104"><a></a>        <span class="st">"--benchmark-calibration-precision=1000"</span>,</span>
-<span id="cb5-105"><a></a>        <span class="st">"--benchmark-columns=mean,stddev,rounds"</span>,</span>
-<span id="cb5-106"><a></a>        <span class="st">"--benchmark-max-time=5.0"</span>,</span>
-<span id="cb5-107"><a></a>        <span class="st">"--benchmark-sort=name"</span>,</span>
-<span id="cb5-108"><a></a>        <span class="st">"--benchmark-timer=time.process_time"</span>,</span>
-<span id="cb5-109"><a></a>    )</span>
-<span id="cb5-110"><a></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="21-109|32-45|47-54|14-17|56-60|62-74|76-92|94-108"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-label="1"></a><span class="co">"""Nox config."""</span></span>
+<span id="cb5-2"><a aria-label="2"></a></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="im">import</span> os</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="im">import</span> pathlib</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="im">import</span> shutil</span>
+<span id="cb5-6"><a aria-label="6"></a></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="im">import</span> nox</span>
+<span id="cb5-8"><a aria-label="8"></a><span class="im">import</span> nox_uv</span>
+<span id="cb5-9"><a aria-label="9"></a></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="co"># Options to modify nox behaviour</span></span>
+<span id="cb5-11"><a aria-label="11"></a>nox.options.default_venv_backend <span class="op">=</span> <span class="st">"uv"</span></span>
+<span id="cb5-12"><a aria-label="12"></a>nox.options.reuse_existing_virtualenvs <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-13"><a aria-label="13"></a></span>
+<span id="cb5-14"><a aria-label="14"></a>ARRAY_BACKENDS <span class="op">=</span> {</span>
+<span id="cb5-15"><a aria-label="15"></a>    <span class="st">"array_api_strict"</span>: <span class="st">"array-api-strict&gt;=2"</span>,</span>
+<span id="cb5-16"><a aria-label="16"></a>    <span class="st">"jax"</span>: <span class="st">"jax&gt;=0.4.32"</span>,</span>
+<span id="cb5-17"><a aria-label="17"></a>}</span>
+<span id="cb5-18"><a aria-label="18"></a>BENCH_TESTS_LOC <span class="op">=</span> pathlib.Path(<span class="st">"tests/benchmarks"</span>)</span>
+<span id="cb5-19"><a aria-label="19"></a></span>
+<span id="cb5-20"><a aria-label="20"></a></span>
+<span id="cb5-21"><a aria-label="21"></a><span class="at">@nox_uv.session</span>(</span>
+<span id="cb5-22"><a aria-label="22"></a>    uv_no_install_project<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb5-23"><a aria-label="23"></a>    uv_only_groups<span class="op">=</span>[<span class="st">"test"</span>],</span>
+<span id="cb5-24"><a aria-label="24"></a>)</span>
+<span id="cb5-25"><a aria-label="25"></a><span class="kw">def</span> regression_tests(session: nox.Session) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-26"><a aria-label="26"></a>    <span class="co">"""</span></span>
+<span id="cb5-27"><a aria-label="27"></a><span class="co">    Run regression benchmark tests between two revisions.</span></span>
+<span id="cb5-28"><a aria-label="28"></a></span>
+<span id="cb5-29"><a aria-label="29"></a><span class="co">    Note it is not possible to pass extra options to pytest.</span></span>
+<span id="cb5-30"><a aria-label="30"></a></span>
+<span id="cb5-31"><a aria-label="31"></a><span class="co">    """</span></span>
+<span id="cb5-32"><a aria-label="32"></a>    <span class="co"># Check for valid user input</span></span>
+<span id="cb5-33"><a aria-label="33"></a>    expected_count <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb5-34"><a aria-label="34"></a>    <span class="cf">if</span> <span class="kw">not</span> session.posargs:</span>
+<span id="cb5-35"><a aria-label="35"></a>        msg <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>expected_count<span class="sc">}</span><span class="ss"> revision(s) not provided"</span></span>
+<span id="cb5-36"><a aria-label="36"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(msg)</span>
+<span id="cb5-37"><a aria-label="37"></a></span>
+<span id="cb5-38"><a aria-label="38"></a>    <span class="cf">if</span> <span class="bu">len</span>(session.posargs) <span class="op">!=</span> expected_count:</span>
+<span id="cb5-39"><a aria-label="39"></a>        msg <span class="op">=</span> (</span>
+<span id="cb5-40"><a aria-label="40"></a>            <span class="ss">f"Incorrect number of revisions provided (</span><span class="sc">{</span><span class="bu">len</span>(session.posargs)<span class="sc">}</span><span class="ss">), "</span></span>
+<span id="cb5-41"><a aria-label="41"></a>            <span class="ss">f"expected </span><span class="sc">{</span>expected_count<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-42"><a aria-label="42"></a>        )</span>
+<span id="cb5-43"><a aria-label="43"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(msg)</span>
+<span id="cb5-44"><a aria-label="44"></a></span>
+<span id="cb5-45"><a aria-label="45"></a>    before_revision, after_revision <span class="op">=</span> session.posargs</span>
+<span id="cb5-46"><a aria-label="46"></a></span>
+<span id="cb5-47"><a aria-label="47"></a>    <span class="co"># Install the correct array-backends based on environment variables</span></span>
+<span id="cb5-48"><a aria-label="48"></a>    array_backend <span class="op">=</span> os.environ.get(<span class="st">"ARRAY_BACKEND"</span>)</span>
+<span id="cb5-49"><a aria-label="49"></a>    <span class="cf">if</span> array_backend <span class="op">==</span> <span class="st">"array_api_strict"</span>:</span>
+<span id="cb5-50"><a aria-label="50"></a>        session.install(ARRAY_BACKENDS[<span class="st">"array_api_strict"</span>])</span>
+<span id="cb5-51"><a aria-label="51"></a>    <span class="cf">elif</span> array_backend <span class="op">==</span> <span class="st">"jax"</span>:</span>
+<span id="cb5-52"><a aria-label="52"></a>        session.install(ARRAY_BACKENDS[<span class="st">"jax"</span>])</span>
+<span id="cb5-53"><a aria-label="53"></a>    <span class="cf">elif</span> array_backend <span class="op">==</span> <span class="st">"all"</span>:</span>
+<span id="cb5-54"><a aria-label="54"></a>        session.install(<span class="op">*</span>ARRAY_BACKENDS.values())</span>
+<span id="cb5-55"><a aria-label="55"></a></span>
+<span id="cb5-56"><a aria-label="56"></a>    <span class="co"># make sure benchmark directory is clean</span></span>
+<span id="cb5-57"><a aria-label="57"></a>    benchmark_dir <span class="op">=</span> pathlib.Path(<span class="st">".benchmarks"</span>)</span>
+<span id="cb5-58"><a aria-label="58"></a>    <span class="cf">if</span> benchmark_dir.exists():</span>
+<span id="cb5-59"><a aria-label="59"></a>        session.log(<span class="ss">f"Deleting previous benchmark directory: </span><span class="sc">{</span>benchmark_dir<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-60"><a aria-label="60"></a>        shutil.rmtree(benchmark_dir)</span>
+<span id="cb5-61"><a aria-label="61"></a></span>
+<span id="cb5-62"><a aria-label="62"></a>    <span class="co"># Generate starting state benchmark</span></span>
+<span id="cb5-63"><a aria-label="63"></a>    session.log(<span class="ss">f"Generating prior benchmark from revision </span><span class="sc">{</span>before_revision<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-64"><a aria-label="64"></a>    session.install(<span class="ss">f"git+https://github.com/glass-dev/glass@</span><span class="sc">{</span>before_revision<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-65"><a aria-label="65"></a>    session.run(</span>
+<span id="cb5-66"><a aria-label="66"></a>        <span class="st">"pytest"</span>,</span>
+<span id="cb5-67"><a aria-label="67"></a>        BENCH_TESTS_LOC,</span>
+<span id="cb5-68"><a aria-label="68"></a>        <span class="st">"--benchmark-autosave"</span>,</span>
+<span id="cb5-69"><a aria-label="69"></a>        <span class="st">"--benchmark-calibration-precision=1000"</span>,</span>
+<span id="cb5-70"><a aria-label="70"></a>        <span class="st">"--benchmark-columns=mean,stddev,rounds"</span>,</span>
+<span id="cb5-71"><a aria-label="71"></a>        <span class="st">"--benchmark-max-time=5.0"</span>,</span>
+<span id="cb5-72"><a aria-label="72"></a>        <span class="st">"--benchmark-sort=name"</span>,</span>
+<span id="cb5-73"><a aria-label="73"></a>        <span class="st">"--benchmark-timer=time.process_time"</span>,</span>
+<span id="cb5-74"><a aria-label="74"></a>    )</span>
+<span id="cb5-75"><a aria-label="75"></a></span>
+<span id="cb5-76"><a aria-label="76"></a>    <span class="co"># Generate and compare "stable" benchmark tests</span></span>
+<span id="cb5-77"><a aria-label="77"></a>    session.log(<span class="ss">f"Comparing </span><span class="sc">{</span>before_revision<span class="sc">}</span><span class="ss"> benchmark to revision </span><span class="sc">{</span>after_revision<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-78"><a aria-label="78"></a>    session.install(<span class="ss">f"git+https://github.com/glass-dev/glass@</span><span class="sc">{</span>after_revision<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-79"><a aria-label="79"></a>    session.log(<span class="st">"Running stable regression tests"</span>)</span>
+<span id="cb5-80"><a aria-label="80"></a>    session.run(</span>
+<span id="cb5-81"><a aria-label="81"></a>        <span class="st">"pytest"</span>,</span>
+<span id="cb5-82"><a aria-label="82"></a>        BENCH_TESTS_LOC,</span>
+<span id="cb5-83"><a aria-label="83"></a>        <span class="st">"-m"</span>,</span>
+<span id="cb5-84"><a aria-label="84"></a>        <span class="st">"stable"</span>,</span>
+<span id="cb5-85"><a aria-label="85"></a>        <span class="st">"--benchmark-compare=0001"</span>,</span>
+<span id="cb5-86"><a aria-label="86"></a>        <span class="st">"--benchmark-compare-fail=mean:5%"</span>,</span>
+<span id="cb5-87"><a aria-label="87"></a>        <span class="st">"--benchmark-calibration-precision=1000"</span>,</span>
+<span id="cb5-88"><a aria-label="88"></a>        <span class="st">"--benchmark-columns=mean,stddev,rounds"</span>,</span>
+<span id="cb5-89"><a aria-label="89"></a>        <span class="st">"--benchmark-max-time=5.0"</span>,</span>
+<span id="cb5-90"><a aria-label="90"></a>        <span class="st">"--benchmark-sort=name"</span>,</span>
+<span id="cb5-91"><a aria-label="91"></a>        <span class="st">"--benchmark-timer=time.process_time"</span>,</span>
+<span id="cb5-92"><a aria-label="92"></a>    )</span>
+<span id="cb5-93"><a aria-label="93"></a></span>
+<span id="cb5-94"><a aria-label="94"></a>    <span class="co"># Generate and compare "unstable" benchmark tests</span></span>
+<span id="cb5-95"><a aria-label="95"></a>    session.log(<span class="st">"Running unstable regression tests"</span>)</span>
+<span id="cb5-96"><a aria-label="96"></a>    session.run(</span>
+<span id="cb5-97"><a aria-label="97"></a>        <span class="st">"pytest"</span>,</span>
+<span id="cb5-98"><a aria-label="98"></a>        BENCH_TESTS_LOC,</span>
+<span id="cb5-99"><a aria-label="99"></a>        <span class="st">"-m"</span>,</span>
+<span id="cb5-100"><a aria-label="100"></a>        <span class="st">"unstable"</span>,</span>
+<span id="cb5-101"><a aria-label="101"></a>        <span class="st">"--benchmark-compare=0001"</span>,</span>
+<span id="cb5-102"><a aria-label="102"></a>        <span class="co"># Absolute time comparison in seconds</span></span>
+<span id="cb5-103"><a aria-label="103"></a>        <span class="st">"--benchmark-compare-fail=mean:0.0005"</span>,</span>
+<span id="cb5-104"><a aria-label="104"></a>        <span class="st">"--benchmark-calibration-precision=1000"</span>,</span>
+<span id="cb5-105"><a aria-label="105"></a>        <span class="st">"--benchmark-columns=mean,stddev,rounds"</span>,</span>
+<span id="cb5-106"><a aria-label="106"></a>        <span class="st">"--benchmark-max-time=5.0"</span>,</span>
+<span id="cb5-107"><a aria-label="107"></a>        <span class="st">"--benchmark-sort=name"</span>,</span>
+<span id="cb5-108"><a aria-label="108"></a>        <span class="st">"--benchmark-timer=time.process_time"</span>,</span>
+<span id="cb5-109"><a aria-label="109"></a>    )</span>
+<span id="cb5-110"><a aria-label="110"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 <h2>Issues</h2>
@@ -1205,7 +1208,7 @@ pytest_benchmark.session.PerformanceRegression: Performance has regressed.
       });
     </script>
     <script type="application/vnd.jupyter.widget-state+json">
-    {"state":{"54bcd354989e4c24bfbde9b8f1b4151e":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[51.454,-0.106],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"London","visible":true,"z_index_offset":0}},"5a1e7e8bd3704df196140e1cabea1844":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"5df9003917a84af48d53f44073fc57ef":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"6cb193ac5c304733b08e347629a59ea6":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":"60vh","justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"7bea58a8f2284133960d3022e65a7bef":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[53.028,-1.538],"close_popup_on_click":true,"controls":["IPY_MODEL_5a1e7e8bd3704df196140e1cabea1844","IPY_MODEL_f7c7839a00c8448ba383f030531d917d"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_91870378cf554bc78b4eb126e7aa6043","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_5df9003917a84af48d53f44073fc57ef","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_d0d2a39e6a7a4336b5a689281a02b814","IPY_MODEL_c593f1adce124d4ebe7d937edbb65f04","IPY_MODEL_813666c3d4fb4df3a937ac3f3f831601","IPY_MODEL_54bcd354989e4c24bfbde9b8f1b4151e"],"layout":"IPY_MODEL_6cb193ac5c304733b08e347629a59ea6","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-06-29","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_b2ff67a140e7473e9d81f41d53bf0370","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":6,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"813666c3d4fb4df3a937ac3f3f831601":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[53.859,-1.081],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"York","visible":true,"z_index_offset":0}},"91870378cf554bc78b4eb126e7aa6043":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"b2ff67a140e7473e9d81f41d53bf0370":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"c593f1adce124d4ebe7d937edbb65f04":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[54.571,-1.248],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"Hartlepool","visible":true,"z_index_offset":0}},"d0d2a39e6a7a4336b5a689281a02b814":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}},"f7c7839a00c8448ba383f030531d917d":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}}},"version_major":2,"version_minor":0}
+    {"state":{"277a61257e394144aad98a970249fce8":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[51.454,-0.106],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"London","visible":true,"z_index_offset":0}},"385b6078b16f4a33add4fcd19a666c3c":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"3d4941a2c064484b8411698c870bf28f":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[53.028,-1.538],"close_popup_on_click":true,"controls":["IPY_MODEL_385b6078b16f4a33add4fcd19a666c3c","IPY_MODEL_5ee6ca584a3947eda8efec7a833e3839"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_9302e7822edc4999bbdc4608dc8caecb","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_63116b9e0ae9400e85af906438a347b1","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_d6c1a7392e03433aae9b926ebdcaa8cc","IPY_MODEL_4b9a039faa754ebf9c8a7ca1dee61afb","IPY_MODEL_9e1cbf0ba1334f69bba1a412461490ab","IPY_MODEL_277a61257e394144aad98a970249fce8"],"layout":"IPY_MODEL_7a9c12cd9b9e493a8fa8d6fc0fce9d54","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-08-10","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_af96fc401d674d4a9b2c033b2022ac89","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":6,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"4b9a039faa754ebf9c8a7ca1dee61afb":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[54.571,-1.248],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"Hartlepool","visible":true,"z_index_offset":0}},"5ee6ca584a3947eda8efec7a833e3839":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"63116b9e0ae9400e85af906438a347b1":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"7a9c12cd9b9e493a8fa8d6fc0fce9d54":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":"60vh","justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"9302e7822edc4999bbdc4608dc8caecb":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"9e1cbf0ba1334f69bba1a412461490ab":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[53.859,-1.081],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"York","visible":true,"z_index_offset":0}},"af96fc401d674d4a9b2c033b2022ac89":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"d6c1a7392e03433aae9b926ebdcaa8cc":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}}},"version_major":2,"version_minor":0}
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {

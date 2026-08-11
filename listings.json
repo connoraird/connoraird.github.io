@@ -1,7 +1,14 @@
 [
   {
+    "listing": "/posters.html",
+    "items": [
+      "/posters/rsecon-2026/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/posters/rsecon-2026/index.html",
       "/projects/cake-fellowship/index.html",
       "/talks/2026-06-16-fortran-carpentries/index.html",
       "/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html",
