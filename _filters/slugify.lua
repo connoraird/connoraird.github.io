@@ -20,6 +20,7 @@ return {
     Meta = function(m)
         -- Example: combine date, title, and author
         m.slug = combine_and_slugify(m.date, m.title)
+        m.slug_title_only = combine_and_slugify(m.title)
         return m
     end,
 }
