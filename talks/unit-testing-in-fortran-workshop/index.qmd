@@ -1,0 +1,170 @@
+---
+author: Connor Aird
+institute: University College London
+date: 2026-11-10
+format: revealjs
+path: unit-testing-in-fortran-workshop/index.qmd
+subtitle: "Instructor companion slides"
+title: "Unit testing in Fortran workshop"
+logo: /assets/ucl_logo_light.png
+type: talk
+categories:
+  - fortran
+  - testing
+  - teaching
+image: /_includes/cake-logo.png
+---
+
+# Setup
+
+## Example exercises
+
+1. Open the exercises repo:
+   [github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises)
+2. Setup GitHub Codespaces.
+3. If this does not work:
+   - Run the container image locally via vscode
+   - Setup local environment with:
+     - CMake
+     - pFUnit
+     - gfortran
+
+# What is a unit test?
+
+“If the parts don’t work by themselves, they probably won’t work well together”
+
+(Thomas and Hunt, 2019,
+[The pragmatic programmer](https://search.worldcat.org/search?q=bn:9780135957059),
+Topic 51).
+
+## Definition of a unit test
+
+::: {.column-page}
+
+::: {.column}
+
+Unit tests are:
+
+- Isolated
+- Minimal
+- Fast
+- tests which verify the correctness of a single unit of code.
+
+:::
+
+::: {.column}
+
+Benefits of unit tests:
+
+- Confidence that your code does what you expect.
+- Easier to make changes to you code.
+- Catch bugs before they are introduced.
+
+:::
+
+:::
+
+# Temperature conversions library
+
+Throughout this workshop you will be writing tests for the
+[temperature conversion library provided in the exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/writing-your-first-unit-test/challenge).
+
+# Our first unit test
+
+## Testing the temperature {.smaller}
+
+First, how can we test this library using standard Fortran?
+
+::: {.fragment}
+
+[solution/standard_fortran/test_temp_conversions.f90](https://github.com/carpentries-incubator/fortran-unit-testing/blob/main/exercises/writing-your-first-unit-test/solution/standard_fortran/test_temp_conversions.f90)
+
+:::
+
+::: {.fragment .column-page}
+
+What makes this implementation good? What makes it bad?
+
+::: {.column}
+
+Good:
+
+- The tests are partially parameterise
+- Good failure logs
+
+:::
+
+::: {.column}
+
+Bad:
+
+- Unable to run a single test in isolation.
+- Extra maintenance of test runner logic.
+- Do not benefit from community development efforts
+
+:::
+
+:::
+
+# Our first pFUnit test
+
+## Why are we using pFUnit?
+
+**Supports testing MPI parallelised code**, including parameterising tests by
+number of MPI ranks.
+
+::: {.fragment}
+
+A few other reasons:
+
+- The most feature rich framework.
+- The most widely used framework.
+- Being maintained.
+- Dedicated CMake and Make integrations.
+
+:::
+
+## Standard Fortran to pFUnit
+
+### [Live coding example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/pfunit-basics.html)
+
+Starting with the standard Fortran test we saw earlier, follow along writing
+tests for the temperature conversion library.
+
+## Building with CMake
+
+### [Live code example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/integrating-with-build-systems.html#integrating-pfunit-with-cmake)
+
+Now that we have written a test using pFUnit, let's build it using CMake. Follow
+along to build your newly written pFUnit test of the temperature conversion
+library
+
+# Parameterising with pFUnit
+
+## Why bother parameterising?
+
+- No repeated test logic.
+- pFUnit handles reporting failed tests.
+- Ensures the full test suite runs.
+
+## Basic to parameterised pFUnit
+
+What problems are there with the test we've just written? What happens in the
+case when one test scenario fails?
+
+::: {.fragment}
+
+### [Live coding example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/parameterising-pfunit-tests.html)
+
+Starting with the pFUnit tests we have just written, follow along parameterising
+your tests for the temperature conversion library.
+
+:::
+
+# Further reading
+
+Learn how to test MPI parallelised Fortran by following the
+[workshop notes](https://carpentries-incubator.github.io/fortran-unit-testing/)
+in your own time.
+
+{{< include /_includes/qr-code.qmd >}}
