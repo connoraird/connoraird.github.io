@@ -4,8 +4,8 @@ institute: University College London
 date: 2026-11-10
 format: revealjs
 path: unit-testing-in-fortran-workshop/index.qmd
-subtitle: "Workshop companion slides"
-title: "Unit testing in Fortran"
+subtitle: "Instructor companion slides"
+title: "Unit testing in Fortran workshop"
 logo: /assets/ucl_logo_light.png
 type: talk
 categories:
