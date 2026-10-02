@@ -1,22 +1,20 @@
 [
   {
-    "listing": "/talks.html",
-    "items": [
-      "/talks/2026-06-16-fortran-carpentries/index.html",
-      "/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html",
-      "/talks/2026-01-31-unit-testing-in-fortran/index.html",
-      "/talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html"
-    ]
-  },
-  {
     "listing": "/posters.html",
     "items": [
       "/posters/rsecon-2026/index.html"
     ]
   },
   {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/cake-fellowship/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
+      "/talks/unit-testing-in-fortran-workshop/index.html",
       "/posters/rsecon-2026/index.html",
       "/projects/cake-fellowship/index.html",
       "/talks/2026-06-16-fortran-carpentries/index.html",
@@ -26,9 +24,13 @@
     ]
   },
   {
-    "listing": "/projects.html",
+    "listing": "/talks.html",
     "items": [
-      "/projects/cake-fellowship/index.html"
+      "/talks/unit-testing-in-fortran-workshop/index.html",
+      "/talks/2026-06-16-fortran-carpentries/index.html",
+      "/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html",
+      "/talks/2026-01-31-unit-testing-in-fortran/index.html",
+      "/talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html"
     ]
   }
 ]
