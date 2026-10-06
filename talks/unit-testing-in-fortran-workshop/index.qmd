@@ -13,7 +13,17 @@ categories:
   - testing
   - teaching
 image: /_includes/cake-logo.png
+incremental: false
 ---
+
+## Plan
+
+1. Setup our environment to run the exercises.
+2. What is a unit test?
+3. A unit test in standard Fortran.
+4. Writing our first pFUnit test.
+5. How to build pFUnit test with CMake.
+6. Parameterising pFUnit tests.
 
 # Setup
 
@@ -23,7 +33,7 @@ image: /_includes/cake-logo.png
    [github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises)
 2. Setup GitHub Codespaces.
 3. If this does not work:
-   - Run the container image locally via vscode
+   - Run the container image locally via vscode, or
    - Setup local environment with:
      - CMake
      - pFUnit
@@ -41,7 +51,7 @@ Topic 51).
 
 ::: {.column-page}
 
-::: {.column}
+::: {.incremental .column}
 
 Unit tests are:
 
@@ -52,7 +62,7 @@ Unit tests are:
 
 :::
 
-::: {.column}
+::: {.incremental .column}
 
 Benefits of unit tests:
 
@@ -64,26 +74,62 @@ Benefits of unit tests:
 
 :::
 
-# Temperature conversions library
+# Our first unit test
 
-Throughout this workshop you will be writing tests for the
+**Objectives**
+
+- Understand what a unit test looks like.
+- Recognise the benefits of parameterized tests.
+- Be able to write a unit test which is isolated, minimal and fast.
+
+## Example libraries {.smaller}
+
+Throughout this workshop we will look at two libraries:
+
+::: {.column-page}
+
+::: {.fragment .column}
+
+#### Temperature conversions
+
+You will be writing tests for the
 [temperature conversion library provided in the exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/writing-your-first-unit-test/challenge).
 
-# Our first unit test
+:::
+
+::: {.fragment .column}
+
+#### Matrix operations
+
+I will provide worked examples from this matrix operations library
+
+```fortran
+module matrix_ops
+    implicit none
+contains
+    !> Returns the dot product (a.b) of the two inputted arrays a and b
+    integer function dot(a, b)
+        !> The two arrays to be dotted together
+        integer :: a(:), b(:)
+
+        dot = dot_product(a, b)
+    end function dot
+end module matrix_ops
+```
+
+:::
+
+:::
 
 ## Testing the temperature {.smaller}
 
 First, how can we test this library using standard Fortran?
 
-::: {.fragment}
-
 [solution/standard_fortran/test_temp_conversions.f90](https://github.com/carpentries-incubator/fortran-unit-testing/blob/main/exercises/writing-your-first-unit-test/solution/standard_fortran/test_temp_conversions.f90)
 
-:::
+What makes this implementation good? What makes it bad?
 
 ::: {.fragment .column-page}
-
-What makes this implementation good? What makes it bad?
 
 ::: {.column}
 
@@ -108,12 +154,18 @@ Bad:
 
 # Our first pFUnit test
 
+**Objectives**
+
+- Recognise the benefits of pFUnit vs standard Fortran.
+- Understand how to write a basic pFUnit test.
+- Be able to build and run a pFUnit test using CMake.
+
 ## Why are we using pFUnit?
 
 **Supports testing MPI parallelised code**, including parameterising tests by
 number of MPI ranks.
 
-::: {.fragment}
+::: {.incremental .fragment}
 
 A few other reasons:
 
@@ -141,11 +193,24 @@ library
 
 # Parameterising with pFUnit
 
+**Objectives**
+
+- Recognise the benefits of parameterising with derived-types.
+- Understand how to write parameterised pFUnit tests.
+
 ## Why bother parameterising?
 
-- No repeated test logic.
+- Reduce repeated test logic.
 - pFUnit handles reporting failed tests.
 - Ensures the full test suite runs.
+
+And…
+
+::: {.fragment}
+
+It will be much easier when testing MPI parallelised Fortran.
+
+:::
 
 ## Basic to parameterised pFUnit
 
