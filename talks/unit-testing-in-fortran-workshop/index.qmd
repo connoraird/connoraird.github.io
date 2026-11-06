@@ -24,6 +24,7 @@ incremental: false
 4. Writing our first pFUnit test.
 5. How to build pFUnit test with CMake.
 6. Parameterising pFUnit tests.
+7. Testing MPI parallelised Fortran
 
 # Setup
 
@@ -135,7 +136,7 @@ What makes this implementation good? What makes it bad?
 
 Good:
 
-- The tests are partially parameterise
+- The tests are parameterise
 - Good failure logs
 
 :::
@@ -191,6 +192,15 @@ Now that we have written a test using pFUnit, let's build it using CMake. Follow
 along to build your newly written pFUnit test of the temperature conversion
 library
 
+## Key points
+
+- pFUnit removes the need to write custom test drivers.
+- Directives tell the pFUnit pre-processor how to convert `.pf` files into
+  `.F90`.
+- Assertions can be defined using pre-processor directives such as
+  `@assertEqual`.
+- pFUnit tests can be built with CMake using `add_pfunit_ctest`.
+
 # Parameterising with pFUnit
 
 **Objectives**
@@ -226,10 +236,102 @@ your tests for the temperature conversion library.
 
 :::
 
+## Key points
+
+- We can handle state setup and teardown using derived-types which extend
+  `TestCase`.
+- We can parameterise tests using derived-types which extend
+  `AbstractTestParameter`.
+- These derived-types must be decorated with pre-processor directives.
+- Parameterising tests with pFUnit ensures all scenarios run, even if one fails.
+
+# Testing MPI parallelised Fortran
+
+**Objectives**
+
+- Understand what is different when testing parallel vs serial code.
+
+## Writing testable MPI code {.smaller}
+
+Some tips for writing testable MPI code:
+
+::: {.fragment}
+
+### Separate serial code from MPI code
+
+- Procedures which do not call the MPI library can be tested in serial.
+- Isolating MPI functionality from serial makes unit testing easier.
+
+:::
+
+::: {.fragment}
+
+### Pass the MPI communicator into each MPI procedure to be tested
+
+- Passing in the MPI communicator gives us full control of the system.
+- This allows us to use the communicator provided by pFUnit.
+
+:::
+
+## More example libraries {.smaller}
+
+Despite what I said earlier, we will look at two more libraries:
+
+::: {.column-page}
+
+::: {.fragment .column}
+
+### MPI Matrix operations
+
+I will continue with an MPI parallelised version of the matrix operations
+library.
+
+:::
+
+::: {.fragment .column}
+
+### MPI utility functions
+
+You will be writing tests for the
+[mpi_utils library provided in the exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge).
+
+:::
+
+:::
+
+## Testing MPI parallelised matrix operations
+
+### [Live coding example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/testing-parallel-code.html#syntax-of-writing-mpi-enabled-pfunit-tests)
+
+Let's look at the MPI parallel matrix operations code we'll be testing. Follow
+along writing MPI parallel tests for the MPI utilities library.
+
+## Testing more complex MPI procedures
+
+Thus far, we have assumed all ranks should expected the same result during our
+tests. However, this is often not the case.
+
+### [Live coding example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/testing-parallel-code.html#testing-more-complex-procedures)
+
+Let's continue writing tests for the matrix operations library and remember to
+follow along.
+
+## Key points
+
+- If a procedure does not call the MPI library, we shouldn't need to test it
+  with parallel pfunit.
+- It is much easier to test MPI parallel procedures which take in a
+  communicator.
+- pFUnit will handle the creation of MPI communicators for the requested number
+  of ranks.
+- We extend special MPI derived types from pFUnit in our MPI tests.
+
 # Further reading
 
-Learn how to test MPI parallelised Fortran by following the
+The full
 [workshop notes](https://carpentries-incubator.github.io/fortran-unit-testing/)
-in your own time.
+can be found in the software carpentries incubator if you wish to read through
+them in your own time. More exercises can also be found in the
+[exercises directory of the workshop notes repository](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises).
 
 {{< include /_includes/qr-code.qmd >}}
