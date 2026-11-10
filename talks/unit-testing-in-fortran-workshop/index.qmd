@@ -56,10 +56,10 @@ Topic 51).
 
 Unit tests are:
 
+- Test which verify the correctness of a single unit of code.
 - Isolated
 - Minimal
 - Fast
-- tests which verify the correctness of a single unit of code.
 
 :::
 
