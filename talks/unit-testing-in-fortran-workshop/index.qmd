@@ -1,7 +1,7 @@
 ---
 author: Connor Aird
 institute: University College London
-date: 2026-11-10
+date: 2026-11-11
 format: revealjs
 path: unit-testing-in-fortran-workshop/index.qmd
 subtitle: "Instructor companion slides"
