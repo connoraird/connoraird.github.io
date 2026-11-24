@@ -36,8 +36,8 @@ incremental: false
    - If this doesn't work, run the container image locally via **vscode**. You
      will need to login to **ghcr.io** with a personal access token with
      **read:packages** permissions.
-   - **OR**, as a last resort, setup you local environment with CMake, pFUnit
-     and gfortran.
+   - **OR**, if that none of the above has worked, setup you local environment
+     with CMake, pFUnit and gfortran.
 
 # What is a unit test?
 

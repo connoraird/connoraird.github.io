@@ -63,7 +63,7 @@ repos:
           - --external-sources
           - --shell=bash
   - repo: https://github.com/errata-ai/vale
-    rev: v3.13.0
+    rev: v3.28.1
     hooks:
       - id: vale
         name: vale sync

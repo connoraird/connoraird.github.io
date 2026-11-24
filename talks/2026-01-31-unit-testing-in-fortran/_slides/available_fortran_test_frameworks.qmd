@@ -18,13 +18,14 @@ A list of known Fortran testing frameworks on the
 ## Fortran-lang {.smaller}
 
 A list of Fortran libraries and tools on the
-[fortran-lang](https://fortran-lang.org/packages/programming/) website.
+[fortran-lang](https://fortran-lang.org/_tags/testing/#sphx-tag-testing)
+website.
 
 ```{=html}
 <iframe
     height="70%"
-    src="https://fortran-lang.org/packages/programming/"
-    title="fortran-lang: Error handling, logging, documentation and testing packages"
+    src="https://fortran-lang.org/_tags/testing/#sphx-tag-testing"
+    title="fortran-lang: Tags, testing"
     width="100%"
 >
 </iframe>
