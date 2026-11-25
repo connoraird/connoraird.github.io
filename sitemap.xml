@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://connoraird.github.io/dissertation.html</loc>
-    <lastmod>2026-11-11T09:44:48.119Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.137Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.138Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/talks/2026-06-16-fortran-carpentries/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.158Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/projects.html</loc>
-    <lastmod>2026-11-11T09:44:48.135Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/talks.html</loc>
-    <lastmod>2026-11-11T09:44:48.136Z</lastmod>
-  </url>
-  <url>
     <loc>https://connoraird.github.io/projects/cake-fellowship/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/posters/rsecon-2026/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.135Z</lastmod>
-  </url>
-  <url>
-    <loc>https://connoraird.github.io/posters.html</loc>
-    <lastmod>2026-11-11T09:44:48.119Z</lastmod>
+    <lastmod>2026-11-25T17:53:26.703Z</lastmod>
   </url>
   <url>
     <loc>https://connoraird.github.io/talks/unit-testing-in-fortran-workshop/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.158Z</lastmod>
+    <lastmod>2026-11-25T17:53:26.720Z</lastmod>
   </url>
   <url>
-    <loc>https://connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.158Z</lastmod>
+    <loc>https://connoraird.github.io/talks/2026-01-31-unit-testing-in-fortran/index.html</loc>
+    <lastmod>2026-11-25T17:53:26.705Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/projects.html</loc>
+    <lastmod>2026-11-25T17:53:26.702Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/posters.html</loc>
+    <lastmod>2026-11-25T17:53:26.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/dissertation.html</loc>
+    <lastmod>2026-11-25T17:53:26.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/posters/rsecon-2026/index.html</loc>
+    <lastmod>2026-11-25T17:53:26.701Z</lastmod>
   </url>
   <url>
     <loc>https://connoraird.github.io/index.html</loc>
-    <lastmod>2026-11-11T09:44:48.119Z</lastmod>
+    <lastmod>2026-11-25T17:53:26.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/talks/2025-09-11-rsecon-unit-testing-in-fortran/index.html</loc>
+    <lastmod>2026-11-25T17:53:26.705Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/talks/2026-06-16-fortran-carpentries/index.html</loc>
+    <lastmod>2026-11-25T17:53:26.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/talks/2026-04-21-pytest-benchmark-was-it-worth-it/index.html</loc>
+    <lastmod>2026-11-25T17:53:26.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://connoraird.github.io/talks.html</loc>
+    <lastmod>2026-11-25T17:53:26.703Z</lastmod>
   </url>
 </urlset>
