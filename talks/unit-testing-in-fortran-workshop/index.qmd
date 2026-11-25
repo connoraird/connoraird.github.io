@@ -21,10 +21,11 @@ incremental: false
 1. Setup our environment to run the exercises.
 2. What is a unit test?
 3. A unit test in standard Fortran.
-4. Writing our first pFUnit test.
-5. How to build pFUnit test with CMake.
-6. Parameterising pFUnit tests.
-7. Testing MPI parallelised Fortran
+4. What is pFUnit?
+5. Writing our first pFUnit test.
+6. How to build pFUnit tests with CMake.
+7. Parameterising pFUnit tests.
+8. Testing MPI parallelised Fortran
 
 # Setup
 
@@ -176,6 +177,24 @@ A few other reasons:
 
 :::
 
+## Building the pFUnit library
+
+The pFUnit library is a Fortran project which can be compiled using cmake:
+
+```{.bash}
+$ git clone --recurse-submodules --branch "v4.12.0" \
+      "https://github.com/Goddard-Fortran-Ecosystem/pFUnit.git" pfunit
+$ cmake pfunit -B build \
+      -DINSTALL_PATH="build/installed" \
+      -DMPI="YES" \
+      -DCMAKE_Fortran_COMPILER="mpif90"
+$ cmake --build build --target install
+```
+
+- pFunit and your project **must** use the same compiler.
+- Submodules need to be cloned via `--recurse-submodules`
+- MPI enabled pFUnit requires an MPI compiler and `-DMPI=YES`.
+
 ## Standard Fortran to pFUnit
 
 ### [Live coding example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/pfunit-basics.html)
@@ -291,8 +310,8 @@ library.
 
 ### MPI utility functions
 
-You will be writing tests for the
-[mpi_utils library provided in the exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge).
+You will be writing tests for an
+[MPI parallelised version of the temperature conversions library](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge).
 
 :::
 
