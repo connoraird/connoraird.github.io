@@ -224,8 +224,9 @@ Connor Aird
 <li>Setup our environment to run the exercises.</li>
 <li>What is a unit test?</li>
 <li>A unit test in standard Fortran.</li>
+<li>What is pFUnit?</li>
 <li>Writing our first pFUnit test.</li>
-<li>How to build pFUnit test with CMake.</li>
+<li>How to build pFUnit tests with CMake.</li>
 <li>Parameterising pFUnit tests.</li>
 <li>Testing MPI parallelised Fortran</li>
 </ol>
@@ -350,6 +351,109 @@ Connor Aird
 </div>
 </section>
 <section class="slide level2">
+<h2>Building the pFUnit library</h2>
+<p>The pFUnit library is a Fortran project which can be compiled using cmake:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-label="1"></a><span class="ex">$</span> git clone <span class="at">--recurse-submodules</span> <span class="at">--branch</span> <span class="st">"v4.12.0"</span> <span class="dt">\</span></span>
+<span id="cb2-2"><a aria-label="2"></a>      <span class="st">"https://github.com/Goddard-Fortran-Ecosystem/pFUnit.git"</span> pfunit</span>
+<span id="cb2-3"><a aria-label="3"></a><span class="ex">$</span> cmake pfunit <span class="at">-B</span> build <span class="dt">\</span></span>
+<span id="cb2-4"><a aria-label="4"></a>      <span class="at">-DINSTALL_PATH</span><span class="op">=</span><span class="st">"build/installed"</span> <span class="dt">\</span></span>
+<span id="cb2-5"><a aria-label="5"></a>      <span class="at">-DMPI</span><span class="op">=</span><span class="st">"YES"</span> <span class="dt">\</span></span>
+<span id="cb2-6"><a aria-label="6"></a>      <span class="at">-DCMAKE_Fortran_COMPILER</span><span class="op">=</span><span class="st">"mpif90"</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="ex">$</span> cmake <span class="at">--build</span> build <span class="at">--target</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>pFunit and your project <strong>must</strong> use the same compiler.</li>
+<li>Submodules need to be cloned via <code>--recurse-submodules</code></li>
+<li>MPI enabled pFUnit requires an MPI compiler and <code>-DMPI=YES</code>.</li>
+</ul>
+</section>
+<section class="slide level2 smaller">
+<h2>Building within CMake</h2>
+<p>Since pFunit and your project <strong>must</strong> use the same compiler. It may be preferred to build pFUnit as part of your project:</p>
+<div class="columns">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource cmake number-lines code-with-copy"><code class="sourceCode cmake"><span id="cb3-1"><a aria-label="1"></a><span class="kw">find_package</span>(PFUNIT <span class="ot">CONFIG</span> <span class="ot">QUIET</span>)</span>
+<span id="cb3-2"><a aria-label="2"></a></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="cf">if</span>(<span class="ot">NOT</span> <span class="dv">PFUNIT_FOUND</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a>  <span class="kw">include</span>(<span class="im">FetchContent</span>)</span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="fu">FetchContent_Declare</span>(</span>
+<span id="cb3-6"><a aria-label="6"></a>    pfunit</span>
+<span id="cb3-7"><a aria-label="7"></a>    <span class="ot">GIT_REPOSITORY</span> https://github.com/Goddard-Fortran-Ecosystem/pFUnit.git</span>
+<span id="cb3-8"><a aria-label="8"></a>    <span class="ot">GIT_TAG</span>        v4.<span class="dt">12.0</span></span>
+<span id="cb3-9"><a aria-label="9"></a>    <span class="ot">GIT_SHALLOW</span>    <span class="ot">TRUE</span></span>
+<span id="cb3-10"><a aria-label="10"></a>    <span class="ot">GIT_SUBMODULES_RECURSE</span> <span class="ot">TRUE</span></span>
+<span id="cb3-11"><a aria-label="11"></a>  )</span>
+<span id="cb3-12"><a aria-label="12"></a>  <span class="fu">FetchContent_MakeAvailable</span>(pfunit)</span>
+<span id="cb3-13"><a aria-label="13"></a><span class="cf">endif</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>However, it is not currently possible to prevent pFUnit registering it’s own tests with ctest.</p>
+</div>
+</div><div class="fragment column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="ex">$</span> ctest <span class="at">--test-dir</span> build <span class="at">-N</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="ex">Test</span> project /path/to/project</span>
+<span id="cb4-3"><a aria-label="3"></a><span class="bu">[</span>  0%] Built target <span class="er">posix_predefined.x</span></span>
+<span id="cb4-4"><a aria-label="4"></a><span class="bu">[</span>  0%] Built target <span class="er">generate_posix_parameters</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="bu">[</span>  7%] Built target <span class="er">m4_type_includes</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="bu">[</span> 33%] Built target <span class="er">gftl-shared-v2</span></span>
+<span id="cb4-7"><a aria-label="7"></a><span class="bu">[</span> 61%] Built target <span class="er">gftl-shared-v2-as-default</span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="bu">[</span> 62%] Built target <span class="er">fargparse</span></span>
+<span id="cb4-9"><a aria-label="9"></a><span class="bu">[</span> 70%] Built target <span class="er">funit-core</span></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="bu">[</span> 76%] Built target <span class="er">fhamcrest</span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="bu">[</span> 84%] Built target <span class="er">asserts</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="bu">[</span> 85%] Built target <span class="er">funit-main</span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="bu">[</span> 85%] Built target <span class="er">funit</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="bu">[</span> 85%] Built target <span class="er">pfunit-core</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="bu">[</span> 85%] Built target <span class="er">pfunit</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="bu">[</span> 87%] Built target <span class="er">new_ptests</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="bu">[</span> 87%] Built target <span class="er">new_ptests.x</span></span>
+<span id="cb4-18"><a aria-label="18"></a><span class="bu">[</span> 87%] Built target <span class="er">other_shared</span></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="bu">[</span> 88%] Built target <span class="er">funit_tests</span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="bu">[</span> 88%] Built target <span class="er">funit_tests.x</span></span>
+<span id="cb4-21"><a aria-label="21"></a><span class="bu">[</span> 88%] Built target <span class="er">robust</span></span>
+<span id="cb4-22"><a aria-label="22"></a><span class="bu">[</span> 89%] Built target <span class="er">remote.x</span></span>
+<span id="cb4-23"><a aria-label="23"></a><span class="bu">[</span> 89%] Built target <span class="er">robust_tests.x</span></span>
+<span id="cb4-24"><a aria-label="24"></a><span class="bu">[</span> 96%] Built target <span class="er">new_tests.x</span></span>
+<span id="cb4-25"><a aria-label="25"></a><span class="bu">[</span> 98%] Built target <span class="er">fhamcrest_tests.x</span></span>
+<span id="cb4-26"><a aria-label="26"></a><span class="bu">[</span> 98%] Built target <span class="er">pfunittests</span></span>
+<span id="cb4-27"><a aria-label="27"></a><span class="ex">[100%]</span> Built target parallel_tests.x</span>
+<span id="cb4-28"><a aria-label="28"></a><span class="ex">[100%]</span> Built target build-tests</span>
+<span id="cb4-29"><a aria-label="29"></a>  <span class="ex">Test</span>  <span class="co">#1: my_actual_test</span></span>
+<span id="cb4-30"><a aria-label="30"></a>  <span class="ex">Test</span>  <span class="co">#2: test_derived_logical</span></span>
+<span id="cb4-31"><a aria-label="31"></a>  <span class="ex">Test</span>  <span class="co">#3: test_derived_integer</span></span>
+<span id="cb4-32"><a aria-label="32"></a>  <span class="ex">Test</span>  <span class="co">#4: test_derived_integer32</span></span>
+<span id="cb4-33"><a aria-label="33"></a>  <span class="ex">Test</span>  <span class="co">#5: test_derived_real</span></span>
+<span id="cb4-34"><a aria-label="34"></a>  <span class="ex">Test</span>  <span class="co">#6: test_derived_double</span></span>
+<span id="cb4-35"><a aria-label="35"></a>  <span class="ex">Test</span>  <span class="co">#7: test_derived_complex</span></span>
+<span id="cb4-36"><a aria-label="36"></a>  <span class="ex">Test</span>  <span class="co">#8: test_derived_complex32</span></span>
+<span id="cb4-37"><a aria-label="37"></a>  <span class="ex">Test</span>  <span class="co">#9: test_derived_double_complex</span></span>
+<span id="cb4-38"><a aria-label="38"></a>  <span class="ex">Test</span> <span class="co">#10: test_derived_fixed_string</span></span>
+<span id="cb4-39"><a aria-label="39"></a>  <span class="ex">Test</span> <span class="co">#11: test_derived_deferred_string</span></span>
+<span id="cb4-40"><a aria-label="40"></a>  <span class="ex">Test</span> <span class="co">#12: test_derived_unlimited</span></span>
+<span id="cb4-41"><a aria-label="41"></a>  <span class="ex">Test</span> <span class="co">#13: test_derived_integer_rank_1</span></span>
+<span id="cb4-42"><a aria-label="42"></a>  <span class="ex">Test</span> <span class="co">#14: test_derived_integer32_rank_2</span></span>
+<span id="cb4-43"><a aria-label="43"></a>  <span class="ex">Test</span> <span class="co">#15: test_derived_integer_shape_1d</span></span>
+<span id="cb4-44"><a aria-label="44"></a>  <span class="ex">Test</span> <span class="co">#16: test_derived_integer32_shape_2d</span></span>
+<span id="cb4-45"><a aria-label="45"></a>  <span class="ex">Test</span> <span class="co">#17: test_derived_Foo</span></span>
+<span id="cb4-46"><a aria-label="46"></a>  <span class="ex">Test</span> <span class="co">#18: test_derived_FooPoly</span></span>
+<span id="cb4-47"><a aria-label="47"></a>  <span class="ex">Test</span> <span class="co">#19: test_derived_kitchen_sink</span></span>
+<span id="cb4-48"><a aria-label="48"></a>  <span class="ex">Test</span> <span class="co">#20: unit_test_processor</span></span>
+<span id="cb4-49"><a aria-label="49"></a>  <span class="ex">Test</span> <span class="co">#21: processor_test_MpiParameterizedTestCaseC</span></span>
+<span id="cb4-50"><a aria-label="50"></a>  <span class="ex">Test</span> <span class="co">#22: processor_test_MpiTestCaseB</span></span>
+<span id="cb4-51"><a aria-label="51"></a>  <span class="ex">Test</span> <span class="co">#23: processor_test_ParameterizedTestCaseB</span></span>
+<span id="cb4-52"><a aria-label="52"></a>  <span class="ex">Test</span> <span class="co">#24: processor_test_TestA</span></span>
+<span id="cb4-53"><a aria-label="53"></a>  <span class="ex">Test</span> <span class="co">#25: processor_test_TestCaseA</span></span>
+<span id="cb4-54"><a aria-label="54"></a>  <span class="ex">Test</span> <span class="co">#26: processor_test_beforeAfter</span></span>
+<span id="cb4-55"><a aria-label="55"></a>  <span class="ex">Test</span> <span class="co">#27: processor_test_simple</span></span>
+<span id="cb4-56"><a aria-label="56"></a>  <span class="ex">Test</span> <span class="co">#28: old_tests</span></span>
+<span id="cb4-57"><a aria-label="57"></a>  <span class="ex">Test</span> <span class="co">#29: robust_tests.x</span></span>
+<span id="cb4-58"><a aria-label="58"></a>  <span class="ex">Test</span> <span class="co">#30: new_tests.x</span></span>
+<span id="cb4-59"><a aria-label="59"></a>  <span class="ex">Test</span> <span class="co">#31: fhamcrest_tests.x</span></span>
+<span id="cb4-60"><a aria-label="60"></a>  <span class="ex">Test</span> <span class="co">#32: mpi-tests</span></span>
+<span id="cb4-61"><a aria-label="61"></a>  <span class="ex">Test</span> <span class="co">#33: new_ptests</span></span>
+<span id="cb4-62"><a aria-label="62"></a></span>
+<span id="cb4-63"><a aria-label="63"></a><span class="ex">Total</span> Tests: 33</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section class="slide level2">
 <h2>Standard Fortran to pFUnit</h2>
 <h3><a href="https://carpentries-incubator.github.io/fortran-unit-testing/instructor/pfunit-basics.html">Live coding example</a></h3>
 <p>Starting with the standard Fortran test we saw earlier, follow along writing tests for the temperature conversion library.</p>
@@ -441,7 +545,7 @@ Connor Aird
 <p>I will continue with an MPI parallelised version of the matrix operations library.</p>
 </div><div class="fragment column">
 <h3>MPI utility functions</h3>
-<p>You will be writing tests for the <a href="https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge">mpi_utils library provided in the exercises</a>.</p>
+<p>You will be writing tests for an <a href="https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge">MPI parallelised version of the temperature conversions library</a>.</p>
 </div></div>
 </section>
 <section class="slide level2">
