@@ -21,10 +21,11 @@ incremental: false
 1. Setup our environment to run the exercises.
 2. What is a unit test?
 3. A unit test in standard Fortran.
-4. Writing our first pFUnit test.
-5. How to build pFUnit test with CMake.
-6. Parameterising pFUnit tests.
-7. Testing MPI parallelised Fortran
+4. What is pFUnit?
+5. Writing our first pFUnit test.
+6. How to build pFUnit tests with CMake.
+7. Parameterising pFUnit tests.
+8. Testing MPI parallelised Fortran
 
 # Setup
 
@@ -176,6 +177,130 @@ A few other reasons:
 
 :::
 
+## Building the pFUnit library
+
+The pFUnit library is a Fortran project which can be compiled using cmake:
+
+```{.bash}
+$ git clone --recurse-submodules --branch "v4.12.0" \
+      "https://github.com/Goddard-Fortran-Ecosystem/pFUnit.git" pfunit
+$ cmake pfunit -B build \
+      -DINSTALL_PATH="build/installed" \
+      -DMPI="YES" \
+      -DCMAKE_Fortran_COMPILER="mpif90"
+$ cmake --build build --target install
+```
+
+- pFunit and your project **must** use the same compiler.
+- Submodules need to be cloned via `--recurse-submodules`
+- MPI enabled pFUnit requires an MPI compiler and `-DMPI=YES`.
+
+## Building within CMake {.smaller}
+
+Since pFunit and your project **must** use the same compiler. It may be
+preferred to build pFUnit as part of your project:
+
+::: {.columns}
+
+::: {.column}
+
+```{.cmake}
+find_package(PFUNIT CONFIG QUIET)
+
+if(NOT PFUNIT_FOUND)
+  include(FetchContent)
+  FetchContent_Declare(
+    pfunit
+    GIT_REPOSITORY https://github.com/Goddard-Fortran-Ecosystem/pFUnit.git
+    GIT_TAG        v4.12.0
+    GIT_SHALLOW    TRUE
+    GIT_SUBMODULES_RECURSE TRUE
+  )
+  FetchContent_MakeAvailable(pfunit)
+endif()
+```
+
+::: {.fragment}
+
+However, it is not currently possible to prevent pFUnit registering it's own
+tests with ctest.
+
+:::
+
+:::
+
+::: {.fragment .column}
+
+```bash
+$ ctest --test-dir build -N
+Test project /path/to/project
+[  0%] Built target posix_predefined.x
+[  0%] Built target generate_posix_parameters
+[  7%] Built target m4_type_includes
+[ 33%] Built target gftl-shared-v2
+[ 61%] Built target gftl-shared-v2-as-default
+[ 62%] Built target fargparse
+[ 70%] Built target funit-core
+[ 76%] Built target fhamcrest
+[ 84%] Built target asserts
+[ 85%] Built target funit-main
+[ 85%] Built target funit
+[ 85%] Built target pfunit-core
+[ 85%] Built target pfunit
+[ 87%] Built target new_ptests
+[ 87%] Built target new_ptests.x
+[ 87%] Built target other_shared
+[ 88%] Built target funit_tests
+[ 88%] Built target funit_tests.x
+[ 88%] Built target robust
+[ 89%] Built target remote.x
+[ 89%] Built target robust_tests.x
+[ 96%] Built target new_tests.x
+[ 98%] Built target fhamcrest_tests.x
+[ 98%] Built target pfunittests
+[100%] Built target parallel_tests.x
+[100%] Built target build-tests
+  Test  #1: my_actual_test
+  Test  #2: test_derived_logical
+  Test  #3: test_derived_integer
+  Test  #4: test_derived_integer32
+  Test  #5: test_derived_real
+  Test  #6: test_derived_double
+  Test  #7: test_derived_complex
+  Test  #8: test_derived_complex32
+  Test  #9: test_derived_double_complex
+  Test #10: test_derived_fixed_string
+  Test #11: test_derived_deferred_string
+  Test #12: test_derived_unlimited
+  Test #13: test_derived_integer_rank_1
+  Test #14: test_derived_integer32_rank_2
+  Test #15: test_derived_integer_shape_1d
+  Test #16: test_derived_integer32_shape_2d
+  Test #17: test_derived_Foo
+  Test #18: test_derived_FooPoly
+  Test #19: test_derived_kitchen_sink
+  Test #20: unit_test_processor
+  Test #21: processor_test_MpiParameterizedTestCaseC
+  Test #22: processor_test_MpiTestCaseB
+  Test #23: processor_test_ParameterizedTestCaseB
+  Test #24: processor_test_TestA
+  Test #25: processor_test_TestCaseA
+  Test #26: processor_test_beforeAfter
+  Test #27: processor_test_simple
+  Test #28: old_tests
+  Test #29: robust_tests.x
+  Test #30: new_tests.x
+  Test #31: fhamcrest_tests.x
+  Test #32: mpi-tests
+  Test #33: new_ptests
+
+Total Tests: 33
+```
+
+:::
+
+:::
+
 ## Standard Fortran to pFUnit
 
 ### [Live coding example](https://carpentries-incubator.github.io/fortran-unit-testing/instructor/pfunit-basics.html)
@@ -291,8 +416,8 @@ library.
 
 ### MPI utility functions
 
-You will be writing tests for the
-[mpi_utils library provided in the exercises](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge).
+You will be writing tests for an
+[MPI parallelised version of the temperature conversions library](https://github.com/carpentries-incubator/fortran-unit-testing/tree/main/exercises/testing-parallel-code/challenge).
 
 :::
 
